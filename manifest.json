@@ -1,12 +1,13 @@
 {
-  "app": {
-    "background": {
-      "scripts": ["background/background.js"]
-    }
-  },
   "manifest_version": 2,
   "name": "sessio",
   "version": "0.0.1",
+  "background": {
+    "scripts": ["background/background.js"]
+  },
   "description": "Browser history session organizer",
-  "icons": {}
+  "icons": {},
+  "permissions": [
+		"tabs", "http://*/*", "storage"
+	]
 }
