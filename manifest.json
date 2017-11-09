@@ -3,7 +3,9 @@
   "name": "sessio",
   "version": "0.0.1",
   "background": {
-    "scripts": ["background/background.js"]
+    "scripts": ["background/background.js",
+        "background/words.js"
+    ]
   },
   "description": "Browser history session organizer",
   "icons": {},
