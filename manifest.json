@@ -17,6 +17,7 @@
   "description": "Browser history session organizer",
   "icons": {},
   "permissions": [
-		"tabs", "http://*/*", "storage"
-	]
+		"tabs", "http://*/*", "storage", "unlimitedStorage"
+	],
+  "browser_action" : {}
 }

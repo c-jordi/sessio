@@ -34,12 +34,17 @@ function saveChanges(key, pageNode) {
 }
 
 function pushNewPage(pageObj) {
-  chrome.storage.sync.get(function(storedObj) {
+  chrome.storage.local.get(function(storedObj) {
     if(typeof(storedObj["pages"]) !== 'undefined' && storedObj["pages"] instanceof Array) {
       storedObj["pages"].push(pageObj);
     } else {
       storedObj["pages"] = [pageObj];
     }
-    chrome.storage.sync.set(storedObj);
+    chrome.storage.local.set(storedObj);
   });
 }
+
+chrome.browserAction.onClicked.addListener(function (tab) {
+  console.log('browserAction', tab);
+  chrome.tabs.create({'url': "/public/index.html" });
+})
