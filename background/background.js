@@ -18,6 +18,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
       title : tab.title,
       url : tab.url
     }
+    console.log("The OBJECT:",saveObj);
     pushNewPage(saveObj);
   }
 });
@@ -25,10 +26,11 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
 chrome.tabs.onRemoved.addListener(function (tabId, info) {
     console.log('onRemoved', tabId, info);
     var saveObj = {
-        id : tab.id,
+        id : tabId,
         status : "Removed",
         timeStamp : Date.now()
     }
+    console.log("The OBJECT:",saveObj);
     pushNewPage(saveObj);
 });
 
