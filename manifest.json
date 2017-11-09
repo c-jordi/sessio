@@ -7,6 +7,13 @@
         "background/words.js"
     ]
   },
+
+  "content_scripts": [
+    {
+    "matches" : ["http://*/*", "https://*/*"],
+    "js": ["content/content.js"]
+    }
+    ],
   "description": "Browser history session organizer",
   "icons": {},
   "permissions": [
