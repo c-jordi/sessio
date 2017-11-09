@@ -11,6 +11,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
     console.log('onUpdated', tabId, change, tab);
     var saveObj = {
       id : tab.id,
+      status : "Completed",
       favIconUrl : tab.favIconUrl,
       openerTabId : tab.openerTabId,
       timeStamp : Date.now(),
@@ -20,6 +21,22 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
     pushNewPage(saveObj);
   }
 });
+
+chrome.tabs.onRemoved.addListener(function (tabId, info) {
+    console.log('onRemoved', tabId, info);
+    var saveObj = {
+        id : tab.id,
+        status : "Removed",
+        timeStamp : Date.now()
+    }
+    pushNewPage(saveObj);
+});
+
+
+
+
+
+
 
 function saveChanges(key, pageNode) {
   if (!pageNode) {
