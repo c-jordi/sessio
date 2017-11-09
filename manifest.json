@@ -1,18 +1,12 @@
 {
   "app": {
     "background": {
-
-      "scripts": ["background.js"]
+      "scripts": ["background/background.js"]
     }
   },
   "manifest_version": 2,
   "name": "sessio",
-  "version": "versionString",
-
-  "default_locale": "en",
+  "version": "0.0.1",
   "description": "Browser history session organizer",
   "icons": {}
-
-
-
 }
