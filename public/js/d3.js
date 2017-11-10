@@ -20,6 +20,7 @@ function drawGraph(graph) {
     .data(graph.links)
     .enter().append("line")
     .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+    
 
   var node = svg.append("g")
     .attr("class", "nodes")
@@ -29,9 +30,10 @@ function drawGraph(graph) {
     .attr("r", 5)
     .attr("fill", function(d) { return color(d.group); })
     .call(d3.drag()
-    .on("start", dragstarted)
-    .on("drag", dragged)
-    .on("end", dragended));
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended)
+    );
 
   node.append("title")
   .text(function(d) { return d.id; });
@@ -88,7 +90,16 @@ function processNodes(pages) {
 
     var dup = JSON.parse(JSON.stringify(page))
     dup.id = page.id + '-' + pageCount[page.id]
-
+    console.log(dup);
+    if (dup.openerTabId != undefined){
+        dup.status="child";
+    }
+    else if ((dup.openerTabId == undefined) && (dup.url != undefined)) {
+        dup.status="parent";
+    }
+    else {
+        dup.status="close";
+    }
     nodes.push(dup);
 
 
