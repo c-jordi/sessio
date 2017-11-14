@@ -9,16 +9,14 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
 	}
 })
 
-var globalDict = {addedIds:[],dict:{}};
-// word:    df:
+
 
 var dictArrays = []
 // all the different dictionaries referenced by their respective ids
 
-var data = "" //Is the list of words taken from everysingle webpage
 
 
-var files = [];
+
 
 // Gets all the content on the page
 function processPageText() {

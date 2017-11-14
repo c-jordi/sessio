@@ -1,9 +1,40 @@
 console.log('background loaded!');
 
+// DECLARING Variables
+var nodes = []
+var edges = []
+var pageCount = {}
 
-// chrome.tabs.onCreated.addListener(function (tab) {
-//   console.log('onCreated', tab);
-// });
+var globalDict = {};
+function retrieveGlobalDict () {
+var Objec ={};
+    chrome.storage.local.get(function(storedObj) {
+      if(typeof(storedObj["globalDict"]) !== 'undefined' && storedObj["globalDict"] instanceof Array) {
+        console.log("Response", storedObj);
+        Objec = storedObj["globalDict"];
+
+      } else {
+        storedObj["globalDict"] = {addedIds: [], dict: {}};
+        chrome.storage.local.set(storedObj);
+        Objec = storedObj["globalDict"];
+      }
+      globalDict = Objec;
+    });
+
+}
+retrieveGlobalDict ()
+
+function namingID(page) {
+    if (pageCount[page.id] != undefined) {
+      pageCount[page.id] = pageCount[page.id] + 1;
+    } else {
+      pageCount[page.id] = 0;
+    }
+
+    var dup = JSON.parse(JSON.stringify(page))
+    dup.id = page.id + '-' + pageCount[page.id]
+    return dup.id;
+}
 
 chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
 
@@ -20,7 +51,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
       incognito : tab.incognito,
       active : tab.active
     }
-    var textToProcess = '';
+
     chrome.tabs.sendMessage(tabId, {content: "Gather the page text"}, function(response) {
  	    if(response) {
  		    var text = response.content.split(/\W+/);
@@ -31,7 +62,16 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
                 }
             })
 
-            saveObj.text= text;
+            console.log("at this step");
+            saveObj.id = namingID(saveObj);
+            var dictio = new textAnalysis(text,saveObj.id);
+            dictio.createDict();
+            dictio.updateGlobal();
+            dictio.sortByCount();
+
+            var ar2 = dictio.keys.slice(0, 5);
+            console.log("Main Words: ",ar2);
+
  	    }
     });
 
@@ -51,9 +91,6 @@ chrome.tabs.onRemoved.addListener(function (tabId, info) {
 
     pushNewPage(saveObj);
 });
-
-
-
 
 
 
@@ -80,13 +117,78 @@ function pushNewPage(pageObj) {
   });
 }
 
-function updateGlobalDict(){
+function textAnalysis(words, identifier) {
+    this.dict = {};
+    this.keys = [];
+    this.id = identifier;
 
+    this.createDict = function(){
+        for (word in words){
+            if (validate(word)){
+                if (this.dict[word] == undefined) {
+                  this.dict[word] = {};
+                  this.dict[word].count = 1;
+                  this.dict[word].word = word;
+                  this.keys.push(word);
+                } else {
+                  this.dict[word].count++;
+                }
+            }
+        }
+    }
+    // Get count for a specific Word
+    this.getCount = function(word) {
+      return this.dict[word].count;
+    }
+
+
+    this.updateGlobal = function() {
+
+        console.log("globaldict", globalDict);
+        var entryAdded = false;
+
+        globalDict.addedIds.forEach( function (e) {
+            if (e==this.id) {entryAdded = true};
+        })
+
+
+        if (entryAdded == false) {
+            globalDict.addedIds.push(this.id);
+            for (word in words){
+                if (validate(word)){
+                    var wordAdded = false;
+                    if (globalDict.dict[word] == undefined) {
+                        globalDict.dict[word] = {};
+                        globalDict.dict[word].ids = [];
+                    }
+                    globalDict.dict[word].ids.forEach( function(e) {
+                        if (e == this.id) {
+                            wordAdded = true
+                        };
+                    });
+                if (wordAdded == false) {globalDict.dict[word].ids.push(this.id)}
+                }
+            }
+        }
+        updateGlobalDict(globalDict);
+    }
+
+    this.countSort = function() {
+      this.keys.sort(function(a, b) {
+        return (this.getCount(b) - this.getCount(a));
+      });
+    }
 }
 
-function retrieveGlobalDic () {
 
 
+
+
+function updateGlobalDict(globalDict){
+    chrome.storage.local.get(function(storedObj) {
+        storedObj["globalDict"]=globalDict;
+        chrome.storage.local.set(storedObj);
+    });
 }
 
 chrome.browserAction.onClicked.addListener(function (tab) {
@@ -114,7 +216,6 @@ function validate(token) {
 // This Class will allow us to keep track of the word count
 class TFIDF {
   constructor() {
-    this.id = "";
     this.dict = {};
     this.keys = [];
     this.totalwords = 0;
@@ -231,11 +332,6 @@ function SortByScore() {
 
 
 }
-
-
-
-
-
 
 function processText(text) {
   var tfidf = new TFIDF;
