@@ -14,47 +14,47 @@ function assignNodeId(nodeEvent) {
     if (!idObject[currentId]){
         idObject[currentId] = [{time : Date.now(), gen : 0, count : 0, alt : "The id count has been restarted"}];
     }
-    insertionIndex = idObject.currentId.length;
-
+    insertionIndex = idObject[currentId].length;
 
     // Find the generation and count values we need to assign it
 
     if (nodeEvent.status == "close"){
-        var currentGen = idObject.currentId[insertionIndex].gen + 1;
+        var currentGen = idObject[currentId][insertionIndex].gen + 1;
         var currentCount = 0;
 
     }
     else if (nodeEvent.status == "parent") {
-        var currentGen = idObject.currentId[insertionIndex].gen;
-        var currentCount = idObject.currentId[insertionIndex].count+1;
+        var currentGen = idObject[currentId][insertionIndex].gen;
+        var currentCount = idObject[currentId][insertionIndex].count+1;
     }
     else if (nodeEvent.status == "child") {
-        if (idObject.currentId[insertionIndex].count == 0) {
-            var currentGen = idObject.currentId[insertionIndex].gen;
-            var currentCount = idObject.currentId[insertionIndex].count+1;
+        if (idObject[currentId][insertionIndex].count == 0) {
+            var currentGen = idObject[currentId][insertionIndex].gen;
+            var currentCount = idObject[currentId][insertionIndex].count+1;
         }
         else {
-            var currentGen = idObject.currentId[insertionIndex].gen+1;
+            var currentGen = idObject[currentId][insertionIndex].gen+1;
             var currentCount = 1;
         }
         var openerId = nodeEvent.openerTabId;
-        var openerGen = idObject.openerId[idObject.openerId.length -1].gen;
-        var openerCount = idObject.openerId[idObject.openerId.length -1].count;
+        var openerGen = idObject[openerId][idObject[openerId].length -1].gen;
+        var openerCount = idObject[openerId][idObject[openerId].length -1].count;
         var openerObj = {openerTabId: openerId, gen: openerGen, count: openerCount};
         nodeEvent.openerTabId = openerObj;
     }
     var objectID = {tabId: currentId, gen: currentGen, count: currentCount};
     nodeEvent.id = objectId;
-    idObject.currentId.push({date: nodeEvent.timeStamp, gen: currentGen, count: currentCount, alt:nodeEvent.title});
+    idObject[currentId].push({date: nodeEvent.timeStamp, gen: currentGen, count: currentCount, alt:nodeEvent.title});
 }
 
 
 
 
-// Sites that will not appear in the Sessions
-    // eg: Facebook, Twitter, Emails
-    // Search can be done by using the url (a string) or title
+
 function siteFilters (Obj) {
+    // Sites that will not appear in the Sessions
+        // eg: Facebook, Twitter, Emails
+        // Search can be done by using the url (a string) or title
     Obj.forEach(function(page){
         for (var site in filteredSites) {
             if (page.title.toLowerCase().includes(site.toLowerCase() ) || page.url.toLowerCase().includes(site.toLowerCase() )){
