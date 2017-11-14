@@ -16,7 +16,9 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
       openerTabId : tab.openerTabId,
       timeStamp : Date.now(),
       title : tab.title,
-      url : tab.url
+      url : tab.url,
+      incognito : tab.incognito,
+      active : tab.active
     }
     console.log("The OBJECT:",saveObj);
     pushNewPage(saveObj);

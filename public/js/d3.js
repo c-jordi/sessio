@@ -20,7 +20,7 @@ function drawGraph(graph) {
     .data(graph.links)
     .enter().append("line")
     .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
-    
+
 
   var node = svg.append("g")
     .attr("class", "nodes")
@@ -80,7 +80,7 @@ function processNodes(pages) {
   var edges = []
   var pageCount = {}
 
-  pages.forEach(function (page) {
+  pages.forEach(function(page) {
     console.log(page.id);
     if (pageCount[page.id] != undefined) {
       pageCount[page.id] = pageCount[page.id] + 1;
@@ -93,9 +93,13 @@ function processNodes(pages) {
     console.log(dup);
     if (dup.openerTabId != undefined){
         dup.status="child";
+            if (page.url.toLowerCase().includes("chrome://") ) {
+                dup.status="chrome tab"
+            }
     }
     else if ((dup.openerTabId == undefined) && (dup.url != undefined)) {
         dup.status="parent";
+    
     }
     else {
         dup.status="close";
