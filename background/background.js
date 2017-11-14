@@ -25,11 +25,11 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
  	    if(response) {
  		    var text = response.content.split(/\W+/);
             text.forEach( function (item, index, object) {
-                if (word10000[item]==undefined){
+                var indexOf = words100.indexOf(item);
+                if (word10000[item]==undefined || indexOf <0){
                     object.splice(index, 1);
                 }
             })
-            
 
             saveObj.text= text;
  	    }

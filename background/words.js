@@ -401,7 +401,7 @@ var words100 = [
   }
 ]
 
-Object.keys(words100).map(function(key){console.log(key); return words100[key].word})
+Object.keys(words100).map(function(key){return words100[key].word})
 word10000= {
   "the": { },
   "of": { },
