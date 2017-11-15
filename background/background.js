@@ -127,16 +127,13 @@ function textAnalysis(words, identifier) {
     this.keys = [];
     this.id = identifier;
     this.words = words;
+    var analysis = this;
 
     this.createDict = function(){
         var dict = this.dict;
         var keys = this.keys;
         this.words.forEach( function(word){
-            console.log("word loop");
             if (validate(word)){
-
-                console.log("word: ", word);
-                console.log("dict: ", dict);
                 if (dict[word] == undefined) {
                   dict[word] = {};
                   dict[word].count = 1;
@@ -149,25 +146,25 @@ function textAnalysis(words, identifier) {
         });
     }
     // Get count for a specific Word
+
     this.getCount = function(word) {
-      return this.dict[word].count;
+      return analysis.dict[word].count;
     }
 
 
     this.updateGlobal = function() {
 
         var entryAdded = false;
-
+        console.log("EntryAdded :", entryAdded);
         globalDict.addedIds.forEach( function (e) {
-            if (e==this.id) {entryAdded = true};
+            if (e==analysis.id) {entryAdded = true};
         })
 
 
         if (entryAdded == false) {
-            globalDict.addedIds.push(this.id);
-            for (var i; i< this.words.length;i++){
-                if (validate(this.words[i])){
-                    var word = this.words[i];
+            globalDict.addedIds.push(analysis.id);
+            analysis.words.forEach ( function(word) {
+                if (validate(word)){
                     var wordAdded = false;
                     console.log("word:", word);
                     if (globalDict.dict[word] == undefined) {
@@ -175,20 +172,20 @@ function textAnalysis(words, identifier) {
                         globalDict.dict[word].ids = [];
                     }
                     globalDict.dict[word].ids.forEach( function(e) {
-                        if (e == this.id) {
+                        if (e == analysis.id) {
                             wordAdded = true
                         };
                     });
-                if (wordAdded == false) {globalDict.dict[word].ids.push(this.id)}
+                    if (wordAdded == false) {globalDict.dict[word].ids.push(analysis.id)}
                 }
-            }
+            });
         }
         updateGlobalDict(globalDict);
     }
 
-    this.countSort = function() {
-      this.keys.sort(function(a, b) {
-        return (this.getCount(b) - this.getCount(a));
+    analysis.countSort = function() {
+      analysis.keys.sort(function(a, b) {
+        return (analysis.getCount(b) - analysis.getCount(a));
       });
     }
 }
