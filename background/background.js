@@ -39,7 +39,7 @@ function namingID(page) {
 chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
 
   if (change.status == "complete") {
-    console.log('onUpdated', tabId, change, tab);
+    //console.log('onUpdated', tabId, change, tab);
     var saveObj = {
       id : tab.id,
       status : "Completed",
@@ -51,18 +51,21 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
       incognito : tab.incognito,
       active : tab.active
     }
-
+    var text = "";
     chrome.tabs.sendMessage(tabId, {content: "Gather the page text"}, function(response) {
  	    if(response) {
- 		    var text = response.content.split(/\W+/);
+ 		    text = response.content.split(/\W+/);
             text.forEach( function (item, index, object) {
                 var indexOf = words100.indexOf(item);
-                if (word10000[item]==undefined || indexOf <0){
+                console.log("IndexOf :", indexOf);
+                if (word10000[item]==undefined || indexOf >1){
                     object.splice(index, 1);
                 }
             })
 
-            console.log("at this step");
+            // ALSO SPLICE STRINGS OF NUMBERS
+            // AND LIMIT THE TOTAL SIZE
+            console.log("text:",text);
             saveObj.id = namingID(saveObj);
             var dictio = new textAnalysis(text,saveObj.id);
             console.log("Dictio 1: ", dictio);
@@ -75,11 +78,10 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
             var ar2 = dictio.keys.slice(0, 5);
             console.log("Main Words: ",ar2);
 
+
+            pushNewPage(saveObj);
  	    }
     });
-
-    console.log(saveObj);
-    pushNewPage(saveObj);
   }
 });
 
@@ -121,26 +123,30 @@ function pushNewPage(pageObj) {
 }
 
 function textAnalysis(words, identifier) {
-    this.dict = {};
+    this.dict = {"the":1};
     this.keys = [];
     this.id = identifier;
+    this.words = words;
 
     this.createDict = function(){
-        for (var i; i< words.length;i++){
-            if (validate(words[i])){
+        var dict = this.dict;
+        var keys = this.keys;
+        this.words.forEach( function(word){
+            console.log("word loop");
+            if (validate(word)){
 
-                var word = words[i];
                 console.log("word: ", word);
-                if (this.dict[word] == undefined) {
-                  this.dict[word] = {};
-                  this.dict[word].count = 1;
-                  this.dict[word].word = word;
-                  this.keys.push(word);
+                console.log("dict: ", dict);
+                if (dict[word] == undefined) {
+                  dict[word] = {};
+                  dict[word].count = 1;
+                  dict[word].word = word;
+                  keys.push(word);
                 } else {
-                  this.dict[word].count++;
+                  dict[word].count++;
                 }
             }
-        }
+        });
     }
     // Get count for a specific Word
     this.getCount = function(word) {
@@ -159,9 +165,9 @@ function textAnalysis(words, identifier) {
 
         if (entryAdded == false) {
             globalDict.addedIds.push(this.id);
-            for (var i; i< words.length;i++){
-                if (validate(words[i])){
-                    var word = words[i];
+            for (var i; i< this.words.length;i++){
+                if (validate(this.words[i])){
+                    var word = this.words[i];
                     var wordAdded = false;
                     console.log("word:", word);
                     if (globalDict.dict[word] == undefined) {
@@ -354,4 +360,4 @@ function processText(text) {
   tfidf.finish(globalDict.addedIds.length);
   tfidf.sortByScore();
 
-}
+} */
