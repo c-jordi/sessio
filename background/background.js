@@ -65,10 +65,13 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
             console.log("at this step");
             saveObj.id = namingID(saveObj);
             var dictio = new textAnalysis(text,saveObj.id);
+            console.log("Dictio 1: ", dictio);
             dictio.createDict();
+            console.log("Dictio 2: ", dictio);
             dictio.updateGlobal();
-            dictio.sortByCount();
-
+            console.log("globaldict", globalDict);
+            dictio.countSort();
+            console.log("Keys :", dictio.keys);
             var ar2 = dictio.keys.slice(0, 5);
             console.log("Main Words: ",ar2);
 
@@ -123,8 +126,11 @@ function textAnalysis(words, identifier) {
     this.id = identifier;
 
     this.createDict = function(){
-        for (word in words){
-            if (validate(word)){
+        for (var i; i< words.length;i++){
+            if (validate(words[i])){
+
+                var word = words[i];
+                console.log("word: ", word);
                 if (this.dict[word] == undefined) {
                   this.dict[word] = {};
                   this.dict[word].count = 1;
@@ -144,7 +150,6 @@ function textAnalysis(words, identifier) {
 
     this.updateGlobal = function() {
 
-        console.log("globaldict", globalDict);
         var entryAdded = false;
 
         globalDict.addedIds.forEach( function (e) {
@@ -154,9 +159,11 @@ function textAnalysis(words, identifier) {
 
         if (entryAdded == false) {
             globalDict.addedIds.push(this.id);
-            for (word in words){
-                if (validate(word)){
+            for (var i; i< words.length;i++){
+                if (validate(words[i])){
+                    var word = words[i];
                     var wordAdded = false;
+                    console.log("word:", word);
                     if (globalDict.dict[word] == undefined) {
                         globalDict.dict[word] = {};
                         globalDict.dict[word].ids = [];
@@ -214,6 +221,7 @@ function validate(token) {
 }
 
 // This Class will allow us to keep track of the word count
+/*
 class TFIDF {
   constructor() {
     this.dict = {};
