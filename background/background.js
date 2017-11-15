@@ -55,8 +55,11 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
     chrome.tabs.sendMessage(tabId, {content: "Gather the page text"}, function(response) {
  	    if(response) {
  		    text = response.content.split(/\W+/);
+            console.log("words 100", words100list);
             text.forEach( function (item, index, object) {
-                var indexOf = words100.indexOf(item);
+
+
+                var indexOf = words100list.indexOf(item);
                 console.log("IndexOf :", indexOf);
                 if (word10000[item]==undefined || indexOf >1){
                     object.splice(index, 1);
@@ -65,17 +68,17 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
 
             // ALSO SPLICE STRINGS OF NUMBERS
             // AND LIMIT THE TOTAL SIZE
-            console.log("text:",text);
+
             saveObj.id = namingID(saveObj);
             var dictio = new textAnalysis(text,saveObj.id);
-            console.log("Dictio 1: ", dictio);
+
             dictio.createDict();
             console.log("Dictio 2: ", dictio);
             dictio.updateGlobal();
             console.log("globaldict", globalDict);
             dictio.countSort();
-            console.log("Keys :", dictio.keys);
-            var ar2 = dictio.keys.slice(0, 5);
+
+            var ar2 = dictio.keys.slice(0, 10);
             console.log("Main Words: ",ar2);
 
 
@@ -155,7 +158,6 @@ function textAnalysis(words, identifier) {
     this.updateGlobal = function() {
 
         var entryAdded = false;
-        console.log("EntryAdded :", entryAdded);
         globalDict.addedIds.forEach( function (e) {
             if (e==analysis.id) {entryAdded = true};
         })
@@ -166,7 +168,6 @@ function textAnalysis(words, identifier) {
             analysis.words.forEach ( function(word) {
                 if (validate(word)){
                     var wordAdded = false;
-                    console.log("word:", word);
                     if (globalDict.dict[word] == undefined) {
                         globalDict.dict[word] = {};
                         globalDict.dict[word].ids = [];

@@ -400,6 +400,8 @@ var words100 = [
     "word": "us"
   }
 ]
+var words100list = [];
+words100.forEach(function (e) {words100list.push(e.word)});
 
 Object.keys(words100).map(function(key){return words100[key].word})
 word10000= {
