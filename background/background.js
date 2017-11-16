@@ -54,12 +54,12 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
     var text = "";
     chrome.tabs.sendMessage(tabId, {content: "Gather the page text"}, function(response) {
  	    if(response) {
+            var keptText= [];
  		    text = response.content.split(/\W+/);
             text.forEach( function (item, index, object) {
                 var indexOf = words100list.indexOf(item);
-
-                if (word10000[item]==undefined || indexOf >1){
-                    object.splice(index, 1);
+                if (word10000[item]!=undefined && indexOf <0 && (hasNumbers(item)==false)) { //
+                    keptText.push(item);
                 }
             })
 
@@ -67,17 +67,25 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
             // AND LIMIT THE TOTAL SIZE
 
             saveObj.id = namingID(saveObj);
-            var dictio = new textAnalysis(text,saveObj.id);
+            var dictio = new textAnalysis(keptText,saveObj.id);
 
             dictio.createDict();
             console.log("Diction node: ", dictio);
             dictio.updateGlobal();
-            console.log("Global dict", globalDict);
-            dictio.countSort();
+            //console.log("Global dict", globalDict);
+            //dictio.countSort();
 
-            var ar2 = dictio.keys.slice(0, 10);
+            calculateScore(dictio.keys,dictio.dict);
+            scoreSort(dictio.keys,dictio.dict);
+            var ar2 = dictio.keys.slice(0, 4);
             console.log("Main Words: ",ar2);
 
+
+
+            ar2.forEach( function(e) {
+                console.log("Word: ", e, " Score :", dictio.dict[e].score, "Count :", dictio.dict[e].count)
+
+            })
 
             pushNewPage(saveObj);
  	    }
@@ -127,11 +135,11 @@ function textAnalysis(words, identifier) {
     this.keys = [];
     this.id = identifier;
     this.words = words;
-    var analysis = this; // change to var _this
+    var _this= this; // change to var _this
 
     this.createDict = function(){
-        var dict = this.dict;
-        var keys = this.keys;
+        var dict = _this.dict;
+        var keys = _this.keys;
         this.words.forEach( function(word){
             if (validate(word)){
                 if (dict[word] == undefined) {
@@ -145,47 +153,64 @@ function textAnalysis(words, identifier) {
             }
         });
     }
-    // Get count for a specific Word
-
-    this.getCount = function(word) {
-      return analysis.dict[word].count;
-    }
-
 
     this.updateGlobal = function() {
 
         var entryAdded = false;
         globalDict.addedIds.forEach( function (e) {
-            if (e==analysis.id) {entryAdded = true};
+            if (e==_this.id) {entryAdded = true};
         })
 
 
         if (entryAdded == false) {
-            globalDict.addedIds.push(analysis.id);
-            analysis.words.forEach ( function(word) {
+            globalDict.addedIds.push(_this.id);
+            _this.words.forEach ( function(word) {
                 if (validate(word)){
                     var wordAdded = false;
                     if (globalDict.dict[word] == undefined) {
                         globalDict.dict[word] = {};
-                        globalDict.dict[word].ids = [];
+                        globalDict.dict[word].ids = [0];
                     }
                     globalDict.dict[word].ids.forEach( function(e) {
-                        if (e == analysis.id) {
+                        if (e == _this.id) {
                             wordAdded = true
                         };
                     });
-                    if (wordAdded == false) {globalDict.dict[word].ids.push(analysis.id)}
+                    if (wordAdded == false) {globalDict.dict[word].ids.push(_this.id)}
                 }
             });
         }
         updateGlobalDict(globalDict);
     }
 
-    analysis.countSort = function() {
-      analysis.keys.sort(function(a, b) {
-        return (analysis.getCount(b) - analysis.getCount(a));
+    this.getCount = function(word) {
+      return _this.dict[word].count;
+    }
+
+    this.countSort = function() {
+      _this.keys.sort(function(a, b) {
+        return (_this.getCount(b) - _this.getCount(a));
       });
     }
+}
+
+function calculateScore(keys,dict) {
+    keys.forEach( function(word) {
+        var entry = dict[word];
+        var tf = entry.count // I havent normalized by dividing by whole number of number of words, its not going to change the ranking, however I wont be able to compare these scores with the scores of other pages
+        var idf = Math.log(globalDict.addedIds.length / globalDict.dict[word].ids.length);
+        entry.score = tf * idf;
+    });
+}
+
+function getScore(word,dict) {
+    return dict[word].score;
+}
+
+function scoreSort(keys,dict) {
+    keys.sort(function(a,b) {
+        return (getScore(b,dict) - getScore(a,dict))
+    });
 }
 
 
@@ -218,141 +243,9 @@ function tokenize(text) {
 
 // A function to validate a token
 function validate(token) {
-  return /\w{2,}/.test(token);
+    return /\w{2,}/.test(token);
 }
 
-// This Class will allow us to keep track of the word count
-/*
-class TFIDF {
-  constructor() {
-    this.dict = {};
-    this.keys = [];
-    this.totalwords = 0;
-  }
-
-  // Count the words
-  termFreq(tokens) {
-    // For every token
-    for (var i = 0; i < tokens.length; i++) {
-      // Lowercase everything to ignore case
-      var token = tokens[i].toLowerCase();
-      if (validate(token)) {
-        this.increment(token);
-        this.totalwords++;
-      }
-    }
-  }
-
-
-
-  // Get all the keys
-  getKeys() {
-    return this.keys;
-  }
-
-  // Get the count for one word
-  getCount(word) {
-    return this.dict[word].count;
-  }
-
-  // Get the score for one word
-  getScore(word) {
-    return this.dict[word].tfidf;
-  }
-
-  // Increment the count for one word
-  increment(word) {
-    // Is this a new word?
-    if (this.dict[word] == undefined) {
-      this.dict[word] = {};
-      this.dict[word].count = 1;
-      this.dict[word].docCount = 0;
-      this.dict[word].word = word;
-      this.keys.push(word);
-      // Otherwise just increment its count
-    } else {
-      this.dict[word].count++;
-    }
-
-    // Adding to the global dictionnary
-
-    if (globalDict.dict[word] == undefined) {
-        globalDict.dict[word] = {};
-        globalDict.dict[word].ids = [];
-    }
-
-    var entryAdded = false;
-    globalDict.addedIds.forEach(function(id){
-        if (id == this.id) {
-            entryAdded = true;
-            break;
-        }
-    })
-
-    if (entryAdded == false) {
-        var wordAdded = false;
-        for (var i=0; i< globalDict.dict[word].ids.length; i++){
-            if (globalDict.dict[word].ids[i] == this.id) {
-                added = true;
-            }
-        }
-        if (added == false) {globalDict.dict[word].ids.push(this.id)}
-    }
-  }
-
-  // Finish and calculate everything
-  finish(totaldocs) {
-    // calculate tf-idf score
-    for (var i = 0; i < this.keys.length; i++) {
-      var key = this.keys[i];
-      var word = this.dict[key];
-      var tf = word.count / this.totalwords;
-      // See:
-      var idf = log(totaldocs / globalDict.dict[word].ids.length);
-      word.tfidf = tf * idf;
-    }
-  }
-
-  // Sort by word counts
-  sortByCount() {
-    // A fancy way to sort each element
-    // Compare the counts
-    this.keys.sort(function(a, b) {
-      return (this.getCount(b) - this.getCount(a));
-    });
-  }
-
-  // Sort by TFIDF score
-  sortByScore() {
-    // A fancy way to sort each element
-    // Compare the counts
-    this.keys.sort(function(a, b) {
-      return (this.getScore(b) - this.getScore(a));
-    });
-  }
+function hasNumbers(t) {
+    return /\d/.test(t);
 }
-
-function UpdateScore() {
-
-
-}
-
-function SortByScore() {
-
-
-}
-
-function processText(text) {
-  var tfidf = new TFIDF;
-  // Process this data into the tfidf object
-  tfidf.termFreq(text);
-
-  // Now we need to read all the rest of the files
-  // for document occurences
-  for (var i = 0; i < files.length; i++) {
-    tfidf.docFreq(files[i].data);
-  }
-  tfidf.finish(globalDict.addedIds.length);
-  tfidf.sortByScore();
-
-} */
