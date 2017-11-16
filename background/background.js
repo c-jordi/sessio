@@ -8,15 +8,18 @@ var pageCount = {}
 var globalDict = {};
 function retrieveGlobalDict () {
 var Objec ={};
-    chrome.storage.local.get(function(storedObj) {
-      if(typeof(storedObj["globalDict"]) !== 'undefined' && storedObj["globalDict"] instanceof Array) {
-        console.log("Response", storedObj);
-        Objec = storedObj["globalDict"];
+    chrome.storage.local.get('globalDict', function(storedObj) {
+
+      if(typeof(storedObj) !== 'undefined' && storedObj.addedIds != undefined && storedObj.dict != undefined) {
+        console.log("Successful Load", storedObj);
+        Objec = storedObj;
+
 
       } else {
-        storedObj["globalDict"] = {addedIds: [], dict: {}};
-        chrome.storage.local.set(storedObj);
-        Objec = storedObj["globalDict"];
+        console.log("Unsuccessful Load");
+        Objec= {addedIds: [], dict: {}};
+        chrome.storage.local.set({globalDict: Objec});
+        console.log("Objec ", Objec);
       }
       globalDict = Objec;
     });
@@ -35,6 +38,11 @@ function namingID(page) {
     dup.id = page.id + '-' + pageCount[page.id]
     return dup.id;
 }
+
+chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
+    console.log("message: ", message, " sender: ", sender)
+    sendResponse({farewell:"goodbye"});
+});
 
 chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
 
@@ -123,8 +131,10 @@ function pushNewPage(pageObj) {
   chrome.storage.local.get(function(storedObj) {
     if(typeof(storedObj["pages"]) !== 'undefined' && storedObj["pages"] instanceof Array) {
       storedObj["pages"].push(pageObj);
+      storedObj["globalDict"] = globalDict;
     } else {
       storedObj["pages"] = [pageObj];
+      storedObj["globalDict"] = globalDict;
     }
     chrome.storage.local.set(storedObj);
   });
@@ -169,7 +179,7 @@ function textAnalysis(words, identifier) {
                     var wordAdded = false;
                     if (globalDict.dict[word] == undefined) {
                         globalDict.dict[word] = {};
-                        globalDict.dict[word].ids = [0];
+                        globalDict.dict[word].ids = [];
                     }
                     globalDict.dict[word].ids.forEach( function(e) {
                         if (e == _this.id) {
@@ -180,7 +190,7 @@ function textAnalysis(words, identifier) {
                 }
             });
         }
-        updateGlobalDict(globalDict);
+        //updateGlobalDict(globalDict);
     }
 
     this.getCount = function(word) {
@@ -219,9 +229,15 @@ function scoreSort(keys,dict) {
 
 function updateGlobalDict(globalDict){
     chrome.storage.local.get(function(storedObj) {
-        storedObj["globalDict"]=globalDict;
-        chrome.storage.local.set(storedObj);
+        console.log('store dic:', storedObj.globalDict);
+        console.log('global dict: ', globalDict);
+        storedObj.globalDict=globalDict;
+        console.log('new to store',storedObj);
+
+        console.log("done Storage");
+
     });
+    chrome.storage.local.set(storedObj);
 }
 
 chrome.browserAction.onClicked.addListener(function (tab) {

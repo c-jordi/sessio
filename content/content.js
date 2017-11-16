@@ -23,9 +23,13 @@ function processPageText() {
     var everything = document.body.textContent.toLowerCase();//
     return everything;
 }
-/*
-document.onclick = function (A){
-    chrome.runtime.sendMessage({greeting: A}, function(response) {
+
+document.onclick = function (clickEvent){
+	console.log("clickEvent :", clickEvent);
+	var clickObj = {
+		text : clickEvent.path[0].innerText
+	};
+    chrome.runtime.sendMessage({click: clickObj}, function(response) {
       console.log(response.farewell);
     });
-}*/
+}
