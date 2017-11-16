@@ -8,9 +8,18 @@
     <script src="./js/index.js"></script>
     <style>
 
-    .node {
+    circle {
+      stroke: transparent;
+      fill: #eee;
+    }
+
+    .nodes {
       stroke: #000;
       stroke-width: 1.5px;
+    }
+
+    .node:not(:hover) .nodetext {
+      display: none;
     }
 
     .links {

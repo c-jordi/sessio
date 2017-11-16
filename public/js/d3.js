@@ -1,5 +1,6 @@
 function everythingD3() {
 
+var IMAGE_SIZE = 25;
 
 var svg = d3.select("svg"),
 width = svg.attr("width"),
@@ -22,21 +23,43 @@ function drawGraph(graph) {
     .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
 
 
+  // Update the nodes…
   var node = svg.append("g")
     .attr("class", "nodes")
-    .selectAll("circle")
-    .data(graph.nodes)
-    .enter().append("circle")
-    .attr("r", 5)
-    .attr("fill", function(d) { return color(d.group); })
+    .selectAll("g.node")
+    .data(graph.nodes, function(d) { return d.id; });
+
+
+  // Enter any new nodes.
+  var nodeEnter = node.enter().append("svg:g")
+    .attr("class", "node")
+
+    // .on("click", click)
     .call(d3.drag()
         .on("start", dragstarted)
         .on("drag", dragged)
-        .on("end", dragended)
-    );
+        .on("end", dragended));
 
-  node.append("title")
-  .text(function(d) { return d.id; });
+  // Append a circle
+  nodeEnter.append("svg:circle")
+    .attr("r", Math.floor(IMAGE_SIZE/2))
+
+  nodeEnter.append("text")
+    .attr("class", "nodetext")
+    .attr("x", 20)
+    .attr("y", 25 +15)
+    .attr("fill", '#000')
+    .text(function(d) { return d.title; });
+
+
+  // Append images
+  var images = nodeEnter.append("svg:image")
+    .attr("xlink:href",  function(d) { return d.favIconUrl;})
+    .attr("x", function(d) { return -Math.floor(IMAGE_SIZE/2);})
+    .attr("y", function(d) { return -Math.floor(IMAGE_SIZE/2);})
+    .attr("height", IMAGE_SIZE)
+    .attr("width", IMAGE_SIZE);
+
 
   simulation
   .nodes(graph.nodes)
@@ -45,6 +68,8 @@ function drawGraph(graph) {
   simulation.force("link")
   .links(graph.links);
 
+  node = svg.selectAll("g.node");
+
   function ticked() {
     link
     .attr("x1", function(d) { return d.source.x; })
@@ -52,10 +77,21 @@ function drawGraph(graph) {
     .attr("x2", function(d) { return d.target.x; })
     .attr("y2", function(d) { return d.target.y; });
 
+    // node
+    // .attr("cx", function(d) { return d.x; })
+    // .attr("cy", function(d) { return d.y; });
     node
-    .attr("cx", function(d) { return d.x; })
-    .attr("cy", function(d) { return d.y; });
+    .attr("transform", function(d) {
+      return "translate(" + (d.x) + "," + (d.y) + ")";
+    })
   }
+}
+maxNodeSize = 50
+function nodeTransform(d) {
+  console.log('transform77', d);
+  d.x =  Math.max(maxNodeSize, Math.min(width - (d.imgwidth/2 || 16), d.x||width/2));
+  d.y =  Math.max(maxNodeSize, Math.min(height - (d.imgheight/2 || 16), d.y||height/2));
+  return "translate(" + (d.x||0) + "," + (d.y||0) + ")";
 }
 
 function dragstarted(d) {
@@ -99,7 +135,7 @@ function processNodes(pages) {
     }
     else if ((dup.openerTabId == undefined) && (dup.url != undefined)) {
         dup.status="parent";
-    
+
     }
     else {
         dup.status="close";
