@@ -8,11 +8,11 @@ var pageCount = {}
 var globalDict = {};
 function retrieveGlobalDict () {
 var Objec ={};
-    chrome.storage.local.get('globalDict', function(storedObj) {
+    chrome.storage.local.get(function(storedObj) {
 
-      if(typeof(storedObj) !== 'undefined' && storedObj.addedIds != undefined && storedObj.dict != undefined) {
-        console.log("Successful Load", storedObj);
-        Objec = storedObj;
+      if(typeof(storedObj.globalDict) !== 'undefined' && storedObj.globalDict.addedIds != undefined && storedObj.globalDict.dict != undefined) {
+        console.log("Successful Load", storedObj.globalDict);
+        Objec = storedObj.globalDict;
 
 
       } else {
@@ -40,7 +40,8 @@ function namingID(page) {
 }
 
 chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
-    console.log("message: ", message, " sender: ", sender)
+    var clickObj = {alt: message, tabId: sender.tab.id}
+    console.log("The object that is saved is :", clickObj)
     sendResponse({farewell:"goodbye"});
 });
 

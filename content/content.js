@@ -24,7 +24,7 @@ function processPageText() {
     return everything;
 }
 
-document.onclick = function (clickEvent){
+document.addEventListener('click', function(clickEvent){
 	console.log("clickEvent :", clickEvent);
 	var clickObj = {
 		text : clickEvent.path[0].innerText
@@ -32,4 +32,4 @@ document.onclick = function (clickEvent){
     chrome.runtime.sendMessage({click: clickObj}, function(response) {
       console.log(response.farewell);
     });
-}
+}, true);
