@@ -25,10 +25,11 @@ function processPageText() {
 }
 
 document.addEventListener('click', function(clickEvent){
-	console.log("clickEvent :", clickEvent);
+	console.log("text :",clickEvent.path[0].innerText);
 	var clickObj = {
 		text : clickEvent.path[0].innerText
 	};
+
     chrome.runtime.sendMessage({click: clickObj}, function(response) {
       console.log(response.farewell);
     });
