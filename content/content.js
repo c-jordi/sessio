@@ -23,3 +23,9 @@ function processPageText() {
     var everything = document.body.textContent.toLowerCase();//
     return everything;
 }
+
+document.onclick = function (A){
+    chrome.runtime.sendMessage({greeting: A}, function(response) {
+      console.log(response.farewell);
+    });
+}

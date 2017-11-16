@@ -55,12 +55,9 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
     chrome.tabs.sendMessage(tabId, {content: "Gather the page text"}, function(response) {
  	    if(response) {
  		    text = response.content.split(/\W+/);
-            console.log("words 100", words100list);
             text.forEach( function (item, index, object) {
-
-
                 var indexOf = words100list.indexOf(item);
-                console.log("IndexOf :", indexOf);
+
                 if (word10000[item]==undefined || indexOf >1){
                     object.splice(index, 1);
                 }
@@ -73,9 +70,9 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
             var dictio = new textAnalysis(text,saveObj.id);
 
             dictio.createDict();
-            console.log("Dictio 2: ", dictio);
+            console.log("Diction node: ", dictio);
             dictio.updateGlobal();
-            console.log("globaldict", globalDict);
+            console.log("Global dict", globalDict);
             dictio.countSort();
 
             var ar2 = dictio.keys.slice(0, 10);
@@ -126,11 +123,11 @@ function pushNewPage(pageObj) {
 }
 
 function textAnalysis(words, identifier) {
-    this.dict = {"the":1};
+    this.dict = {};
     this.keys = [];
     this.id = identifier;
     this.words = words;
-    var analysis = this;
+    var analysis = this; // change to var _this
 
     this.createDict = function(){
         var dict = this.dict;
