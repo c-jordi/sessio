@@ -6,28 +6,24 @@ var nodes = [];
 var edges = [];
 var pageCount = {};
 var idObject = {};
+var globalDict = {addedIds: [], dict: {}};
 
-var globalDict = {};
-function retrieveGlobalDict () {
-var Objec ={};
+function retrieveObjects () {
     chrome.storage.local.get(function(storedObj) {
 
       if(typeof(storedObj.globalDict) !== 'undefined' && storedObj.globalDict.addedIds != undefined && storedObj.globalDict.dict != undefined) {
-        //console.log("Successful Load", storedObj.globalDict);
-        Objec = storedObj.globalDict;
-
-
-      } else {
-        //console.log("Unsuccessful Load");
-        Objec= {addedIds: [], dict: {}};
-        chrome.storage.local.set({globalDict: Objec});
-
+        globalDict = storedObj.globalDict;
       }
-      globalDict = Objec;
+
+      if(typeof(storedObj.idObject) !== 'undefined'){
+          idObject = storedObj.idObject;
+      }
+
+
     });
 
 }
-retrieveGlobalDict();
+retrieveObjects();
 
 function namingID(page) {
     if (pageCount[page.id] != undefined) {
@@ -166,9 +162,11 @@ function pushNewPage(pageObj) {
     if(typeof(storedObj["pages"]) !== 'undefined' && storedObj["pages"] instanceof Array) {
       storedObj["pages"].push(pageObj);
       storedObj["globalDict"] = globalDict;
+      storedObj["idObject"] = idObject;
     } else {
       storedObj["pages"] = [pageObj];
       storedObj["globalDict"] = globalDict;
+      storedObj["idObject"] = idObject;
     }
     chrome.storage.local.set(storedObj);
   });
@@ -302,7 +300,7 @@ function hasNumbers(t) {
 
 // ID NAMING PROCESS
 
-var idObject = {};
+
 function nomenclatureId(nodeEvent) {
     // Assigns a unique identifier as a string for every event -- This one works for branching
     // Events need to be passed in a chronological order
@@ -312,7 +310,7 @@ function nomenclatureId(nodeEvent) {
     if (idObject[currentId]== undefined){
         idObject[currentId] = [{time : Date.now(), id:"0", url : "New Generation - 0"}];
     }
-    
+
     // If the tab was closed
     if (nodeEvent.status == "Removed"){
         var maxGen = 0;
