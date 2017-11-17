@@ -1,9 +1,11 @@
 console.log('background loaded!');
 
 // DECLARING Variables
-var nodes = []
-var edges = []
-var pageCount = {}
+var sitesVisited = {0:[]}; // Doesn't need to be stored, this object helps with page processing -- The keys are the tabIds, values are the urls with the unique identifiers of the pages
+var nodes = [];
+var edges = [];
+var pageCount = {};
+var idObject = {};
 
 var globalDict = {};
 function retrieveGlobalDict () {
@@ -11,21 +13,21 @@ var Objec ={};
     chrome.storage.local.get(function(storedObj) {
 
       if(typeof(storedObj.globalDict) !== 'undefined' && storedObj.globalDict.addedIds != undefined && storedObj.globalDict.dict != undefined) {
-        console.log("Successful Load", storedObj.globalDict);
+        //console.log("Successful Load", storedObj.globalDict);
         Objec = storedObj.globalDict;
 
 
       } else {
-        console.log("Unsuccessful Load");
+        //console.log("Unsuccessful Load");
         Objec= {addedIds: [], dict: {}};
         chrome.storage.local.set({globalDict: Objec});
-        console.log("Objec ", Objec);
+
       }
       globalDict = Objec;
     });
 
 }
-retrieveGlobalDict ()
+retrieveGlobalDict();
 
 function namingID(page) {
     if (pageCount[page.id] != undefined) {
@@ -46,9 +48,15 @@ chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
 });
 
 chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
+  // We check if the tab event should be registered as a new node
+
+
 
   if (change.status == "complete") {
-    //console.log('onUpdated', tabId, change, tab);
+      var isRefreshed = checkForRefresh(tab.url, tab.id);
+     if (!isRefreshed) {
+
+
     var saveObj = {
       id : tab.id,
       status : "Completed",
@@ -60,6 +68,12 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
       incognito : tab.incognito,
       active : tab.active
     }
+
+    //saveObj.id = namingID(saveObj);
+    nomenclatureId(saveObj);
+    console.log("THE SAVED OBJECT : ", saveObj);
+
+
     var text = "";
     chrome.tabs.sendMessage(tabId, {content: "Gather the page text"}, function(response) {
  	    if(response) {
@@ -75,7 +89,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
             // ALSO SPLICE STRINGS OF NUMBERS
             // AND LIMIT THE TOTAL SIZE
 
-            saveObj.id = namingID(saveObj);
+
             var dictio = new textAnalysis(keptText,saveObj.id);
 
             dictio.createDict();
@@ -99,8 +113,27 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
             pushNewPage(saveObj);
  	    }
     });
-  }
+    }
+    }
 });
+
+function checkForRefresh(currentUrl, tabId) {
+    if (sitesVisited[tabId] == undefined){
+        sitesVisited[tabId] = [];
+        sitesVisited[tabId].push("We have started using this tab");
+    }
+    var sitelength = sitesVisited[tabId].length;
+    var previousUrl = sitesVisited[tabId][sitelength-1];
+    if (currentUrl == previousUrl) {
+        return true;
+    }
+    else {
+        sitesVisited[tabId].push(currentUrl);
+        return false;
+    }
+}
+
+
 
 chrome.tabs.onRemoved.addListener(function (tabId, info) {
     console.log('onRemoved', tabId, info);
@@ -110,7 +143,7 @@ chrome.tabs.onRemoved.addListener(function (tabId, info) {
         timeStamp : Date.now()
     }
     console.log("The OBJECT:",saveObj);
-
+    nomenclatureId(saveObj);
     pushNewPage(saveObj);
 });
 
@@ -265,4 +298,138 @@ function validate(token) {
 
 function hasNumbers(t) {
     return /\d/.test(t);
+}
+
+// ID NAMING PROCESS
+
+var idObject = {};
+function nomenclatureId(nodeEvent) {
+    // Assigns a unique identifier as a string for every event -- This one works for branching
+    // Events need to be passed in a chronological order
+
+    var currentId = nodeEvent.id;
+    var newID = "";
+    if (idObject[currentId]== undefined){
+        idObject[currentId] = [{time : Date.now(), id:"0", url : "New Generation - 0"}];
+    }
+    
+    // If the tab was closed
+    if (nodeEvent.status == "Removed"){
+        var maxGen = 0;
+        idObject[currentId].forEach( function(e) {
+            var arr = e.id.split("-");;
+            if (maxGen < Number(arr[0])){
+                maxGen = Number(arr[0]);
+            }
+        });
+        newID = (maxGen+1).toString();
+        nodeEvent.url = "New Generation - " + newID;
+    }
+    else if (nodeEvent.status == "Completed" && nodeEvent.openerTabId == undefined) {
+
+        // CHECKING IF THE USER HAS GONE BACK TO VISIT AN OLD PAGE
+
+        var lastItem = idObject[currentId].length -1;
+        var lastItemId = idObject[currentId][lastItem].id;
+        var stringArray = lastItemId.split("-");
+        var startingId = stringArray.shift();
+        var allTabStrings = [];
+        idObject[currentId].forEach(function(item){
+            allTabStrings.push(item.id);
+        });
+        var stringIndex = -1;
+        var matchingString = false;
+
+        for (var i= stringArray.length-1; i >0 ; i=i-1) {
+            var id_string = startingId ;
+            for (var j=0; j < i ; j++){
+                id_string = id_string + '-' + stringArray[j];
+            }
+            stringIndex = allTabStrings.indexOf(id_string);
+            if (idObject[currentId][stringIndex].url == nodeEvent.url){
+                matchingString = true;
+                break;
+            }
+        }
+
+        if (matchingString) {
+            newID =  idObject[currentId][stringIndex].id;
+        }
+        else {
+            // Searching the next in line to see if the page is present
+
+            var maxBranch = -1;
+            var nextBranchFound = false;
+            allTabStrings.forEach( function(item,index) {
+
+                var tempString = item.slice(lastItemId.length+1,lastItemId.length+6);
+
+                var tempArray = tempString.split('-');
+
+                var branchNb = tempArray[0];
+                if (branchNb != ""){
+                    var branchInt = Number(branchNb);
+                    if (branchInt>maxBranch){
+                        maxBranch = branchInt;
+                    }
+                }
+
+            });
+
+
+            for (var j = 0; j < maxBranch + 1; j++) {
+                var stringTest = lastItemId + '-' + j;
+
+                var indexLocated = allTabStrings.indexOf(stringTest);
+                if (indexLocated >-1){
+
+                    if (idObject[currentId][indexLocated].url == nodeEvent.url) {
+                        nextBranchFound = true;
+                        newID = stringTest;
+                    }
+                }
+            }
+            if (nextBranchFound == false){
+                newID = lastItemId + '-' + (maxBranch+1);
+            }
+        }
+    }
+    else if (nodeEvent.status == "Completed" && nodeEvent.openerTabId != undefined) {
+        // Check if there is a closing generation event
+        var maxGen = 0;
+        idObject[currentId].forEach( function(e) {
+            var arr = e.id.split("-");;
+            if (maxGen < Number(arr[0])){
+                maxGen = Number(arr[0]);
+            }
+        console.log("Max Gen : ", maxGen);
+        });
+        var stringNewGen = maxGen.toString();
+        var GenerationUsed = false;
+        idObject[currentId].forEach(function(item){
+            var idDecomp = item.id.split('-');
+            if (idDecomp[0] == maxGen.toString()){
+                if (idDecomp[1] != "" && idDecomp[1] != undefined) {
+                    GenerationUsed = true;
+                }
+            }
+        });
+        if (GenerationUsed) {
+            newID = (maxGen+1) + '-' + 0;
+        }
+        else {
+            newID = (maxGen) + '-' + 0;
+        }
+        var openerTabId = nodeEvent.openerTabId;
+        if (idObject[openerTabId]==undefined) {
+            idObject[openerTabId] = [{time : Date.now(), id:"0", url : "The id count has been restarted"}];
+        }
+        var lengthOpenerList = idObject[openerTabId].length-1;
+        var openerIdString = idObject[openerTabId][lengthOpenerList].id;
+
+        nodeEvent.openerTabId = openerIdString;
+    }
+    nodeEvent.idString = newID;
+    console.log(" THE NEWLY ASSIGNED ID:", newID);
+    idObject[currentId].push({time : Date.now(), id:newID, url : nodeEvent.url})
 }
