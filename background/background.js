@@ -18,10 +18,7 @@ function retrieveObjects () {
       if(typeof(storedObj.idObject) !== 'undefined'){
           idObject = storedObj.idObject;
       }
-
-
     });
-
 }
 retrieveObjects();
 
@@ -37,19 +34,15 @@ function namingID(page) {
     return dup.id;
 }
 
-chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
-    var clickObj = {alt: message, tabId: sender.tab.id}
-    console.log("The object that is saved is :", clickObj)
-    sendResponse({farewell:"goodbye"});
-});
 
+
+
+var pageChangeTime = [];
 chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
-  // We check if the tab event should be registered as a new node
-
-
 
   if (change.status == "complete") {
-      var isRefreshed = checkForRefresh(tab.url, tab.id);
+     pageChangeTime.push(Date.now());
+     var isRefreshed = checkForRefresh(tab.url, tab.id);
      if (!isRefreshed) {
 
 
@@ -58,17 +51,15 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
       status : "Completed",
       favIconUrl : tab.favIconUrl,
       openerTabId : tab.openerTabId,
-      timeStamp : Date.now(),
+      time : Date.now(),
       title : tab.title,
       url : tab.url,
       incognito : tab.incognito,
       active : tab.active
     }
 
-    //saveObj.id = namingID(saveObj);
     nomenclatureId(saveObj);
-    console.log("THE SAVED OBJECT : ", saveObj);
-
+    //console.log("THE SAVED OBJECT : ", saveObj);
 
     var text = "";
     chrome.tabs.sendMessage(tabId, {content: "Gather the page text"}, function(response) {
@@ -77,41 +68,57 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
  		    text = response.content.split(/\W+/);
             text.forEach( function (item, index, object) {
                 var indexOf = words100list.indexOf(item);
-                if (word10000[item]!=undefined && indexOf <0 && (hasNumbers(item)==false)) { //
+                if (word10000[item]!=undefined && indexOf <0 && (hasNumbers(item)==false) && (item.length < 20)) { //
                     keptText.push(item);
                 }
             })
-
             // ALSO SPLICE STRINGS OF NUMBERS
             // AND LIMIT THE TOTAL SIZE
-
 
             var dictio = new textAnalysis(keptText,saveObj.id);
 
             dictio.createDict();
-            console.log("Diction node: ", dictio);
+            //console.log("Diction node: ", dictio);
             dictio.updateGlobal();
-            //console.log("Global dict", globalDict);
-            //dictio.countSort();
 
             calculateScore(dictio.keys,dictio.dict);
             scoreSort(dictio.keys,dictio.dict);
-            var ar2 = dictio.keys.slice(0, 4);
-            console.log("Main Words: ",ar2);
+            var ar2 = dictio.keys.slice(0, 10);
+            //console.log("Main Words: ",ar2);
+            //ar2.forEach( function(e) {
+            //console.log("Word: ", e, " Score :", dictio.dict[e].score, "Count :", dictio.dict[e].count)
+            //})
+            saveObj.mainWords = ar2;
 
-
-
-            ar2.forEach( function(e) {
-                console.log("Word: ", e, " Score :", dictio.dict[e].score, "Count :", dictio.dict[e].count)
-
-            })
-
+            addClickText(saveObj);
             pushNewPage(saveObj);
  	    }
     });
     }
     }
 });
+
+
+
+/// Click event listener
+
+var clickActions = [0];
+chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
+    //console.log("Received The Click");
+    var clickObj = {time: Date.now(), text: message.click.text, tabId: sender.tab.id };
+    clickActions.push(clickObj);
+    sendResponse({farewell:"Click Received"});
+});
+
+function addClickText (pageObj) {
+    var lastClickEntry = clickActions.pop();
+    if (lastClickEntry && lastClickEntry.time) {
+        if (pageObj.time -lastClickEntry.time <4000){
+            pageObj.clickText = lastClickEntry.text;
+            //console.log("Click text has been added");
+        }
+    }
+}
 
 function checkForRefresh(currentUrl, tabId) {
     if (sitesVisited[tabId] == undefined){
@@ -129,20 +136,17 @@ function checkForRefresh(currentUrl, tabId) {
     }
 }
 
-
-
 chrome.tabs.onRemoved.addListener(function (tabId, info) {
-    console.log('onRemoved', tabId, info);
+    //console.log('onRemoved', tabId, info);
     var saveObj = {
         id : tabId,
         status : "Removed",
         timeStamp : Date.now()
     }
-    console.log("The OBJECT:",saveObj);
+    //console.log("The OBJECT:",saveObj);
     nomenclatureId(saveObj);
     pushNewPage(saveObj);
 });
-
 
 
 function saveChanges(key, pageNode) {
@@ -203,10 +207,9 @@ function textAnalysis(words, identifier) {
             if (e==_this.id) {entryAdded = true};
         })
 
-
         if (entryAdded == false) {
             globalDict.addedIds.push(_this.id);
-            _this.words.forEach ( function(word) {
+            _this.keys.forEach ( function(word) {
                 if (validate(word)){
                     var wordAdded = false;
                     if (globalDict.dict[word] == undefined) {
@@ -222,7 +225,8 @@ function textAnalysis(words, identifier) {
                 }
             });
         }
-        //updateGlobalDict(globalDict);
+        calculateScore(_this.keys,_this.dict);
+        scoreSort(_this.keys,_this.dict);
     }
 
     this.getCount = function(word) {
@@ -239,8 +243,14 @@ function textAnalysis(words, identifier) {
 function calculateScore(keys,dict) {
     keys.forEach( function(word) {
         var entry = dict[word];
+    //console.log("Word being checked in the globalDict", word);
         var tf = entry.count // I havent normalized by dividing by whole number of number of words, its not going to change the ranking, however I wont be able to compare these scores with the scores of other pages
-        var idf = Math.log(globalDict.addedIds.length / globalDict.dict[word].ids.length);
+        var lengthDic =1;
+        if (globalDict.dict[word] != undefined) {
+            lengthDic = globalDict.dict[word].ids.length;
+        }
+
+        var idf = Math.log(globalDict.addedIds.length / lengthDic);
         entry.score = tf * idf;
     });
 }
@@ -257,32 +267,16 @@ function scoreSort(keys,dict) {
 
 
 
-
-
-function updateGlobalDict(globalDict){
-    chrome.storage.local.get(function(storedObj) {
-        console.log('store dic:', storedObj.globalDict);
-        console.log('global dict: ', globalDict);
-        storedObj.globalDict=globalDict;
-        console.log('new to store',storedObj);
-
-        console.log("done Storage");
-
-    });
-    chrome.storage.local.set(storedObj);
-}
-
 chrome.browserAction.onClicked.addListener(function (tab) {
   console.log('browserAction', tab);
   chrome.tabs.create({'url': "/public/index.html" });
+
 })
 
 
 ////// Functions to Process the Incoming text
 
-
-
-// A function to tokenize
+    // A function to tokenize
 function tokenize(text) {
     var arrayText = text.split(/\W+/);
     return arrayText;
@@ -302,6 +296,7 @@ function hasNumbers(t) {
 
 
 function nomenclatureId(nodeEvent) {
+    firstVisit = true;
     // Assigns a unique identifier as a string for every event -- This one works for branching
     // Events need to be passed in a chronological order
 
@@ -400,7 +395,6 @@ function nomenclatureId(nodeEvent) {
             if (maxGen < Number(arr[0])){
                 maxGen = Number(arr[0]);
             }
-        console.log("Max Gen : ", maxGen);
         });
         var stringNewGen = maxGen.toString();
         var GenerationUsed = false;
