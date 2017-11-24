@@ -11,22 +11,22 @@ var globalDict = {addedIds: [], dict: {}};
 function retrieveObjects () {
     chrome.storage.local.get(function(storedObj) {
 
-      if(typeof(storedObj.globalDict) !== 'undefined' && storedObj.globalDict.addedIds != undefined && storedObj.globalDict.dict != undefined) {
-        globalDict = storedObj.globalDict;
-      }
+        if(typeof(storedObj.globalDict) !== 'undefined' && storedObj.globalDict.addedIds != undefined && storedObj.globalDict.dict != undefined) {
+            globalDict = storedObj.globalDict;
+        }
 
-      if(typeof(storedObj.idObject) !== 'undefined'){
-          idObject = storedObj.idObject;
-      }
+        if(typeof(storedObj.idObject) !== 'undefined'){
+            idObject = storedObj.idObject;
+        }
     });
 }
 retrieveObjects();
 
 function namingID(page) {
     if (pageCount[page.id] != undefined) {
-      pageCount[page.id] = pageCount[page.id] + 1;
+        pageCount[page.id] = pageCount[page.id] + 1;
     } else {
-      pageCount[page.id] = 0;
+        pageCount[page.id] = 0;
     }
 
     var dup = JSON.parse(JSON.stringify(page))
@@ -39,62 +39,64 @@ function namingID(page) {
 
 var pageChangeTime = [];
 chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
+    clickTestify(change, tabId);
+    // Use the loading event that will not depend on the connection speed
+    // to confirm if the click event has lead to a navigation event 
+    if (change.status == "complete") {
+        pageChangeTime.push(Date.now());
+        var isRefreshed = checkForRefresh(tab.url, tab.id);
+        if (!isRefreshed) {
 
-  if (change.status == "complete") {
-     pageChangeTime.push(Date.now());
-     var isRefreshed = checkForRefresh(tab.url, tab.id);
-     if (!isRefreshed) {
 
+            var saveObj = {
+                id : tab.id,
+                status : "Completed",
+                favIconUrl : tab.favIconUrl,
+                openerTabId : tab.openerTabId,
+                time : Date.now(),
+                title : tab.title,
+                url : tab.url,
+                incognito : tab.incognito,
+                active : tab.active
+            }
 
-    var saveObj = {
-      id : tab.id,
-      status : "Completed",
-      favIconUrl : tab.favIconUrl,
-      openerTabId : tab.openerTabId,
-      time : Date.now(),
-      title : tab.title,
-      url : tab.url,
-      incognito : tab.incognito,
-      active : tab.active
-    }
+            nomenclatureId(saveObj);
+            //console.log("THE SAVED OBJECT : ", saveObj);
 
-    nomenclatureId(saveObj);
-    //console.log("THE SAVED OBJECT : ", saveObj);
+            var text = "";
+            chrome.tabs.sendMessage(tabId, {content: "Gather the page text"}, function(response) {
+                if(response) {
+                    var keptText= [];
+                    text = response.content.split(/\W+/);
+                    text.forEach( function (item, index, object) {
+                        var indexOf = words100list.indexOf(item);
+                        if (word10000[item]!=undefined && indexOf <0 && (hasNumbers(item)==false) && (item.length < 20)) { //
+                            keptText.push(item);
+                        }
+                    })
+                    // ALSO SPLICE STRINGS OF NUMBERS
+                    // AND LIMIT THE TOTAL SIZE
 
-    var text = "";
-    chrome.tabs.sendMessage(tabId, {content: "Gather the page text"}, function(response) {
- 	    if(response) {
-            var keptText= [];
- 		    text = response.content.split(/\W+/);
-            text.forEach( function (item, index, object) {
-                var indexOf = words100list.indexOf(item);
-                if (word10000[item]!=undefined && indexOf <0 && (hasNumbers(item)==false) && (item.length < 20)) { //
-                    keptText.push(item);
+                    var dictio = new textAnalysis(keptText,saveObj.id);
+
+                    dictio.createDict();
+                    //console.log("Diction node: ", dictio);
+                    dictio.updateGlobal();
+
+                    calculateScore(dictio.keys,dictio.dict);
+                    scoreSort(dictio.keys,dictio.dict);
+                    var ar2 = dictio.keys.slice(0, 10);
+                    //console.log("Main Words: ",ar2);
+                    //ar2.forEach( function(e) {
+                    //console.log("Word: ", e, " Score :", dictio.dict[e].score, "Count :", dictio.dict[e].count)
+                    //})
+                    saveObj.mainWords = ar2;
+
+                    addClickText(saveObj);
+                    pushNewPage(saveObj);
                 }
-            })
-            // ALSO SPLICE STRINGS OF NUMBERS
-            // AND LIMIT THE TOTAL SIZE
-
-            var dictio = new textAnalysis(keptText,saveObj.id);
-
-            dictio.createDict();
-            //console.log("Diction node: ", dictio);
-            dictio.updateGlobal();
-
-            calculateScore(dictio.keys,dictio.dict);
-            scoreSort(dictio.keys,dictio.dict);
-            var ar2 = dictio.keys.slice(0, 10);
-            //console.log("Main Words: ",ar2);
-            //ar2.forEach( function(e) {
-            //console.log("Word: ", e, " Score :", dictio.dict[e].score, "Count :", dictio.dict[e].count)
-            //})
-            saveObj.mainWords = ar2;
-
-            addClickText(saveObj);
-            pushNewPage(saveObj);
- 	    }
-    });
-    }
+            });
+        }
     }
 });
 
@@ -112,8 +114,8 @@ chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
 
 function addClickText (pageObj) {
     var lastClickEntry = clickActions.pop();
-    if (lastClickEntry && lastClickEntry.time) {
-        if (pageObj.time -lastClickEntry.time <4000){
+    if (lastClickEntry && lastClickEntry.tabId) {
+        if (pageObj.id == lastClickEntry.tabId && lastClickEntry.confirmed){
             pageObj.clickText = lastClickEntry.text;
             //console.log("Click text has been added");
         }
@@ -150,30 +152,30 @@ chrome.tabs.onRemoved.addListener(function (tabId, info) {
 
 
 function saveChanges(key, pageNode) {
-  if (!pageNode) {
-    console.log('Error: No value specified');
-    return;
-  }
-  var obj = {}
-  obj[key] = pageNode
-  chrome.storage.sync.set(obj, function() {
-    console.log('Page saved');
-  });
+    if (!pageNode) {
+        console.log('Error: No value specified');
+        return;
+    }
+    var obj = {}
+    obj[key] = pageNode
+    chrome.storage.sync.set(obj, function() {
+        console.log('Page saved');
+    });
 }
 
 function pushNewPage(pageObj) {
-  chrome.storage.local.get(function(storedObj) {
-    if(typeof(storedObj["pages"]) !== 'undefined' && storedObj["pages"] instanceof Array) {
-      storedObj["pages"].push(pageObj);
-      storedObj["globalDict"] = globalDict;
-      storedObj["idObject"] = idObject;
-    } else {
-      storedObj["pages"] = [pageObj];
-      storedObj["globalDict"] = globalDict;
-      storedObj["idObject"] = idObject;
-    }
-    chrome.storage.local.set(storedObj);
-  });
+    chrome.storage.local.get(function(storedObj) {
+        if(typeof(storedObj["pages"]) !== 'undefined' && storedObj["pages"] instanceof Array) {
+            storedObj["pages"].push(pageObj);
+            storedObj["globalDict"] = globalDict;
+            storedObj["idObject"] = idObject;
+        } else {
+            storedObj["pages"] = [pageObj];
+            storedObj["globalDict"] = globalDict;
+            storedObj["idObject"] = idObject;
+        }
+        chrome.storage.local.set(storedObj);
+    });
 }
 
 function textAnalysis(words, identifier) {
@@ -189,12 +191,12 @@ function textAnalysis(words, identifier) {
         this.words.forEach( function(word){
             if (validate(word)){
                 if (dict[word] == undefined) {
-                  dict[word] = {};
-                  dict[word].count = 1;
-                  dict[word].word = word;
-                  keys.push(word);
+                    dict[word] = {};
+                    dict[word].count = 1;
+                    dict[word].word = word;
+                    keys.push(word);
                 } else {
-                  dict[word].count++;
+                    dict[word].count++;
                 }
             }
         });
@@ -230,20 +232,20 @@ function textAnalysis(words, identifier) {
     }
 
     this.getCount = function(word) {
-      return _this.dict[word].count;
+        return _this.dict[word].count;
     }
 
     this.countSort = function() {
-      _this.keys.sort(function(a, b) {
-        return (_this.getCount(b) - _this.getCount(a));
-      });
+        _this.keys.sort(function(a, b) {
+            return (_this.getCount(b) - _this.getCount(a));
+        });
     }
 }
 
 function calculateScore(keys,dict) {
     keys.forEach( function(word) {
         var entry = dict[word];
-    //console.log("Word being checked in the globalDict", word);
+        //console.log("Word being checked in the globalDict", word);
         var tf = entry.count // I havent normalized by dividing by whole number of number of words, its not going to change the ranking, however I wont be able to compare these scores with the scores of other pages
         var lengthDic =1;
         if (globalDict.dict[word] != undefined) {
@@ -268,20 +270,19 @@ function scoreSort(keys,dict) {
 
 
 chrome.browserAction.onClicked.addListener(function (tab) {
-  console.log('browserAction', tab);
-  chrome.tabs.create({'url': "/public/index.html" });
+    console.log('browserAction', tab);
+    chrome.tabs.create({'url': "/public/index.html" });
 
 })
 
 
 ////// Functions to Process the Incoming text
 
-    // A function to tokenize
+// A function to tokenize
 function tokenize(text) {
     var arrayText = text.split(/\W+/);
     return arrayText;
 }
-
 
 // A function to validate a token
 function validate(token) {
@@ -354,19 +355,23 @@ function nomenclatureId(nodeEvent) {
             var maxBranch = -1;
             var nextBranchFound = false;
             allTabStrings.forEach( function(item,index) {
+                var startString = item.slice(0,lastItemId.length);
+                if (startString == lastItemId) {
 
-                var tempString = item.slice(lastItemId.length+1,lastItemId.length+6);
+                    var tempString = item.slice(lastItemId.length+1,lastItemId.length+6);
 
-                var tempArray = tempString.split('-');
+                    var tempArray = tempString.split('-');
 
-                var branchNb = tempArray[0];
-                if (branchNb != ""){
-                    var branchInt = Number(branchNb);
-                    if (branchInt>maxBranch){
-                        maxBranch = branchInt;
+                    var branchNb = tempArray[0];
+                    if (branchNb != ""){
+                        var branchInt = Number(branchNb);
+                        if (branchInt>maxBranch){
+                            maxBranch = branchInt;
+
+                        }
                     }
-                }
 
+                }
             });
 
 

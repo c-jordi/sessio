@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "background": {
     "scripts": ["background/background.js",
-        "background/words.js"
+        "background/words.js",
+        "libs/lodash.js"
     ]
   },
 
@@ -17,7 +18,7 @@
   "description": "Browser history session organizer",
   "icons": {},
   "permissions": [
-		"tabs", "http://*/*", "storage", "unlimitedStorage"
+		"tabs", "http://*/*", "storage", "unlimitedStorage", "history"
 	],
   "browser_action" : {}
 }
