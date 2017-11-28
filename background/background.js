@@ -7,6 +7,8 @@ var edges = [];
 var pageCount = {};
 var idObject = {};
 var globalDict = {addedIds: [], dict: {}};
+var initTabs = {} //This is a simple fix to solve the recurring tabOpenerId problem
+
 
 function retrieveObjects () {
     chrome.storage.local.get(function(storedObj) {
@@ -39,10 +41,11 @@ function namingID(page) {
 
 var pageChangeTime = [];
 chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
-    clickTestify(change, tabId);
+    // clickTestify(change, tabId);
     // Use the loading event that will not depend on the connection speed
-    // to confirm if the click event has lead to a navigation event 
+    // to confirm if the click event has lead to a navigation event
     if (change.status == "complete") {
+        console.log(change, tab);
         pageChangeTime.push(Date.now());
         var isRefreshed = checkForRefresh(tab.url, tab.id);
         if (!isRefreshed) {
@@ -52,13 +55,18 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
                 id : tab.id,
                 status : "Completed",
                 favIconUrl : tab.favIconUrl,
-                openerTabId : tab.openerTabId,
+                // openerid : tab.openerTabId,
                 time : Date.now(),
                 title : tab.title,
                 url : tab.url,
                 incognito : tab.incognito,
-                active : tab.active
+                active : tab.active,
+                clickText: ""
             }
+            if (initTabs[tab.id]== undefined || initTabs[tab.id] != true){
+                saveObj.openerid = tab.openerTabId;
+            }
+
 
             nomenclatureId(saveObj);
             //console.log("THE SAVED OBJECT : ", saveObj);
@@ -93,6 +101,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
                     saveObj.mainWords = ar2;
 
                     addClickText(saveObj);
+                    // console.log("New Obj", saveObj);
                     pushNewPage(saveObj);
                 }
             });
@@ -109,6 +118,7 @@ chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
     //console.log("Received The Click");
     var clickObj = {time: Date.now(), text: message.click.text, tabId: sender.tab.id };
     clickActions.push(clickObj);
+    // console.log("Received Text:", clickObj.text);
     sendResponse({farewell:"Click Received"});
 });
 
@@ -117,7 +127,7 @@ function addClickText (pageObj) {
     if (lastClickEntry && lastClickEntry.tabId) {
         if (pageObj.id == lastClickEntry.tabId && lastClickEntry.confirmed){
             pageObj.clickText = lastClickEntry.text;
-            //console.log("Click text has been added");
+            console.log("Click text has been added");
         }
     }
 }
@@ -297,45 +307,46 @@ function hasNumbers(t) {
 
 
 function nomenclatureId(nodeEvent) {
-    firstVisit = true;
+
     // Assigns a unique identifier as a string for every event -- This one works for branching
     // Events need to be passed in a chronological order
 
     var currentId = nodeEvent.id;
-    var newID = "";
+    var newPath = "";
     if (idObject[currentId]== undefined){
-        idObject[currentId] = [{time : Date.now(), id:"0", url : "New Generation - 0"}];
+        idObject[currentId] = [{time : Date.now(), path:"0", url : "New Generation - 0"}];
     }
 
     // If the tab was closed
+
     if (nodeEvent.status == "Removed"){
         var maxGen = 0;
         idObject[currentId].forEach( function(e) {
-            var arr = e.id.split("-");;
+            var arr = e.path.split("-");;
             if (maxGen < Number(arr[0])){
                 maxGen = Number(arr[0]);
             }
         });
-        newID = (maxGen+1).toString();
-        nodeEvent.url = "New Generation - " + newID;
+        newPath = (maxGen+1).toString();
+        nodeEvent.url = "New Generation - " + newPath;
     }
-    else if (nodeEvent.status == "Completed" && nodeEvent.openerTabId == undefined) {
+    else if (nodeEvent.status == "Completed" && nodeEvent.openerid == undefined) {
 
         // CHECKING IF THE USER HAS GONE BACK TO VISIT AN OLD PAGE
 
         var lastItem = idObject[currentId].length -1;
-        var lastItemId = idObject[currentId][lastItem].id;
-        var stringArray = lastItemId.split("-");
-        var startingId = stringArray.shift();
+        var lastItemPath = idObject[currentId][lastItem].path;
+        var stringArray = lastItemPath.split("-");
+        var startingPath = stringArray.shift();
         var allTabStrings = [];
         idObject[currentId].forEach(function(item){
-            allTabStrings.push(item.id);
+            allTabStrings.push(item.path);
         });
         var stringIndex = -1;
         var matchingString = false;
 
         for (var i= stringArray.length-1; i >0 ; i=i-1) {
-            var id_string = startingId ;
+            var id_string = startingPath ;
             for (var j=0; j < i ; j++){
                 id_string = id_string + '-' + stringArray[j];
             }
@@ -346,8 +357,9 @@ function nomenclatureId(nodeEvent) {
             }
         }
 
+
         if (matchingString) {
-            newID =  idObject[currentId][stringIndex].id;
+            newPath =  idObject[currentId][stringIndex].path;
         }
         else {
             // Searching the next in line to see if the page is present
@@ -355,10 +367,10 @@ function nomenclatureId(nodeEvent) {
             var maxBranch = -1;
             var nextBranchFound = false;
             allTabStrings.forEach( function(item,index) {
-                var startString = item.slice(0,lastItemId.length);
-                if (startString == lastItemId) {
+                var startString = item.slice(0,lastItemPath.length);
+                if (startString == lastItemPath) {
 
-                    var tempString = item.slice(lastItemId.length+1,lastItemId.length+6);
+                    var tempString = item.slice(lastItemPath.length+1,lastItemPath.length+6);
 
                     var tempArray = tempString.split('-');
 
@@ -376,27 +388,29 @@ function nomenclatureId(nodeEvent) {
 
 
             for (var j = 0; j < maxBranch + 1; j++) {
-                var stringTest = lastItemId + '-' + j;
+                var stringTest = lastItemPath + '-' + j;
 
                 var indexLocated = allTabStrings.indexOf(stringTest);
                 if (indexLocated >-1){
 
                     if (idObject[currentId][indexLocated].url == nodeEvent.url) {
                         nextBranchFound = true;
-                        newID = stringTest;
+                        newPath = stringTest;
                     }
                 }
             }
             if (nextBranchFound == false){
-                newID = lastItemId + '-' + (maxBranch+1);
+                newPath = lastItemPath + '-' + (maxBranch+1);
             }
         }
     }
-    else if (nodeEvent.status == "Completed" && nodeEvent.openerTabId != undefined) {
+    else if (nodeEvent.status == "Completed" && nodeEvent.openerid != undefined) {
+
+        initTabs[nodeEvent.id]=true;
         // Check if there is a closing generation event
         var maxGen = 0;
         idObject[currentId].forEach( function(e) {
-            var arr = e.id.split("-");;
+            var arr = e.path.split("-");;
             if (maxGen < Number(arr[0])){
                 maxGen = Number(arr[0]);
             }
@@ -404,7 +418,7 @@ function nomenclatureId(nodeEvent) {
         var stringNewGen = maxGen.toString();
         var GenerationUsed = false;
         idObject[currentId].forEach(function(item){
-            var idDecomp = item.id.split('-');
+            var idDecomp = item.path.split('-');
             if (idDecomp[0] == maxGen.toString()){
                 if (idDecomp[1] != "" && idDecomp[1] != undefined) {
                     GenerationUsed = true;
@@ -412,21 +426,25 @@ function nomenclatureId(nodeEvent) {
             }
         });
         if (GenerationUsed) {
-            newID = (maxGen+1) + '-' + 0;
+            newPath = (maxGen+1) + '-' + 0;
         }
         else {
-            newID = (maxGen) + '-' + 0;
+            newPath = (maxGen) + '-' + 0;
         }
-        var openerTabId = nodeEvent.openerTabId;
-        if (idObject[openerTabId]==undefined) {
-            idObject[openerTabId] = [{time : Date.now(), id:"0", url : "The id count has been restarted"}];
+        var openerid = nodeEvent.openerid;
+        if (idObject[openerid]==undefined) {
+            idObject[openerid] = [{time : Date.now(), path:"0", url : "The id count has been restarted"}];
         }
-        var lengthOpenerList = idObject[openerTabId].length-1;
-        var openerIdString = idObject[openerTabId][lengthOpenerList].id;
+        var lengthOpenerList = idObject[openerid].length-1;
 
-        nodeEvent.openerTabId = openerIdString;
+        var openerIdString = idObject[openerid][lengthOpenerList].path;
+
+        nodeEvent.openerpath = openerIdString;
+
     }
-    nodeEvent.idString = newID;
-    console.log(" THE NEWLY ASSIGNED ID:", newID);
-    idObject[currentId].push({time : Date.now(), id:newID, url : nodeEvent.url})
+    nodeEvent.path = newPath;
+    console.log(" THE NEWLY ASSIGNED ID:", newPath);
+    idObject[currentId].push({time : Date.now(), path:newPath, url : nodeEvent.url});
+    // console.log(" Done Renaming");
+
 }

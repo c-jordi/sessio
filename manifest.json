@@ -5,7 +5,8 @@
   "background": {
     "scripts": ["background/background.js",
         "background/words.js",
-        "libs/lodash.js"
+        "libs/lodash.js",
+        "background/sessionCreator.js"
     ]
   },
 
