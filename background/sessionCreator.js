@@ -1,19 +1,19 @@
-// Link Scoring System
-var allLinks = {}; // this object stores all the links of the tree
+// Edge Scoring System
+var allEdges = {}; // this object stores all the edges of the tree
 
         // Example
         //
-        //      allLinks = {
+        //      allEdges = {
         //           tabid : {
         //                path 1 : {
         //                      path2 : {a: path1, b: path 2, text: "" ,  ... },
-        //
-        //
+        //                      path3 : {. .... . .. .. },
+        //                      nodeScore :
 
 // the is always the chronological parent node
 // For display we will write a function to turn the object into an array
 
-function findLinks () {
+function findEdges () {
     generalObject.pages.forEach(function (e){
         var pathString = e.path,
             lastIndex = pathString.lastIndexOf("-");
@@ -36,19 +36,19 @@ function findLinks () {
             generalObject.pages.forEach(function (f){
                 if (f.id == tabid && f.path == parentPath) {
 
-                        var linkage = new sessionEdge(f,e);
+                        var edgeage = new sessionEdge(f,e);
 
-                        if (allLinks[tabid] == undefined) {
-                            allLinks[tabid]={},
-                            allLinks[tabid][parentPath]={},
-                            allLinks[tabid][parentPath][pathString] = linkage;
+                        if (allEdges[tabid] == undefined) {
+                            allEdges[tabid]={},
+                            allEdges[tabid][parentPath]={},
+                            allEdges[tabid][parentPath][pathString] = linkage;
                         }
-                        else if (allLinks[tabid][parentPath] == undefined) {
-                            allLinks[tabid][parentPath]={},
-                            allLinks[tabid][parentPath][pathString] = linkage;
+                        else if (allEdges[tabid][parentPath] == undefined) {
+                            allEdges[tabid][parentPath]={},
+                            allEdges[tabid][parentPath][pathString] = linkage;
                         }
                         else {
-                            allLinks[tabid][parentPath][pathString] = linkage;
+                            allEdges[tabid][parentPath][pathString] = linkage;
                         }
                 }
             })
@@ -62,12 +62,12 @@ function findLinks () {
 function sessionEdge(node1,node2) {
     this.a = node1;
     this.b = node2;
-    this.array = createLinkArray(node1, node2);
+    this.array = createEdgeArray(node1, node2);
     this.score = 0; // the score goes from 0 to 1
 }
 
 
-function createLinkArray (node1, node2) {
+function createEdgeArray (node1, node2) {
 
     // This function is used to build the link array used in the link score
     // We assume that node 1 is the parent
@@ -114,7 +114,7 @@ function createLinkArray (node1, node2) {
     return linkArray;
 }
 
-function linkScore (linkArray) {
+function edgeScore (edgeArray) {
     // We train a simple 1 hidden layer network to help us make the prediction
     // Ideally the training data should be sent to a firebase database
     // to allow training later on
@@ -122,19 +122,17 @@ function linkScore (linkArray) {
     // The weight coefficients for the neural network will be downloaded from
     // firebase aswell which will keep them constantly updated
 
-    var score = linkArray[0]+linkArray[1]
+    var score = edgeArray[0]+edgeArray[1]
     return score;
 }
 
+function nodeScore () {
+    // We start with the objects that have no children and make our way up
+    // We use the idObject, pages and allEdges
+    
 
 
-
-
-
-
-
-
-
+}
 
 function session(){
 
@@ -142,7 +140,7 @@ function session(){
     this.desc = "";
     this.date = {start: "", end: ""};
     this.nodes = []; // Every Node has a description
-    this.links = []; // Contains the sessionLink Object
+    this.edges = []; // Contains the sessionedge Object
 
     // Methods
     this.size = function (){
