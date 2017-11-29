@@ -7,8 +7,8 @@ var edges = [];
 var pageCount = {};
 var idObject = {};
 var globalDict = {addedIds: [], dict: {}};
-var initTabs = {} //This is a simple fix to solve the recurring tabOpenerId problem
-
+var initTabs = {}; //This is a simple fix to solve the recurring tabOpenerId problem
+var generalObject = {};
 
 function retrieveObjects () {
     chrome.storage.local.get(function(storedObj) {
@@ -60,50 +60,56 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
                 title : tab.title,
                 url : tab.url,
                 incognito : tab.incognito,
-                active : tab.active,
-                clickText: ""
+                active : tab.active
             }
             if (initTabs[tab.id]== undefined || initTabs[tab.id] != true){
                 saveObj.openerid = tab.openerTabId;
             }
 
+            chrome.tabs.captureVisibleTab(null, {format: "jpeg", quality:6}, function (image){
+                saveObj.image = image;
+                nomenclatureId(saveObj);
+                //console.log("THE SAVED OBJECT : ", saveObj);
 
-            nomenclatureId(saveObj);
-            //console.log("THE SAVED OBJECT : ", saveObj);
+                var text = "";
+                chrome.tabs.sendMessage(tabId, {content: "Gather the page text"}, function(response) {
+                    if(response) {
+                        var keptText= [];
+                        text = response.content.split(/\W+/);
+                        text.forEach( function (item, index, object) {
+                            var indexOf = words100list.indexOf(item);
+                            if (indexOf <0 && (hasNumbers(item)==false) && (item.length < 20)) { // word10000[item]!=undefined &&
+                                keptText.push(item);
+                            }
+                        })
+                        // ALSO SPLICE STRINGS OF NUMBERS
+                        // AND LIMIT THE TOTAL SIZE
+                        var identifier = saveObj.id + "/" + saveObj.path;
+                        var dictio = new textAnalysis(keptText,identifier);
 
-            var text = "";
-            chrome.tabs.sendMessage(tabId, {content: "Gather the page text"}, function(response) {
-                if(response) {
-                    var keptText= [];
-                    text = response.content.split(/\W+/);
-                    text.forEach( function (item, index, object) {
-                        var indexOf = words100list.indexOf(item);
-                        if (word10000[item]!=undefined && indexOf <0 && (hasNumbers(item)==false) && (item.length < 20)) { //
-                            keptText.push(item);
-                        }
-                    })
-                    // ALSO SPLICE STRINGS OF NUMBERS
-                    // AND LIMIT THE TOTAL SIZE
+                        dictio.createDict();
+                        //console.log("Diction node: ", dictio);
+                        dictio.updateGlobal();
 
-                    var dictio = new textAnalysis(keptText,saveObj.id);
+                        calculateScore(dictio.keys,dictio.dict);
+                        scoreSort(dictio.keys,dictio.dict);
+                        var ar2 = dictio.keys.slice(0, 100);
 
-                    dictio.createDict();
-                    //console.log("Diction node: ", dictio);
-                    dictio.updateGlobal();
+                        //console.log("Main Words: ",ar2);
+                        var wordList = [];
+                        ar2.forEach( function(e) {
+                            //console.log("Word: ", e, " Score :", dictio.dict[e].score, "Count :", dictio.dict[e].count)
+                            var wordObj = {word: e, score: dictio.dict[e].score, count: dictio.dict[e].count};
+                            wordList.push(wordObj);
+                        })
 
-                    calculateScore(dictio.keys,dictio.dict);
-                    scoreSort(dictio.keys,dictio.dict);
-                    var ar2 = dictio.keys.slice(0, 10);
-                    //console.log("Main Words: ",ar2);
-                    //ar2.forEach( function(e) {
-                    //console.log("Word: ", e, " Score :", dictio.dict[e].score, "Count :", dictio.dict[e].count)
-                    //})
-                    saveObj.mainWords = ar2;
+                        saveObj.mainWords = wordList;
 
-                    addClickText(saveObj);
-                    // console.log("New Obj", saveObj);
-                    pushNewPage(saveObj);
-                }
+                        addClickText(saveObj);
+                        // console.log("New Obj", saveObj);
+                        pushNewPage(saveObj);
+                    }
+                })
             });
         }
     }
@@ -125,8 +131,8 @@ chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
 function addClickText (pageObj) {
     var lastClickEntry = clickActions.pop();
     if (lastClickEntry && lastClickEntry.tabId) {
-        if (pageObj.id == lastClickEntry.tabId && lastClickEntry.confirmed){
-            pageObj.clickText = lastClickEntry.text;
+        if (pageObj.id == lastClickEntry.tabId){
+            pageObj.clicktext = lastClickEntry.text;
             console.log("Click text has been added");
         }
     }
@@ -184,6 +190,7 @@ function pushNewPage(pageObj) {
             storedObj["globalDict"] = globalDict;
             storedObj["idObject"] = idObject;
         }
+        generalObject = storedObj;
         chrome.storage.local.set(storedObj);
     });
 }

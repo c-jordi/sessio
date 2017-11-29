@@ -19,7 +19,7 @@
   "description": "Browser history session organizer",
   "icons": {},
   "permissions": [
-		"tabs", "http://*/*", "storage", "unlimitedStorage", "history"
+		"tabs", "http://*/*", "storage", "unlimitedStorage", "history", "<all_urls>"
 	],
   "browser_action" : {}
 }
