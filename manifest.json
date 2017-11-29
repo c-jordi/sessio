@@ -3,10 +3,12 @@
   "name": "sessio",
   "version": "0.0.1",
   "background": {
-    "scripts": ["background/background.js",
+    "scripts": ["libs/firebase.js",
+        "background/background.js",
         "background/words.js",
         "libs/lodash.js",
         "background/sessionCreator.js"
+
     ]
   },
 

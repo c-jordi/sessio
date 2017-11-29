@@ -1,5 +1,17 @@
 console.log('background loaded!');
 
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyC0-qht4R80QAzwyr9aDKb8mwiZ25IHQuY",
+    authDomain: "sessio-jorday.firebaseapp.com",
+    databaseURL: "https://sessio-jorday.firebaseio.com",
+    projectId: "sessio-jorday",
+    storageBucket: "sessio-jorday.appspot.com",
+    messagingSenderId: "1069349196958"
+  };
+  firebase.initializeApp(config);
+
 // DECLARING Variables
 var sitesVisited = {0:[]}; // Doesn't need to be stored, this object helps with page processing -- The keys are the tabIds, values are the urls with the unique identifiers of the pages
 var nodes = [];
@@ -15,6 +27,7 @@ function retrieveObjects () {
 
         if(typeof(storedObj.globalDict) !== 'undefined' && storedObj.globalDict.addedIds != undefined && storedObj.globalDict.dict != undefined) {
             globalDict = storedObj.globalDict;
+            generalObject= storedObj;
         }
 
         if(typeof(storedObj.idObject) !== 'undefined'){

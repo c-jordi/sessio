@@ -1,4 +1,5 @@
 // Edge Scoring System
+console.log("session creator page loaded");
 var allEdges = {}; // this object stores all the edges of the tree
 
         // Example
@@ -36,7 +37,7 @@ function findEdges () {
             generalObject.pages.forEach(function (f){
                 if (f.id == tabid && f.path == parentPath) {
 
-                        var edgeage = new sessionEdge(f,e);
+                        var linkage = new sessionEdge(f,e);
 
                         if (allEdges[tabid] == undefined) {
                             allEdges[tabid]={},
@@ -125,14 +126,27 @@ function edgeScore (edgeArray) {
     var score = edgeArray[0]+edgeArray[1]
     return score;
 }
-
+/*
 function nodeScore () {
     // We start with the objects that have no children and make our way up
     // We use the idObject, pages and allEdges
-    
+    var _pages = generalObject.pages,
+        _temp = generalObject.pages;
+
+    _pages.forEach( function (e,index) {
+        var _path = e.path;
+
+    })
+    _pages = _temp;
+    var child;
+    while (_temp.length != 0){
 
 
-}
+
+
+    }
+
+}*/
 
 function session(){
 
@@ -148,4 +162,30 @@ function session(){
         return length;
     }
 
+}
+
+function passToTrain(edgeObj) {
+    var tabList = Object.keys(edgeObj);
+    console.log("tabList : ", tabList);
+    tabList.forEach (function (e) {
+        var parentList = Object.keys(edgeObj[e]);
+        parentList.forEach(function (f) {
+            var childList = Object.keys(edgeObj[e][f]);
+            childList.forEach( function (g) {
+                var _el = edgeObj[e][f][g];
+                console.log("element", _el);
+                if (_el.b.image && _el.a.image) {
+                    firebase.database().ref('training/' + Date.now()).set({
+                        a : _el.a.title + "///" + _el.a.url,
+                        a_words : _el.a.mainWords,
+                        b_words : _el.b.mainWords,
+                        b : _el.b.title + "///" + _el.b.url,
+                        a_im : _el.a.image,
+                        b_im : _el.b.image,
+                        array : _el.array
+                    });
+                }
+            })
+        })
+    })
 }
