@@ -166,23 +166,23 @@ function session(){
 
 function passToTrain(edgeObj) {
     var tabList = Object.keys(edgeObj);
-    console.log("tabList : ", tabList);
+
     tabList.forEach (function (e) {
         var parentList = Object.keys(edgeObj[e]);
         parentList.forEach(function (f) {
             var childList = Object.keys(edgeObj[e][f]);
             childList.forEach( function (g) {
                 var _el = edgeObj[e][f][g];
-                console.log("element", _el);
+                
                 if (_el.b.image && _el.a.image) {
-                    firebase.database().ref('training/' + Date.now()).set({
-                        a : _el.a.title + "///" + _el.a.url,
+                    firebase.database().ref('training1/' + Date.now()).set({
+                        a : _el.a.title + " /// " + _el.a.url,
                         a_words : _el.a.mainWords,
                         b_words : _el.b.mainWords,
-                        b : _el.b.title + "///" + _el.b.url,
+                        b : _el.b.title + " /// " + _el.b.url,
                         a_im : _el.a.image,
                         b_im : _el.b.image,
-                        array : _el.array
+                        scorearray : _el.array
                     });
                 }
             })
