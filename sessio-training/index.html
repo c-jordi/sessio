@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+        <title>Sessio - Training Ground</title>
+        <link rel="stylesheet" href="css/style.css">
+        <style>
+        .displaybox{
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            width: 800px;
+            height: 600px;
+            transform: translate(-50%,0);
+            background-color: grey;
+        }
+
+        .title{
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translate(-50%,0);
+        }
+        .parent{
+            position: absolute;
+            top: 80px;
+            left: 40px;
+            width: 340px;
+            height: 450px;
+            background-color: white;
+            margin: auto;
+            text-align: center;
+        }
+        .child{
+            position: absolute;
+            top: 80px;
+            right: 40px;
+            width: 340px;
+            height: 450px;
+            background-color: white;
+            margin: auto;
+            text-align: center;
+        }
+        img {
+            display: block;
+            margin: auto;
+            width: 80%;
+        }
+        .stitle{
+            margin-top: 10px;
+            font-size: 10pt;
+        }
+        .controls{
+            position: absolute;
+            top: 500px;
+            left: 50%;
+            transform: translate(-50%,0);
+        }
+
+        </style>
+    </head>
+<body>
+
+        <div style="color:#D5DDE5;"> Session Training Ground </div>
+    <table class="table-fill">
+    <thead>
+    <tr>
+    <th class="text-left"><img id="parent_im" src="" style="width:250px;height:150px;"/></th>
+    <th class="text-right"><img id="child_im" src="" style="width:250px;height:150px;"/></th>
+    </tr>
+    </thead>
+    <tbody class="table-hover">
+    <tr>
+    <td class="text-left" id="parent_title">Parent</td>
+    <td class="text-right" id="child_title">Child</td>
+    </tr>
+    <tr>
+    <td class="text-left" id="parent_url">Parent url</td>
+    <td class="text-right" id="child_url">Child url</td>
+    </tr>
+    <tr>
+    <td class="text-left" id="parent_words">Parent words</td>
+    <td class="text-right" id="child_words">Child words</td>
+    </tr>
+
+
+
+
+
+<!--
+    <tr>
+    <td class="text-left">April</td>
+    <td class="text-left">$ 56,000.00</td>
+    </tr>
+    <tr>
+    <td class="text-left">May</td>
+    <td class="text-left">$ 98,000.00</td>
+</tr>-->
+    </tbody>
+    </table>
+
+    <table class="table-fill">
+    <thead>
+    <tr>
+    <th class="text-center click" id="same">Same Session</th>
+    <th class="text-center click" id="skip">Skip</th>
+    <th class="text-center click" id="different">Different Session</th>
+    </tr>
+    </thead>
+    </table>
+
+
+
+
+
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+      apiKey: "AIzaSyC0-qht4R80QAzwyr9aDKb8mwiZ25IHQuY",
+      authDomain: "sessio-jorday.firebaseapp.com",
+      databaseURL: "https://sessio-jorday.firebaseio.com",
+      projectId: "sessio-jorday",
+      storageBucket: "sessio-jorday.appspot.com",
+      messagingSenderId: "1069349196958"
+    };
+    firebase.initializeApp(config);
+
+</script>
+<script type="text/javascript" src="js/script.js"> </script>
+</html>

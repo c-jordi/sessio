@@ -79,7 +79,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
                 saveObj.openerid = tab.openerTabId;
             }
 
-            chrome.tabs.captureVisibleTab(null, {format: "jpeg", quality:6}, function (image){
+            chrome.tabs.captureVisibleTab(null, {format: "jpeg", quality:7}, function (image){
                 saveObj.image = image;
                 nomenclatureId(saveObj);
                 //console.log("THE SAVED OBJECT : ", saveObj);
@@ -106,7 +106,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
 
                         calculateScore(dictio.keys,dictio.dict);
                         scoreSort(dictio.keys,dictio.dict);
-                        var ar2 = dictio.keys.slice(0, 100);
+                        var ar2 = dictio.keys.slice(0, 10);
 
                         //console.log("Main Words: ",ar2);
                         var wordList = [];

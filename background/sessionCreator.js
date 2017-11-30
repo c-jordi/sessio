@@ -173,13 +173,15 @@ function passToTrain(edgeObj) {
             var childList = Object.keys(edgeObj[e][f]);
             childList.forEach( function (g) {
                 var _el = edgeObj[e][f][g];
-                
+
                 if (_el.b.image && _el.a.image) {
                     firebase.database().ref('training1/' + Date.now()).set({
-                        a : _el.a.title + " /// " + _el.a.url,
+                        a_title : _el.a.title,
+                        a_url : _el.a.url,
                         a_words : _el.a.mainWords,
                         b_words : _el.b.mainWords,
-                        b : _el.b.title + " /// " + _el.b.url,
+                        b_title : _el.b.title ,
+                        b_url : _el.b.url,
                         a_im : _el.a.image,
                         b_im : _el.b.image,
                         scorearray : _el.array
