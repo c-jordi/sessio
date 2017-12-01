@@ -12,6 +12,8 @@ var config = {
   };
   firebase.initializeApp(config);
 
+
+
 // DECLARING Variables
 var sitesVisited = {0:[]}; // Doesn't need to be stored, this object helps with page processing -- The keys are the tabIds, values are the urls with the unique identifiers of the pages
 var nodes = [];
@@ -21,6 +23,37 @@ var idObject = {};
 var globalDict = {addedIds: [], dict: {}};
 var initTabs = {}; //This is a simple fix to solve the recurring tabOpenerId problem
 var generalObject = {};
+var userToken ="";
+
+// Creating a unique user token
+
+function getRandomToken() {
+    // E.g. 8 * 32 = 256 bits token
+    var randomPool = new Uint8Array(32);
+    crypto.getRandomValues(randomPool);
+    var hex = '';
+    for (var i = 0; i < randomPool.length; ++i) {
+        hex += randomPool[i].toString(16);
+    }
+    // E.g. db18458e2782b2b77e36769c569e263a53885a9944dd0a861e5064eac16f1a
+    return hex;
+}
+
+chrome.storage.sync.get('userid', function(items) {
+    var userid = items.userid;
+    if (userid) {
+        useToken(userid);
+    } else {
+        userid = getRandomToken();
+        chrome.storage.sync.set({userid: userid}, function() {
+            useToken(userid);
+        });
+    }
+    function useToken(userid) {
+        userToken = userid;
+    }
+});
+
 
 function retrieveObjects () {
     chrome.storage.local.get(function(storedObj) {
@@ -95,6 +128,44 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
                                 keptText.push(item);
                             }
                         })
+
+                        var texting_the = response.content.split("the ");
+                        var texting_a = response.content.split("a ");
+                        var texting_an = response.content.split("an ");
+                        var texting_to = response.content.split("to ");
+
+
+                        var links = response.links;
+
+
+                        var texting = _.concat(texting_the,texting_a,texting_an);
+                        var deterWords = [];
+                        texting.forEach(function (e) {
+                            deterWords.push(e.split(/\W+/)[0])
+                        });
+                        _.remove(deterWords, function(n){
+                            return n == "";
+                        });
+                        saveObj.theWords = deterWords;
+
+
+                        var texting_ing = response.content.split(/\W+/);
+                        _.remove(texting_ing, function(n){
+                            return !(n.endsWith('ing'));
+                        });
+                        _.remove(texting_ing, function(n){
+                            return n == "padding";
+                        });
+
+                        var verbs = [];
+                        texting_to.forEach(function(e){
+                            verbs.push(e.split(/\W+/)[0])
+                        });
+
+                        verbs = _.concat(verbs, texting_ing);
+
+                        saveObj.verbs = verbs;
+
                         // ALSO SPLICE STRINGS OF NUMBERS
                         // AND LIMIT THE TOTAL SIZE
                         var identifier = saveObj.id + "/" + saveObj.path;
@@ -117,6 +188,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
                         })
 
                         saveObj.mainWords = wordList;
+                        _.remove(links, function(n){return n=="" || n== " "})
+                        saveObj.links = links;
 
                         addClickText(saveObj);
                         // console.log("New Obj", saveObj);

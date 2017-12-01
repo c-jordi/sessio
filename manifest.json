@@ -10,7 +10,8 @@
         "background/background.js",
         "background/words.js",
         "libs/lodash.js",
-        "background/sessionCreator.js"
+        "background/sessionCreator.js",
+        "libs/purl.js"
 
     ]
   },

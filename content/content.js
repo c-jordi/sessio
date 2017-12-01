@@ -4,7 +4,8 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
 	if(request.content) {
         console.log(request);
         var text = processPageText();
-		sendResponse({content: text});
+		var links = linksPro();
+		sendResponse({content: text, links:links});
 		return true; // This is required by a Chrome Extension
 	}
 })
@@ -19,6 +20,16 @@ var dictArrays = []
 
 
 // Gets all the content on the page
+var linksPro = function() {
+	var links = [];
+	var html_list = document.getElementsByTagName('a');
+	for (var i=0; i<html_list.length;i++){
+	if(html_list[i].getAttribute('href') && html_list[i].innerText){links.push(html_list[i].innerText)}
+	}
+	return links;
+}
+
+
 function processPageText() {
     var everything = document.body.textContent.toLowerCase();//
     return everything;
@@ -34,3 +45,8 @@ document.addEventListener('click', function(clickEvent){
       console.log(response.farewell);
     });
 }, true);
+
+
+// ADDS an overlay
+
+//document.body.innerHTML += '<div style="position: fixed;width: 600px;height: 200px;left: 50%;top: 0%;margin-left: -300px; /*half the width*/opacity:0.3;z-index:100;color:#000;"><div> CLICK ME  </div></div>';

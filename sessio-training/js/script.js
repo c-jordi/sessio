@@ -1,11 +1,13 @@
-// Parent a
+// Parent
 var a_image = document.getElementById('parent_im');
+var a_fav = document.getElementById('parent_fav');
 var a_title = document.getElementById('parent_title');
 var a_url = document.getElementById('parent_url');
 var a_words = document.getElementById('parent_words');
 
-// Child brigthness(color)
+// Child
 var b_image = document.getElementById('child_im');
+var b_fav = document.getElementById('child_fav');
 var b_title = document.getElementById('child_title');
 var b_url = document.getElementById('child_url');
 var b_words = document.getElementById('child_words');
@@ -20,12 +22,13 @@ var noComm = document.getElementById('different');
 var database = firebase.database();
 
 
-var ref = database.ref('training1');
-ref.on('value', gotData, errData);
+var ref = database.ref('training');
+ref.once('value', gotData, errData);
 
 var trainingset={};
 var samples = []
 function gotData(data) {
+
     trainingset = data.val();
     console.log(trainingset);
     samples = Object.keys(trainingset);
@@ -37,19 +40,24 @@ function errData(err) {
     console.log("Error with Firebase Retrieving");
     console.log(err);
 }
-var currentSample = {score: [], result: 0};
+var currentSample = {};
 
 function displaySample() {
 
     if (samples.length >1){
         var sample_name = samples.pop();
+        console.log("samples length: ", samples.length);
+
         currentSample = trainingset[sample_name];
-        console.log("currentSample", currentSample);
+        currentSample.id = sample_name;
+        // console.log("currentSample", currentSample);
         delete trainingset[sample_name];
-        console.log("currentSample", currentSample);
-        console.log(trainingset);
+        console.log("delete sample ", trainingset[sample_name]);
+        // console.log("currentSample", currentSample);
         // a image
         a_image.src=currentSample.a_im;
+        a_fav.src=currentSample.a.favIconUrl;
+
         a_title.innerText = currentSample.a_title;
         a_url.innerText = currentSample.a_url.slice(0,50)+'...';
         var listWordsA ="";
@@ -60,6 +68,7 @@ function displaySample() {
 
         //  image
         b_image.src=currentSample.b_im;
+        b_fav.src=currentSample.b.favIconUrl;
         b_title.innerText = currentSample.b_title;
         b_url.innerText = currentSample.b_url.slice(0,50)+'...';
         var listWordsB ="";
@@ -67,28 +76,29 @@ function displaySample() {
             listWordsB += e.word + ", "
         })
         b_words.innerText = listWordsB;
-
+    }
+    else {
+        a_image.src="";
+        b_image.src="";
+        a_title.innerText = "NO MORE TRAINING";
+        b_title.innerText = "NO MORE TRAINING";
+        console.log("Trained ARR:", trainedArr);
     }
 }
 
 var trainedArr = [];
 function trainDone(value) {
 
-    var scorearr = currentSample.scorearray,
-        result;
     if (value == "true"){
-        result =1;
-        trainedArr.push({array: scorearr, result: result });
+        trainedArr.push({id: currentSample.id, output: 1});
     }
-    else if (value == "false") {
-        result =0;
-        trainedArr.push({array: scorearr, result: result });
+    else if(value == "false"){
+            trainedArr.push({id: currentSample.id, output: 0});
     }
-    console.log("Trained Obj: ", trainedArr);
-    displaySample();
 
+    displaySample();
 }
 
-    same.onclick = function () {console.log("Same Session")};
-    skip.onclick = function () {console.log("Skip decision")};
-    different.onclick = function () {console.log("Different Session")};
+sameSess.onclick= function (){trainDone("true")};
+notSess.onclick=  function (){trainDone("false")};
+noComm.onclick=  function (){displaySample()};

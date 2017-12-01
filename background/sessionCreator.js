@@ -86,6 +86,8 @@ function createEdgeArray (node1, node2) {
     //entry1 = entry1 / node2WordLength;
 
     // 2. Matching Url root
+        // Redo  using purl.js
+
     var entry2 = 0,
         root1a = node1.url.split(".")[0],
         root1b = node1.url.split(".")[1],
@@ -175,16 +177,21 @@ function passToTrain(edgeObj) {
                 var _el = edgeObj[e][f][g];
 
                 if (_el.b.image && _el.a.image) {
-                    firebase.database().ref('training1/' + Date.now()).set({
+                    var newPostRef = firebase.database().ref('training/').push();
+                    newPostRef.set({
+                        origin : userToken,
+                        a : _el.a,
                         a_title : _el.a.title,
                         a_url : _el.a.url,
                         a_words : _el.a.mainWords,
+                        b : _el.b,
                         b_words : _el.b.mainWords,
                         b_title : _el.b.title ,
                         b_url : _el.b.url,
                         a_im : _el.a.image,
                         b_im : _el.b.image,
-                        scorearray : _el.array
+                        scorearray : _el.array,
+                        trainedBy : []
                     });
                 }
             })

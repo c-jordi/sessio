@@ -5,42 +5,7 @@
         <title>Sessio - Training Ground</title>
         <link rel="stylesheet" href="css/style.css">
         <style>
-        .displaybox{
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            width: 800px;
-            height: 600px;
-            transform: translate(-50%,0);
-            background-color: grey;
-        }
 
-        .title{
-            position: absolute;
-            top: 0px;
-            left: 50%;
-            transform: translate(-50%,0);
-        }
-        .parent{
-            position: absolute;
-            top: 80px;
-            left: 40px;
-            width: 340px;
-            height: 450px;
-            background-color: white;
-            margin: auto;
-            text-align: center;
-        }
-        .child{
-            position: absolute;
-            top: 80px;
-            right: 40px;
-            width: 340px;
-            height: 450px;
-            background-color: white;
-            margin: auto;
-            text-align: center;
-        }
         img {
             display: block;
             margin: auto;
@@ -50,30 +15,40 @@
             margin-top: 10px;
             font-size: 10pt;
         }
-        .controls{
-            position: absolute;
-            top: 500px;
-            left: 50%;
-            transform: translate(-50%,0);
-        }
+
 
         </style>
     </head>
 <body>
 
+
         <div style="color:#D5DDE5;"> Session Training Ground </div>
+        <table class="table-fill">
+        <thead>
+        <tr>
+        <th class="text-center click" type="button" id="same">Same Session</th>
+        <th class="text-center click" type="button"id="skip">Skip</th>
+        <th class="text-center click" type="button"id="different">Different Session</th>
+        </tr>
+        </thead>
+        </table>
     <table class="table-fill">
     <thead>
     <tr>
-    <th class="text-left"><img id="parent_im" src="" style="width:250px;height:150px;"/></th>
-    <th class="text-right"><img id="child_im" src="" style="width:250px;height:150px;"/></th>
+    <th class="text-left"><img id="parent_im" src="" style="width:350px;height:200px;"/></th>
+    <th class="text-right"><img id="child_im" src="" style="width:350px;height:200px;"/></th>
     </tr>
     </thead>
     <tbody class="table-hover">
-    <tr>
-    <td class="text-left" id="parent_title">Parent</td>
-    <td class="text-right" id="child_title">Child</td>
-    </tr>
+        <tr>
+        <th class="text-left"><img id="parent_fav" src="" style="width:32px;height:32px;"/></th>
+        <th class="text-right"><img id="child_fav" src="" style="width:32px;height:32px;"/></th>
+        </tr>
+
+        <tr>
+            <td class="text-left" id="parent_title">Parent</td>
+            <td class="text-right" id="child_title">Child</td>
+        </tr>
     <tr>
     <td class="text-left" id="parent_url">Parent url</td>
     <td class="text-right" id="child_url">Child url</td>
@@ -82,7 +57,6 @@
     <td class="text-left" id="parent_words">Parent words</td>
     <td class="text-right" id="child_words">Child words</td>
     </tr>
-
 
 
 
@@ -99,15 +73,7 @@
     </tbody>
     </table>
 
-    <table class="table-fill">
-    <thead>
-    <tr>
-    <th class="text-center click" id="same">Same Session</th>
-    <th class="text-center click" id="skip">Skip</th>
-    <th class="text-center click" id="different">Different Session</th>
-    </tr>
-    </thead>
-    </table>
+
 
 
 
