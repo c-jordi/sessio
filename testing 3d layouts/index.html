@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+
+.chart rect {
+    fill: green;
+
+}
+
+.chart text {
+    fill: white;
+    font: 10px sans-serif;
+    text-anchor: end;
+}
+
+</style>
+<svg class="chart"></svg>
+<script src="../libs/lodash.js"> </script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+var sampleSession = {
+    name: "President Woodrow Wilson",
+    tags: ["wilson","president","whitehouse","ellen","usa","war","ww2"],
+    time: "12.09.2017",
+    nodes: [
+        {id:33, path:"0-0-0",title:"Google - Woodrow Wilson 14 point plan"},
+        {id:33, path:"0-0-0-0",title:"Whitehouse - Presidents"},
+        {id:33, path:"0-0-0-1",title:"Whitehouse - Woodrow Wilson"},
+        {id:33, path:"0-0-0-0-0",title:"Whitehouse - Eisenhower"},
+    ],
+    edges: [
+        {a: {id:33,path:"0-0-0"}, b:{id:33,path:"0-0-0-0"}},
+        {a: {id:33,path:"0-0-0"}, b:{id:33,path:"0-0-0-1"}},
+        {a: {id:33,path:"0-0-0-0"}, b:{id:33,path:"0-0-0-0-0"}}
+    ]
+}
+var data = [4, 8, 15, 16, 23, 42];
+
+
+var width = 960,
+height = 500,
+boxHeight =50,
+boxWidth = 50;
+
+var data = _.range(sampleSession.nodes.length);
+
+/*
+var x = d3.scaleLinear()
+    .domain([0, d3.max(data)])
+    .range([0, width]);
+
+var y = d3.scaleLinear()
+.range([height, 0]);
+*/
+
+var chart = d3.select(".chart")
+.attr("width", width)
+.attr("height", height);
+var box = chart.selectAll("g")
+.data(data)
+.enter().append("g")
+.attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
+
+bar.append("rect")
+.attr("width", x)
+.attr("height", barHeight - 1);
+
+bar.append("text")
+.attr("x", function(d) { return x(d) - 3; })
+.attr("y", barHeight / 2)
+.attr("dy", ".35em")
+.text(function(d) { return d; });
+
+</script>

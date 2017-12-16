@@ -7,12 +7,13 @@
 
   "background": {
     "scripts": ["libs/firebase.js",
+        "libs/lodash.js",
+        "libs/purl.js",
+        "libs/stemmer.js",
+        "libs/compromise.js",
         "background/background.js",
         "background/words.js",
-        "libs/lodash.js",
-        "background/sessionCreator.js",
-        "libs/purl.js"
-
+        "background/sessionCreator.js"
     ]
   },
 

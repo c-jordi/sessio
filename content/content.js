@@ -5,7 +5,8 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
         console.log(request);
         var text = processPageText();
 		var links = linksPro();
-		sendResponse({content: text, links:links});
+		var favIconUrl = document.querySelector("link[rel*='icon']").href;
+		sendResponse({content: text, links:links, favIcon: favIconUrl});
 		return true; // This is required by a Chrome Extension
 	}
 })

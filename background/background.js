@@ -1,6 +1,5 @@
 console.log('background loaded!');
 
-
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyC0-qht4R80QAzwyr9aDKb8mwiZ25IHQuY",
@@ -9,8 +8,8 @@ var config = {
     projectId: "sessio-jorday",
     storageBucket: "sessio-jorday.appspot.com",
     messagingSenderId: "1069349196958"
-  };
-  firebase.initializeApp(config);
+};
+firebase.initializeApp(config);
 
 
 
@@ -24,7 +23,7 @@ var globalDict = {addedIds: [], dict: {}};
 var initTabs = {}; //This is a simple fix to solve the recurring tabOpenerId problem
 var generalObject = {};
 var userToken ="";
-
+var activityObj = {last: {id: 0,path:0}};
 // Creating a unique user token
 
 function getRandomToken() {
@@ -62,9 +61,11 @@ function retrieveObjects () {
             globalDict = storedObj.globalDict;
             generalObject= storedObj;
         }
-
-        if(typeof(storedObj.idObject) !== 'undefined'){
+        if (storedObj.idObject!= undefined){
             idObject = storedObj.idObject;
+        }
+        if (storedObj.activityObj != undefined && storedObj.activityObj.last != undefined){
+            activityObj = storedObj.activityObj;
         }
     });
 }
@@ -81,17 +82,53 @@ function namingID(page) {
     dup.id = page.id + '-' + pageCount[page.id]
     return dup.id;
 }
+// use this in order to keep track of how much time the tabs are opened for
+chrome.tabs.onActivated.addListener(function (event){
+    //console.log(event)
+    updateActivity(event.tabId);
 
+});
 
+function updateActivity(tabId) {
+    if (idObject[tabId]!= undefined){
+        // console.log(idObject[tabId])
+        var _time = Date.now(),
+        _tabId = tabId,
+        _path = _.last(idObject[tabId]).path;
+
+        var lastTime = activityObj.last.time || _time,
+        lastId = activityObj.last.id || 0,
+        lastPath = activityObj.last.path || 0;
+
+        if (activityObj[lastId]!= undefined && activityObj[lastId][lastPath] != undefined){
+            activityObj[lastId][lastPath] += (_time-lastTime);
+        }
+        else if (activityObj[lastId]!= undefined) {
+            activityObj[lastId][lastPath]=(_time-lastTime);
+        }
+        else {
+            activityObj[lastId]= {},
+            activityObj[lastId][lastPath]=(_time-lastTime);
+
+        }
+        // console.log("We added ",_time-lastTime," to ", lastId, " of path ", lastPath );
+        // console.log("activityObj: ",activityObj);
+        activityObj.last.time = _time,
+        activityObj.last.id = _tabId,
+        activityObj.last.path = _path;
+    }
+}
 
 
 var pageChangeTime = [];
 chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
+
     // clickTestify(change, tabId);
     // Use the loading event that will not depend on the connection speed
     // to confirm if the click event has lead to a navigation event
+
     if (change.status == "complete") {
-        console.log(change, tab);
+        //console.log(change, tab);
         pageChangeTime.push(Date.now());
         var isRefreshed = checkForRefresh(tab.url, tab.id);
         if (!isRefreshed) {
@@ -100,8 +137,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
             var saveObj = {
                 id : tab.id,
                 status : "Completed",
-                favIconUrl : tab.favIconUrl,
-                // openerid : tab.openerTabId,
+                //favIconUrl : tab.favIconUrl,
+                //openerid : tab.openerTabId,
                 time : Date.now(),
                 title : tab.title,
                 url : tab.url,
@@ -112,91 +149,104 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
                 saveObj.openerid = tab.openerTabId;
             }
 
-            chrome.tabs.captureVisibleTab(null, {format: "jpeg", quality:7}, function (image){
-                saveObj.image = image;
-                nomenclatureId(saveObj);
-                //console.log("THE SAVED OBJECT : ", saveObj);
-
-                var text = "";
-                chrome.tabs.sendMessage(tabId, {content: "Gather the page text"}, function(response) {
-                    if(response) {
-                        var keptText= [];
-                        text = response.content.split(/\W+/);
-                        text.forEach( function (item, index, object) {
-                            var indexOf = words100list.indexOf(item);
-                            if (indexOf <0 && (hasNumbers(item)==false) && (item.length < 20)) { // word10000[item]!=undefined &&
-                                keptText.push(item);
-                            }
-                        })
-
-                        var texting_the = response.content.split("the ");
-                        var texting_a = response.content.split("a ");
-                        var texting_an = response.content.split("an ");
-                        var texting_to = response.content.split("to ");
 
 
-                        var links = response.links;
+            nomenclatureId(saveObj);
+            //console.log("THE SAVED OBJECT : ", saveObj);
+
+            var text = "";
+            chrome.tabs.sendMessage(tabId, {content: "Gather the page text"}, function(response) {
+                if(response) {
+                    saveObj.favIconUrl = tab.favIconUrl || response.favIcon;
+                    var keptText= [];
+                    text = response.content.split(/\W+/);
+                    text.forEach( function (item, index, object) {
+                        var indexOf = words100list.indexOf(item);
+                        if (indexOf <0 && (hasNumbers(item)==false) && (item.length < 20)) { // word10000[item]!=undefined &&
+                            keptText.push(item);
+                        }
+                    })
+
+                    var texting_the = response.content.split("the ");
+                    var texting_a = response.content.split("a ");
+                    var texting_an = response.content.split("an ");
+                    var texting_to = response.content.split("to ");
 
 
-                        var texting = _.concat(texting_the,texting_a,texting_an);
-                        var deterWords = [];
-                        texting.forEach(function (e) {
-                            deterWords.push(e.split(/\W+/)[0])
+                    var links = response.links;
+
+
+                    var texting = _.concat(texting_the,texting_a,texting_an);
+                    var deterWords = [];
+                    texting.forEach(function (e) {
+                        deterWords.push(e.split(/\W+/)[0])
+                    });
+                    _.remove(deterWords, function(n){
+                        return n == "";
+                    });
+                    deterWords = _.uniq(deterWords);
+                    deterWords.sort();
+                    saveObj.theWords = deterWords;
+
+
+                    var verbs = [];
+                    texting_to.forEach(function(e){
+                       verbs.push(e.split(/\W+/)[0])
+                    });
+
+                    verbs= _.uniq(verbs);
+                    verbs.sort();
+                    saveObj.verbs = verbs;
+                    // PORTER STEMMER IMPLEMENTATION
+                    var stemmerAr = [];
+                    keptText.forEach(function(el){
+                        var e = stemmer(el);
+                        if (_.includes(stemmerAr,e)== false){
+                        stemmerAr.push(e);}
+                    })
+                    stemmerAr.sort();
+                    saveObj.stemmer = stemmerAr;
+
+                    // ALSO SPLICE STRINGS OF NUMBERS
+                    // AND LIMIT THE TOTAL SIZE
+                    var identifier = saveObj.id + "/" + saveObj.path;
+                    var dictio = new textAnalysis(keptText,identifier);
+
+                    dictio.createDict();
+                    //console.log("Diction node: ", dictio);
+                    dictio.updateGlobal();
+
+                    calculateScore(dictio.keys,dictio.dict);
+                    scoreSort(dictio.keys,dictio.dict);
+                    var ar2 = dictio.keys.slice(0, 10);
+
+                    //console.log("Main Words: ",ar2);
+                    var wordList = [];
+                    ar2.forEach( function(e) {
+                        //console.log("Word: ", e, " Score :", dictio.dict[e].score, "Count :", dictio.dict[e].count)
+                        var wordObj = {word: e, score: dictio.dict[e].score, count: dictio.dict[e].count};
+                        wordList.push(wordObj);
+                    })
+
+                    saveObj.mainWords = wordList;
+                    _.remove(links, function(n){return n=="" || n== " "})
+                    saveObj.links = links;
+                    updateActivity(saveObj.id);
+                    addClickText(saveObj);
+                    // console.log("New Obj", saveObj);
+                    chrome.tabs.detectLanguage(tab.id,function (lang){
+                        console.log("Language has been detected ", lang);
+                        saveObj.lang = lang;
+                        chrome.tabs.captureVisibleTab(tab.windowId, {format: "jpeg", quality:7}, function (image){
+                            if (image) {saveObj.image = image};
+                            pushNewPage(saveObj);
                         });
-                        _.remove(deterWords, function(n){
-                            return n == "";
-                        });
-                        saveObj.theWords = deterWords;
+                    })
 
 
-                        var texting_ing = response.content.split(/\W+/);
-                        _.remove(texting_ing, function(n){
-                            return !(n.endsWith('ing'));
-                        });
-                        _.remove(texting_ing, function(n){
-                            return n == "padding";
-                        });
+                }
+            })
 
-                        var verbs = [];
-                        texting_to.forEach(function(e){
-                            verbs.push(e.split(/\W+/)[0])
-                        });
-
-                        verbs = _.concat(verbs, texting_ing);
-
-                        saveObj.verbs = verbs;
-
-                        // ALSO SPLICE STRINGS OF NUMBERS
-                        // AND LIMIT THE TOTAL SIZE
-                        var identifier = saveObj.id + "/" + saveObj.path;
-                        var dictio = new textAnalysis(keptText,identifier);
-
-                        dictio.createDict();
-                        //console.log("Diction node: ", dictio);
-                        dictio.updateGlobal();
-
-                        calculateScore(dictio.keys,dictio.dict);
-                        scoreSort(dictio.keys,dictio.dict);
-                        var ar2 = dictio.keys.slice(0, 10);
-
-                        //console.log("Main Words: ",ar2);
-                        var wordList = [];
-                        ar2.forEach( function(e) {
-                            //console.log("Word: ", e, " Score :", dictio.dict[e].score, "Count :", dictio.dict[e].count)
-                            var wordObj = {word: e, score: dictio.dict[e].score, count: dictio.dict[e].count};
-                            wordList.push(wordObj);
-                        })
-
-                        saveObj.mainWords = wordList;
-                        _.remove(links, function(n){return n=="" || n== " "})
-                        saveObj.links = links;
-
-                        addClickText(saveObj);
-                        // console.log("New Obj", saveObj);
-                        pushNewPage(saveObj);
-                    }
-                })
-            });
         }
     }
 });
@@ -249,7 +299,7 @@ chrome.tabs.onRemoved.addListener(function (tabId, info) {
     }
     //console.log("The OBJECT:",saveObj);
     nomenclatureId(saveObj);
-    pushNewPage(saveObj);
+    //pushNewPage(saveObj);
 });
 
 
@@ -271,10 +321,12 @@ function pushNewPage(pageObj) {
             storedObj["pages"].push(pageObj);
             storedObj["globalDict"] = globalDict;
             storedObj["idObject"] = idObject;
+            storedObj["activityObj"]=activityObj;
         } else {
             storedObj["pages"] = [pageObj];
             storedObj["globalDict"] = globalDict;
             storedObj["idObject"] = idObject;
+            storedObj["activityObj"]=activityObj;
         }
         generalObject = storedObj;
         chrome.storage.local.set(storedObj);
@@ -370,6 +422,20 @@ function scoreSort(keys,dict) {
     });
 }
 
+function createWordKeys() {
+    this.words.forEach( function(word){
+        if (validate(word)){
+            if (dict[word] == undefined) {
+                dict[word] = {};
+                dict[word].count = 1;
+                dict[word].word = word;
+                keys.push(word);
+            } else {
+                dict[word].count++;
+            }
+        }
+    });
+}
 
 
 chrome.browserAction.onClicked.addListener(function (tab) {
