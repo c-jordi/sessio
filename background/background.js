@@ -218,7 +218,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
 
                     calculateScore(dictio.keys,dictio.dict);
                     scoreSort(dictio.keys,dictio.dict);
-                    var ar2 = dictio.keys.slice(0, 10);
+                    var ar2 = dictio.keys.slice(0, 30);
 
                     //console.log("Main Words: ",ar2);
                     var wordList = [];
@@ -258,16 +258,18 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
 var clickActions = [0];
 chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
     //console.log("Received The Click");
-    var clickObj = {time: Date.now(), text: message.click.text, tabId: sender.tab.id };
+
+    var clickObj = {time: Date.now(), text: message.click.text, tabId: sender.tab.id, href:message.click.link};
     clickActions.push(clickObj);
     // console.log("Received Text:", clickObj.text);
     sendResponse({farewell:"Click Received"});
 });
 
+// Correct this
 function addClickText (pageObj) {
     var lastClickEntry = clickActions.pop();
     if (lastClickEntry && lastClickEntry.tabId) {
-        if (pageObj.id == lastClickEntry.tabId){
+        if (pageObj.id == lastClickEntry.tabId && pageObj.url == lastClickEntry.href){
             pageObj.clicktext = lastClickEntry.text;
             console.log("Click text has been added");
         }

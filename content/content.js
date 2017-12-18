@@ -37,10 +37,17 @@ function processPageText() {
 }
 
 document.addEventListener('click', function(clickEvent){
+	console.log(clickEvent)
 	console.log("text :",clickEvent.path[0].innerText);
 	var clickObj = {
 		text : clickEvent.path[0].innerText
 	};
+	var pathLen = clickEvent.path.length;
+	for (var j = 0; j<pathLen; j++){
+		if (clickEvent.path[j].href != undefined){
+			clickObj.link=clickEvent.path[j].href;
+		}
+	}
 
     chrome.runtime.sendMessage({click: clickObj}, function(response) {
       console.log(response.farewell);

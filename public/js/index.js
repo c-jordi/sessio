@@ -14,10 +14,6 @@ window.addEventListener('load', function () {
         pages = results.pages;
 
         var ObjNodes = processNodes(pages);
-        console.log("The Nodes:", ObjNodes);
-
-
-        console.log(ObjNodes);
         drawGraph(ObjNodes);
 
 

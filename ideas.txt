@@ -1,0 +1,18 @@
+// In order to open a new window with the visualization of a session
+
+window.open('/pageaddress.html','winname','directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=400,height=350');
+
+
+// In order to size the main window from the background page
+
+chrome.windows.getCurrent(function(wind) {
+alert(wind.id);
+var maxWidth = window.screen.availWidth;
+var maxHeight = window.screen.availHeight;
+var updateInfo = {
+    left: 0,
+    top: 0,
+    width: maxWidth-300,
+    height: maxHeight
+};
+chrome.windows.update(wind.id, updateInfo);});

@@ -8,10 +8,15 @@ height = svg.attr("height");
 
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 
+const forceX = d3.forceX(width / 2).strength(0.05)
+const forceY = d3.forceY(height / 2).strength(0.05)
+
 var simulation = d3.forceSimulation()
   .force("link", d3.forceLink().id(function(d) { return d.id; }))
   .force("charge", d3.forceManyBody())
-  .force("center", d3.forceCenter(width / 2, height / 2));
+  .force("center", d3.forceCenter(width / 2, height / 2))
+  .force('x', forceX)
+  .force('y',  forceY);
 
 function drawGraph(graph) {
 
@@ -147,14 +152,14 @@ function processNodes(pages) {
       edges.push({
         source : page.id + '-' + (pageCount[page.id] - 1),
         target : dup.id,
-        value : 1
+        value : Math.random()*10
       })
     } else {
       if (page.openerTabId && pageCount[page.openerTabId]) {
         edges.push({
           source : page.openerTabId + '-' + pageCount[page.openerTabId],
           target : dup.id,
-          value : 1
+          value : Math.random()*10
         })
       }
     }
