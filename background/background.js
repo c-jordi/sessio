@@ -258,6 +258,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
 var clickActions = [0];
 chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
     //console.log("Received The Click");
+    // console.log("message:", message);
 
     var clickObj = {time: Date.now(), text: message.click.text, tabId: sender.tab.id, href:message.click.link};
     clickActions.push(clickObj);
@@ -269,9 +270,16 @@ chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
 function addClickText (pageObj) {
     var lastClickEntry = clickActions.pop();
     if (lastClickEntry && lastClickEntry.tabId) {
-        if (pageObj.id == lastClickEntry.tabId && pageObj.url == lastClickEntry.href){
-            pageObj.clicktext = lastClickEntry.text;
-            console.log("Click text has been added");
+        if (pageObj.id == lastClickEntry.tabId) {
+            for (var j=0; j<lastClickEntry.href.length;j++){
+                var href = lastClickEntry.href[j];
+                if (href == pageObj.url){
+                    pageObj.clicktext = lastClickEntry.text;
+                    // console.log("Click text has been added");
+                    break;
+                }
+            }
+
         }
     }
 }

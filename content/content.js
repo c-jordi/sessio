@@ -37,15 +37,16 @@ function processPageText() {
 }
 
 document.addEventListener('click', function(clickEvent){
-	console.log(clickEvent)
-	console.log("text :",clickEvent.path[0].innerText);
+	// console.log(clickEvent)
+	// console.log("text :",clickEvent.path[0].innerText);
 	var clickObj = {
-		text : clickEvent.path[0].innerText
+		text : clickEvent.path[0].innerText,
+		link : []
 	};
 	var pathLen = clickEvent.path.length;
 	for (var j = 0; j<pathLen; j++){
 		if (clickEvent.path[j].href != undefined){
-			clickObj.link=clickEvent.path[j].href;
+			clickObj.link.push(clickEvent.path[j].href);
 		}
 	}
 

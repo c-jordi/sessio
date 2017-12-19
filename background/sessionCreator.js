@@ -17,6 +17,7 @@ var allEdges = {}; // this object stores all the edges of the tree
 function findEdges () {
     generalObject.pages.forEach(function (e){
         var pathString = e.path,
+            pathId = e.id,
             lastIndex = pathString.lastIndexOf("-");
 
         var parentPath = "",
@@ -37,20 +38,12 @@ function findEdges () {
             generalObject.pages.forEach(function (f){
                 if (f.id == tabid && f.path == parentPath) {
 
-                        var linkage = new sessionEdge(f,e);
+                    var linkage = new sessionEdge(f,e);
+                    if (allEdges[tabid] == undefined){allEdges[tabid]={}};
+                    if (allEdges[tabid][parentPath] == undefined) {allEdges[tabid][parentPath]={}};
+                    if (allEdges[tabid][parentPath][pathId] == undefined){allEdges[tabid][parentPath][pathId]={}};
+                    allEdges[tabid][parentPath][pathId][pathString] = linkage;
 
-                        if (allEdges[tabid] == undefined) {
-                            allEdges[tabid]={},
-                            allEdges[tabid][parentPath]={},
-                            allEdges[tabid][parentPath][pathString] = linkage;
-                        }
-                        else if (allEdges[tabid][parentPath] == undefined) {
-                            allEdges[tabid][parentPath]={},
-                            allEdges[tabid][parentPath][pathString] = linkage;
-                        }
-                        else {
-                            allEdges[tabid][parentPath][pathString] = linkage;
-                        }
                 }
             })
         }
@@ -64,11 +57,10 @@ function sessionEdge(node1,node2) {
     this.a = node1;
     this.b = node2;
     this.array = createEdgeArray(node1, node2);
-    this.score = 0; // the score goes from 0 to 1
 }
 
 
-function createEdgeArray (node1, node2) {
+function createEdgeArray (node1, node2, clicktext = true) {
     var linkArray = [];
     // This function is used to build the link array used in the link score
     // We assume that node 1 is the parent
@@ -76,36 +68,35 @@ function createEdgeArray (node1, node2) {
 
 
 
-    // 2. Matching Url root
+    // 1. Matching Url root
         // Redo  using purl.js
 
-    var entry2 = 0,
-        root1a = node1.url.split(".")[0],
-        root1b = node1.url.split(".")[1],
-        root2a = node2.url.split(".")[0],
-        root2b = node2.url.split(".")[1];
+    var entry1 = 0;
 
-    if (_.includes(root1a,root2a) || _.includes(root2b,root1b) || _.includes(root1b,root2b) || _.includes(root2a,root1a)){
-        entry2 = 1;
+    var purl1 = purl(node1.url).data.attr,
+        purl2 = purl(node2.url).data.attr;
+
+    if (purl1.host == purl2.host){
+        entry1 = 1;
+    }
+
+    linkArray.push(entry1)
+
+    // 2. Check if Clicktext, if the openerid matches
+    var entry2 = 0;
+
+    // Cancels this portion of code if the two nodes are randomly connected
+    if(clicktext){
+        if (node2.openerid == node1.id) {
+            if (node2.clicktext != undefined && node2.clicktext != "") {
+                entry2 = 1;
+            }
+        }
     }
     linkArray.push(entry2);
 
-    // 3. Opener Tab present
-    var entry3 = 0;
-    if (node2.openerid != undefined) {
-        entry3 = 1;
-    }
-    linkArray.push(entry3);
 
-    // 4. Click text
-    var entry4 = 0;
-    if (node2.clicktext != undefined && node2.clicktext != "") {
-        entry4 = 1;
-    }
-
-    linkArray.push(entry4);
-
-    // 5. Main Words vs Main words
+    // 3. Main Words vs Main words
     var main1 = [],
         main2 = [];
     node1.mainWords.forEach( function(e){
@@ -119,11 +110,11 @@ function createEdgeArray (node1, node2) {
     main2.sort();
     linkArray.push(similarity(main1,main2));
 
-    // 6. TheWords vs theWords
+    // 4. TheWords vs theWords
 
     linkArray.push(similarity(node1.theWords,node2.theWords));
 
-    // 7. Stemmer vs Stemmer
+    // 5. Stemmer vs Stemmer
     linkArray.push(similarity(node1.stemmer,node2.stemmer));
 
 
@@ -222,36 +213,40 @@ function session(){
 
 function passToTrain(edgeObj) {
     var counter = 0;
-    var tabList = Object.keys(edgeObj);
+    var tab1List = Object.keys(edgeObj);
     console.log("Pass to train function called");
-    tabList.forEach (function (e) {
-        var parentList = Object.keys(edgeObj[e]);
-        parentList.forEach(function (f) {
-            var childList = Object.keys(edgeObj[e][f]);
-            childList.forEach( function (g) {
-                counter++;
-                var _el = edgeObj[e][f][g];
-
-                if (true) { //_el.b.image && _el.a.image
-                    var newPostRef = firebase.database().ref('training/').push();
-                    newPostRef.set({
-                        origin : userToken,
-                        // a : _el.a,
-                        a_favIconUrl : _el.a.favIconUrl,
-                        a_title : _el.a.title,
-                        a_url : _el.a.url,
-                        a_words : _el.a.mainWords,
-                        // b : _el.b,
-                        b_favIconUrl : _el.b.favIconUrl,
-                        b_words : _el.b.mainWords,
-                        b_title : _el.b.title ,
-                        b_url : _el.b.url,
-                        a_im : _el.a.image,
-                        b_im : _el.b.image,
-                        scorearray : _el.array,
-                        trainedBy : []
-                    });
-                }
+    tab1List.forEach (function (e) {
+        var path1List = Object.keys(edgeObj[e]);
+        path1List.forEach(function (f) {
+            var tab2List = Object.keys(edgeObj[e][f]);
+            var strict = 0;
+            tab2List.forEach( function (g) {
+                var path2List = Object.keys(edgeObj[e][f][g]);
+                path2List.forEach(function(h){
+                    counter++;
+                    var _el = edgeObj[e][f][g][h];
+                    if (strict<100 && _el.b.image && _el.a.image) { //
+                        var newPostRef = firebase.database().ref('training/').push();
+                        newPostRef.set({
+                            origin : userToken,
+                            // a : _el.a,
+                            a_favIconUrl : _el.a.favIconUrl,
+                            a_title : _el.a.title,
+                            a_url : _el.a.url,
+                            a_words : _el.a.mainWords,
+                            // b : _el.b,
+                            b_favIconUrl : _el.b.favIconUrl,
+                            b_words : _el.b.mainWords,
+                            b_title : _el.b.title ,
+                            b_url : _el.b.url,
+                            a_im : _el.a.image,
+                            b_im : _el.b.image,
+                            scorearray : _el.array,
+                            trainedBy : []
+                        });
+                        strict++;
+                    }
+                })
             })
         })
     })
@@ -263,24 +258,38 @@ function passToTrain(edgeObj) {
         var _el = {};
         _el.a=generalObject.pages[ran1],
         _el.b=generalObject.pages[ran2];
-        _el.array= createEdgeArray (_el.a, _el.b);
-        var newPostRef = firebase.database().ref('training/').push();
-        newPostRef.set({
-            origin : userToken,
-            // a : _el.a,
-            a_favIconUrl : _el.a.favIconUrl,
-            a_title : _el.a.title,
-            a_url : _el.a.url,
-            a_words : _el.a.mainWords,
-            // b : _el.b,
-            b_favIconUrl : _el.b.favIconUrl,
-            b_words : _el.b.mainWords,
-            b_title : _el.b.title ,
-            b_url : _el.b.url,
-            a_im : _el.a.image,
-            b_im : _el.b.image,
-            scorearray : _el.array,
-            trainedBy : []
-        });
+
+        if (checkNotRelated(_el.a,_el.b)){
+            _el.array= createEdgeArray (_el.a, _el.b, false);
+            var newPostRef = firebase.database().ref('training/').push();
+            newPostRef.set({
+                origin : userToken,
+                // a : _el.a,
+                a_favIconUrl : _el.a.favIconUrl,
+                a_title : _el.a.title,
+                a_url : _el.a.url,
+                a_words : _el.a.mainWords,
+                // b : _el.b,
+                b_favIconUrl : _el.b.favIconUrl,
+                b_words : _el.b.mainWords,
+                b_title : _el.b.title ,
+                b_url : _el.b.url,
+                a_im : _el.a.image,
+                b_im : _el.b.image,
+                scorearray : _el.array,
+                trainedBy : []
+            });
+        }
     }
+}
+
+function checkNotRelated(node_a, node_b){
+    var check = true;
+    if (allEdges[node_a.id] && allEdges[node_a.id][node_a.path] && allEdges[node_a.id][node_a.path][node_b.id] && allEdges[node_a.id][node_a.path][node_b.id][node_b.path]){
+        check=false;
+    }
+    if (allEdges[node_b.id] && allEdges[node_b.id][node_b.path] && allEdges[node_b.id][node_b.path][node_a.id] && allEdges[node_b.id][node_b.path][node_a.id][node_a.path]){
+        check=false;
+    }
+    return check;
 }

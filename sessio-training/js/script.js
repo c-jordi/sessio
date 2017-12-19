@@ -82,6 +82,8 @@ function displaySample() {
     else {
         a_image.src="";
         b_image.src="";
+        a_fav.src="";
+        b_fav.src="";
         a_title.innerText = "NO MORE TRAINING";
         b_title.innerText = "NO MORE TRAINING";
         console.log("Trained ARR:", trainedArr);
@@ -91,14 +93,14 @@ function displaySample() {
 
 var trainedArr = [];
 function trainDone(value) {
-    console.log("trained wascalled")
+    console.log("trained was called")
     if (value == "true"){
         console.log("true");
-        trainedArr.push({id: currentSample.id,scorearray:currentSample.scorearray, output: 1});
+        trainedArr.push({id: currentSample.id,scorearray:currentSample.scorearray, output: 1, alt: currentSample.a_title + ' / '+ currentSample.b_title });
     }
     else if(value == "false"){
         console.log("false");
-        trainedArr.push({id: currentSample.id,scorearray:currentSample.scorearray, output: 0});
+        trainedArr.push({id: currentSample.id,scorearray:currentSample.scorearray, output: 0, alt: currentSample.a_title + ' / '+ currentSample.b_title });
     }
 
     displaySample();
