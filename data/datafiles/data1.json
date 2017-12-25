@@ -1,0 +1,248 @@
+{
+  "-L0iZtt-dbZj0E9kmLWH" : {
+    "alt" : "Oberlo Success Stories - Every Journey Starts with a Single Step / Looking For Business Ideas? – 20 Amazing Startup Ideas for 2018 | Oberlo",
+    "id" : "-L0iUNhxJNvlMWiughaq",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0, 0.5641025641025641, 0.859375 ]
+  },
+  "-L0iZtt2K2BdRv_beanv" : {
+    "alt" : "Oberlo Success Stories - Every Journey Starts with a Single Step / nlp-compromise/compromise: natural language processing, in javascript",
+    "id" : "-L0iUNhlmNMwmq3dzmnn",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.05555555555555555, 0.22247706422018348 ]
+  },
+  "-L0iZtt3i2oW7NWZBvpl" : {
+    "alt" : "Looking For Business Ideas? – 20 Amazing Startup Ideas for 2018 | Oberlo / Oberlo Success Stories - Every Journey Starts with a Single Step",
+    "id" : "-L0iUNhiwzLhSyaJCj-R",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0, 0.5641025641025641, 0.859375 ]
+  },
+  "-L0iZtt4IxfQW5CADJOQ" : {
+    "alt" : "Looking For Business Ideas? – 20 Amazing Startup Ideas for 2018 | Oberlo / Looking For Business Ideas? – 20 Amazing Startup Ideas for 2018 | Oberlo",
+    "id" : "-L0iUNhZDOZtLoD6fLsq",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L0if5YrMS7hYLUJHfwg" : {
+    "alt" : "Facebook / pause js - Google Search",
+    "id" : "-L0ie9G6q0M81UL5XW88",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.06666666666666667, 0.1789587852494577 ]
+  },
+  "-L0if5YzfgGAIVqfMOPs" : {
+    "alt" : "(6) Introduction to D3 - YouTube / Notifications status · nlp-compromise/compromise",
+    "id" : "-L0ie9FxAcfreDeB4oSS",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0, 0.4393939393939394 ]
+  },
+  "-L0if5Z-63PAQkfJnf2P" : {
+    "alt" : "Is there a Sleep/Pause/Wait function in JavaScript? - Stack Overflow / Is there a Sleep/Pause/Wait function in JavaScript? - Stack Overflow",
+    "id" : "-L0ie9FsUmHE5rriSdgw",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L0if5Z0pKACd0N7-IQo" : {
+    "alt" : "jordaycs/sessio / pause js - Google Search",
+    "id" : "-L0ie9Fq-lBftdOTXrHf",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0, 0.40350877192982454 ]
+  },
+  "-L0if5Z1d8Z86O3ba7sl" : {
+    "alt" : "delay hs - Google Search / delay hs - Google Search",
+    "id" : "-L0ie9FmH5_6uAz95s-e",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L0if5Z1d8Z86O3ba7sm" : {
+    "alt" : "Cheap flights from Montreal to Panama City at Skyscanner / firebase - Google Search",
+    "id" : "-L0ie9FeXbrKLmi-jGbL",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.038461538461538464, 0.2553699284009546 ]
+  },
+  "-L0if5Z2Az0MiZVb4kuh" : {
+    "alt" : "delay js - Google Search / Looking For Business Ideas? – 20 Amazing Startup Ideas for 2018 | Oberlo",
+    "id" : "-L0ie9FY2N01AURNKwDx",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.21621621621621623, 0.2973944294699012 ]
+  },
+  "-L0if5Z2Az0MiZVb4kui" : {
+    "alt" : "jordaycs (Jorday) / jordaycs/sessio",
+    "id" : "-L0ie9FQaL9oxQgyVUVU",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.1, 0, 0.40350877192982454 ]
+  },
+  "-L0if5Z2Az0MiZVb4kuj" : {
+    "alt" : "pause js - Google Search / Is there a Sleep/Pause/Wait function in JavaScript? - Stack Overflow",
+    "id" : "-L0ie9FLqa1aZY8LEUTi",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.23333333333333334, 0.39819004524886875 ]
+  },
+  "-L0if5Z3wPDe4crTsUT1" : {
+    "alt" : "delay hs - Google Search / delay js - Google Search",
+    "id" : "-L0ie9FIIklO13hSM_I3",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9333333333333333, 0.43243243243243246, 0.9343715239154616 ]
+  },
+  "-L0if5Z3wPDe4crTsUT2" : {
+    "alt" : "setTimeout - Google Search / delay hs - Google Search",
+    "id" : "-L0ie9FDrxyR4zuz43FM",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9333333333333333, 0.40476190476190477, 0.9119394921663966 ]
+  },
+  "-L0if5Z4QJd2Lv5wxMwg" : {
+    "alt" : "setTimeout - Google Search / Window setTimeout() Method",
+    "id" : "-L0ie9FAaZi8yE__oXCA",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.42424242424242425, 0.5747422680412371 ]
+  },
+  "-L0if5Z4QJd2Lv5wxMwh" : {
+    "alt" : "settimeout - Execute script after specific delay using JavaScript - Stack Overflow / pause js - Google Search",
+    "id" : "-L0ie9F5oiVKxDXU_xEZ",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.26666666666666666, 0.35480225988700564 ]
+  },
+  "-L0if5Z5jWle0MMxN0XF" : {
+    "alt" : "settimeout - Execute script after specific delay using JavaScript - Stack Overflow / setTimeout - Google Search",
+    "id" : "-L0ie9F2yy4oEAEIncYL",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.3148148148148148, 0.36610169491525424 ]
+  },
+  "-L0if5Z6IiJDkUi0n5vY" : {
+    "alt" : "js delay - Google Search / settimeout - Execute script after specific delay using JavaScript - Stack Overflow",
+    "id" : "-L0ie9EzbohK05RHKL35",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.36666666666666664, 0.3581920903954802 ]
+  },
+  "-L0if5Z6IiJDkUi0n5vZ" : {
+    "alt" : "nlp-compromise/compromise: natural language processing, in javascript / Notifications status · nlp-compromise/compromise",
+    "id" : "-L0ie9Ewk0Uuw5hZ0opa",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.16666666666666666, 0, 0.7878787878787878 ]
+  },
+  "-L0if5Z7eqBJpmvwC9Wn" : {
+    "alt" : "Oberlo Success Stories - Every Journey Starts with a Single Step / nlp-compromise/compromise: natural language processing, in javascript",
+    "id" : "-L0ie9EuikKeVibfl-te",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.05555555555555555, 0.22247706422018348 ]
+  },
+  "-L0if5Z7eqBJpmvwC9Wo" : {
+    "alt" : "Looking For Business Ideas? – 20 Amazing Startup Ideas for 2018 | Oberlo / Oberlo Success Stories - Every Journey Starts with a Single Step",
+    "id" : "-L0ie9EpoovHXF9jSuye",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0, 0.5641025641025641, 0.859375 ]
+  },
+  "-L0if5Z8VAyjKSgFXwUK" : {
+    "alt" : "Looking For Business Ideas? – 20 Amazing Startup Ideas for 2018 | Oberlo / Looking For Business Ideas? – 20 Amazing Startup Ideas for 2018 | Oberlo",
+    "id" : "-L0ie9Ekas6ktUt4tYjW",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L0if5Z8VAyjKSgFXwUL" : {
+    "alt" : "(6) Introduction to D3 - YouTube / (6) YouTube",
+    "id" : "-L0ie9Eha_P1vwnNEdds",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9333333333333333, 1, 1 ]
+  },
+  "-L0if5Z995l0JQ1tPRTQ" : {
+    "alt" : "Introduction to D3 - YouTube / (6) Introduction to D3 - YouTube",
+    "id" : "-L0ie9EdiG2iyyXjJ1ax",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9980372914622179 ]
+  },
+  "-L0if5Z995l0JQ1tPRTR" : {
+    "alt" : "Facebook / Introduction to D3 - YouTube",
+    "id" : "-L0ie9EVPlOBqSyAyvaJ",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0, 0.21197252208047104 ]
+  },
+  "-L0if5Z995l0JQ1tPRTS" : {
+    "alt" : "jordaycs (Jorday) / jordaycs/sessio",
+    "id" : "-L0idyN7J2yxFd5byAW3",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.1, 0, 0.40350877192982454 ]
+  },
+  "-L0if5ZAbtqVnuZKorgb" : {
+    "alt" : "pause js - Google Search / Is there a Sleep/Pause/Wait function in JavaScript? - Stack Overflow",
+    "id" : "-L0idyN2pS2dsiVtM13b",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.23333333333333334, 0.39819004524886875 ]
+  },
+  "-L0if5ZAbtqVnuZKorgc" : {
+    "alt" : "delay hs - Google Search / delay js - Google Search",
+    "id" : "-L0idyMxfoCTQnA59XII",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9333333333333333, 0.43243243243243246, 0.9343715239154616 ]
+  },
+  "-L0if5ZAbtqVnuZKorgd" : {
+    "alt" : "setTimeout - Google Search / delay hs - Google Search",
+    "id" : "-L0idyMq3HrN8u7c7jH5",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9333333333333333, 0.40476190476190477, 0.9119394921663966 ]
+  },
+  "-L0if5ZBB9dC5lRNSmYo" : {
+    "alt" : "setTimeout - Google Search / Window setTimeout() Method",
+    "id" : "-L0idyMjeDwDJm0tIvaq",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.42424242424242425, 0.5747422680412371 ]
+  },
+  "-L0if5ZBB9dC5lRNSmYp" : {
+    "alt" : "settimeout - Execute script after specific delay using JavaScript - Stack Overflow / pause js - Google Search",
+    "id" : "-L0idyMf6DNWWVsF1CwU",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.26666666666666666, 0.35480225988700564 ]
+  },
+  "-L0if5ZBB9dC5lRNSmYq" : {
+    "alt" : "settimeout - Execute script after specific delay using JavaScript - Stack Overflow / setTimeout - Google Search",
+    "id" : "-L0idyMZEqWkAkhrHN-K",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.3148148148148148, 0.36610169491525424 ]
+  },
+  "-L0if5ZCFRo5Kk56a-0D" : {
+    "alt" : "js delay - Google Search / settimeout - Execute script after specific delay using JavaScript - Stack Overflow",
+    "id" : "-L0idyMUSLhVP7aN2X5o",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.36666666666666664, 0.3581920903954802 ]
+  },
+  "-L0if5ZD_nesRHmtcLXY" : {
+    "alt" : "nlp-compromise/compromise: natural language processing, in javascript / Notifications status · nlp-compromise/compromise",
+    "id" : "-L0idyMQruQg9VOGefon",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.16666666666666666, 0, 0.7878787878787878 ]
+  },
+  "-L0if5ZD_nesRHmtcLXZ" : {
+    "alt" : "Oberlo Success Stories - Every Journey Starts with a Single Step / nlp-compromise/compromise: natural language processing, in javascript",
+    "id" : "-L0idyMMjLNGMGhFIjZW",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.05555555555555555, 0.22247706422018348 ]
+  },
+  "-L0if5ZD_nesRHmtcLX_" : {
+    "alt" : "Looking For Business Ideas? – 20 Amazing Startup Ideas for 2018 | Oberlo / Oberlo Success Stories - Every Journey Starts with a Single Step",
+    "id" : "-L0idyMGFgC0VtlZ-Xwh",
+    "output" : 0,
+    "scorearray" : [ 1, 0, 0, 0.5641025641025641, 0.859375 ]
+  },
+  "-L0if5ZEYn2aorfJcyOM" : {
+    "alt" : "Looking For Business Ideas? – 20 Amazing Startup Ideas for 2018 | Oberlo / Looking For Business Ideas? – 20 Amazing Startup Ideas for 2018 | Oberlo",
+    "id" : "-L0idyMBG75p0ax8PfZr",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L0if5ZEYn2aorfJcyON" : {
+    "alt" : "(6) Introduction to D3 - YouTube / (6) YouTube",
+    "id" : "-L0idyM6yZU-4xjSu9Av",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9333333333333333, 1, 1 ]
+  },
+  "-L0if5ZEYn2aorfJcyOO" : {
+    "alt" : "Introduction to D3 - YouTube / (6) Introduction to D3 - YouTube",
+    "id" : "-L0idyM1NWPcb92BJse9",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9980372914622179 ]
+  },
+  "-L0if5ZFvZbfA8Xa35D9" : {
+    "alt" : "Facebook / Introduction to D3 - YouTube",
+    "id" : "-L0idyLsHe8w_7KzgNKw",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0, 0.21197252208047104 ]
+  }
+}

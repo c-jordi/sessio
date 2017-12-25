@@ -203,6 +203,7 @@ function session(){
     this.nodes = []; // Every Node has a description
     this.edges = []; // Contains the sessionedge Object
 
+    var _this = this;
     // Methods
     this.size = function (){
         var length= this.nodes.length;
@@ -210,6 +211,20 @@ function session(){
     }
 
 }
+
+// Creation of a test session for the display
+var session1 = new session();
+session1.title = "Trip to Costa Rica";
+session1.desc = "Compiles all the research done to plan the trip that will take place in Costa Rica in 2018";
+session1.date.start = "12.10.2017";
+session1.date.end = "14.10.2017";
+    // The nodes
+
+    
+
+
+
+
 
 function passToTrain(edgeObj) {
     var counter = 0;
@@ -244,6 +259,7 @@ function passToTrain(edgeObj) {
                             scorearray : _el.array,
                             trainedBy : []
                         });
+
                         strict++;
                     }
                 })

@@ -1,7 +1,9 @@
+var description = "content script";
+
 var listWords = document.body.innerText.split(/ |\n/).filter(function (word){return word.length})
 
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
-	if(request.content) {
+	if(request.fn = "gatherText") {
         console.log(request);
         var text = processPageText();
 		var links = linksPro();
@@ -50,7 +52,7 @@ document.addEventListener('click', function(clickEvent){
 		}
 	}
 
-    chrome.runtime.sendMessage({click: clickObj}, function(response) {
+    chrome.runtime.sendMessage({obj: "clickObj", click: clickObj}, function(response) {
       console.log(response.farewell);
     });
 }, true);

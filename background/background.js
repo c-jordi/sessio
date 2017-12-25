@@ -1,7 +1,8 @@
 console.log('background loaded!');
+var description = "background page";
 
 // Initialize Firebase
-var config = {
+var configFire = {
     apiKey: "AIzaSyC0-qht4R80QAzwyr9aDKb8mwiZ25IHQuY",
     authDomain: "sessio-jorday.firebaseapp.com",
     databaseURL: "https://sessio-jorday.firebaseio.com",
@@ -9,7 +10,7 @@ var config = {
     storageBucket: "sessio-jorday.appspot.com",
     messagingSenderId: "1069349196958"
 };
-firebase.initializeApp(config);
+firebase.initializeApp(configFire);
 
 
 
@@ -24,6 +25,7 @@ var initTabs = {}; //This is a simple fix to solve the recurring tabOpenerId pro
 var generalObject = {};
 var userToken ="";
 var activityObj = {last: {id: 0,path:0}};
+var config = {};
 // Creating a unique user token
 
 function getRandomToken() {
@@ -53,6 +55,19 @@ chrome.storage.sync.get('userid', function(items) {
     }
 });
 
+function loadConfig(){
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4){
+            //console.log("The config file has been loaded", JSON.parse(xhr.response));
+            config = JSON.parse(xhr.response);
+        }
+    }
+    xhr.open("GET", chrome.extension.getURL("/config.json"),true);
+    xhr.send();
+}
+loadConfig();
 
 function retrieveObjects () {
     chrome.storage.local.get(function(storedObj) {
@@ -70,6 +85,7 @@ function retrieveObjects () {
     });
 }
 retrieveObjects();
+
 
 function namingID(page) {
     if (pageCount[page.id] != undefined) {
@@ -155,7 +171,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
             //console.log("THE SAVED OBJECT : ", saveObj);
 
             var text = "";
-            chrome.tabs.sendMessage(tabId, {content: "Gather the page text"}, function(response) {
+            chrome.tabs.sendMessage(tabId, {fn: "gatherText"}, function(response) {
                 if(response) {
                     saveObj.favIconUrl = tab.favIconUrl || response.favIcon;
                     var keptText= [];
@@ -257,14 +273,48 @@ chrome.tabs.onUpdated.addListener(function (tabId, change, tab) {
 
 var clickActions = [0];
 chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
-    //console.log("Received The Click");
-    // console.log("message:", message);
+    if(message.fn == "navigate"){
+        var queryInfo = {
+            windowId : previousInfo.id
+        }
+        var activeTab = {};
+        chrome.tabs.query(queryInfo, function(tabs) {
+            console.log(tabs)
+            tabs.forEach(function(tab){
+                if (tab.active == true){
+                    activeTab.windowId = tab.windowId;
+                    activeTab.id = tab.id;
+                }
+            })
+            console.log("navigate to", message.url);
+            chrome.windows.update(activeTab.windowId, {focused: true}, function(){
+                chrome.tabs.update(activeTab.id, {url: message.url});
+            });
+        });
+    }
 
-    var clickObj = {time: Date.now(), text: message.click.text, tabId: sender.tab.id, href:message.click.link};
-    clickActions.push(clickObj);
-    // console.log("Received Text:", clickObj.text);
-    sendResponse({farewell:"Click Received"});
+    else if(message.fn == "highPreview"){
+        chrome.windows.update(popupId, {focused: true})
+    }
+
+    else if(message.obj == "clickObj"){
+        var clickObj = {time: Date.now(), text: message.click.text, tabId: sender.tab.id, href:message.click.link};
+        clickActions.push(clickObj);
+        // console.log("Received Text:", clickObj.text);
+        sendResponse({farewell:"Click Received"});
+    }
+    else if(message.fn == "sidebar"){
+        displaySessioWindow();
+    }
+    else if(message.fn == "fulltab"){
+        chrome.tabs.create({'url': "/public/index.html" });
+    }
+
+
+
 });
+
+
 
 // Correct this
 function addClickText (pageObj) {
@@ -291,7 +341,8 @@ function checkForRefresh(currentUrl, tabId) {
     }
     var sitelength = sitesVisited[tabId].length;
     var previousUrl = sitesVisited[tabId][sitelength-1];
-    if (currentUrl == previousUrl) {
+
+    if (currentUrl == previousUrl || (purl(currentUrl).data.attr.user == purl(previousUrl).data.attr.user && purl(currentUrl).data.attr.user!= "")) {
         return true;
     }
     else {
@@ -448,11 +499,11 @@ function createWordKeys() {
 }
 
 
-chrome.browserAction.onClicked.addListener(function (tab) {
-    console.log('browserAction', tab);
-    chrome.tabs.create({'url': "/public/index.html" });
-
-})
+// chrome.browserAction.onClicked.addListener(function (tab) {
+//     console.log('browserAction', tab);
+//     chrome.tabs.create({'url': "/public/index.html" });
+//
+// })
 
 
 ////// Functions to Process the Incoming text

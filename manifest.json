@@ -13,7 +13,8 @@
         "libs/compromise.js",
         "background/background.js",
         "background/words.js",
-        "background/sessionCreator.js"
+        "background/sessionCreator.js",
+        "background/display.js"
     ]
   },
 
@@ -28,5 +29,7 @@
   "permissions": [
 		"tabs", "http://*/*", "storage", "unlimitedStorage", "history", "<all_urls>"
 	],
-  "browser_action" : {}
+  "browser_action" : {
+      "default_popup": "popup/popup.html"
+  }
 }
