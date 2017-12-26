@@ -1,21 +1,24 @@
 
-
-var mybutton1 = document.getElementById('mybutton1');
-var mybutton2 = document.getElementById('mybutton2');
-
 window.addEventListener('mouseover', function(){
-    chrome.runtime.sendMessage({fn: "highPreview"}, function(response) {
-      console.log(response.farewell);
-    });
+    chrome.runtime.sendMessage({fn: "highPreview"})
 })
 
-mybutton1.addEventListener('click',function(){
-    chrome.runtime.sendMessage({fn: "navigate", url: "http://www.google.com"}, function(response) {
-      console.log(response.farewell);
-    });
-})
-mybutton2.addEventListener('click',function(){
-    chrome.runtime.sendMessage({fn: "navigate", url: "http://www.twitter.com"}, function(response) {
-      console.log(response.farewell);
-    });
-})
+
+
+var examples = [];
+function loadExamples(){
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4){
+            //console.log("The config file has been loaded", JSON.parse(xhr.response));
+            examples.push(JSON.parse(xhr.response));
+            console.log(JSON.parse(xhr.response));
+            drawGraph(JSON.parse(xhr.response));
+        }
+    }
+    xhr.open("GET", chrome.extension.getURL("../examples/session1.json"),true);
+    xhr.send();
+}
+loadExamples();
+console.log("loaded the Examples", examples);

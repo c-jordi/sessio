@@ -1,0 +1,1970 @@
+{
+  "-L1EODu7G1Ol3M_yY6io" : {
+    "alt" : "Gallery · d3/d3 Wiki · GitHub / Force Editor + Pan/Zoom - bl.ocks.org",
+    "id" : "-L1ELMUZ9JUBUOzTQx0H",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.2222222222222222, 0.46396396396396394 ]
+  },
+  "-L1EODuEUucUnxtITkTu" : {
+    "alt" : "Gallery · d3/d3 Wiki · GitHub / Corona - vizuly.io",
+    "id" : "-L1ELMUZ9JUBUOzTQx0G",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.25, 0.4892703862660944 ]
+  },
+  "-L1EODuGWdRW1vrakR4u" : {
+    "alt" : "d3 examples network - Google Search / Gallery · d3/d3 Wiki · GitHub",
+    "id" : "-L1ELMUYqd3dgcKcbEna",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.2857142857142857, 0.20278223649010166 ]
+  },
+  "-L1EODuHfiwZFTE_eg8o" : {
+    "alt" : "d3 nice dispplay - Google Search / d3 nice display - Google Search",
+    "id" : "-L1ELMUXI6W5ftMs0FoO",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9984901862103673 ]
+  },
+  "-L1EODuHfiwZFTE_eg8p" : {
+    "alt" : "d3 nice display - Google Search / d3 examples network - Google Search",
+    "id" : "-L1ELMUVo5kNw7ktDmSC",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8666666666666667, 0.3469387755102041, 0.9218833600856072 ]
+  },
+  "-L1EODuIyN1tRME5LE7W" : {
+    "alt" : "d3 nice display - Google Search / D3 - Dynamic Digital Displays",
+    "id" : "-L1ELMUUa1QuX2QE9Plm",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.5555555555555556, 0.5645161290322581 ]
+  },
+  "-L1EODuJWYJ1kmh80BiZ" : {
+    "alt" : "What is the `e` parameter passed to the d3.js force tick callback function? - Stack Overflow / d3 nice dispplay - Google Search",
+    "id" : "-L1ELMUSmmRQiVGM_yuA",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.10204081632653061, 0.3758300132802125 ]
+  },
+  "-L1EODuJWYJ1kmh80Bi_" : {
+    "alt" : "e.alpha d3 - Google Search / What is the `e` parameter passed to the d3.js force tick callback function? - Stack Overflow",
+    "id" : "-L1ELMURdsKd3YrL2Yg1",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.24444444444444444, 0.38778220451527223 ]
+  },
+  "-L1EODuKKOkRPr7iAZz9" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.windows - Google Chrome",
+    "id" : "-L1ELMUQ7zq7azQ_NByH",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODuKKOkRPr7iAZzA" : {
+    "alt" : "168994 - alwaysOnTop in chrome.windows causes error - chromium - Monorail / chrome.windows - Google Chrome",
+    "id" : "-L1ELMULRkNebt6Fzg1C",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.11764705882352941, 0.32421875 ]
+  },
+  "-L1EODuL1VT3YIPNsnwH" : {
+    "alt" : "Property 'alwaysOnTop': Unexpected property. - Google Search / 168994 - alwaysOnTop in chrome.windows causes error - chromium - Monorail",
+    "id" : "-L1ELMUKZ06Ih0I4XNw0",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.17647058823529413, 0.56640625 ]
+  },
+  "-L1EODuL1VT3YIPNsnwI" : {
+    "alt" : "Step 1: Create and Run a Chrome App - Google Chrome / Transitioning from Chrome apps on Windows, Mac, and Linux - Google Chrome",
+    "id" : "-L1ELMUJ2C2Mevwe7uCM",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.5666666666666667, 0.4444444444444444, 0.8179723502304147 ]
+  },
+  "-L1EODuM91dxq03R3Oxe" : {
+    "alt" : "how to use chrome.app.window - Google Search / Step 1: Create and Run a Chrome App - Google Chrome",
+    "id" : "-L1ELMUJ2C2Mevwe7uCL",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.2765957446808511, 0.4838709677419355 ]
+  },
+  "-L1EODuNFGHI0Fq3T_U3" : {
+    "alt" : "d3 tick event - Google Search / javascript - Why do we need force.on('tick'.. in d3 - Stack Overflow",
+    "id" : "-L1ELMUINTI5XdntTQQ7",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.19607843137254902, 0.4223776223776224 ]
+  },
+  "-L1EODuNFGHI0Fq3T_U4" : {
+    "alt" : "d3 v4 force tree - Google Search / Force-Directed Tree - bl.ocks.org",
+    "id" : "-L1ELMUINTI5XdntTQQ6",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.25, 0.7409638554216867 ]
+  },
+  "-L1EODuOIt0l0qwD9W8D" : {
+    "alt" : "scale category20 v4 - Google Search / What is the d3.js v4.0 equivalent for d3.scale.category10()? - Stack Overflow",
+    "id" : "-L1ELMUHswsPh3EmQRQp",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.14285714285714285, 0.4033232628398791 ]
+  },
+  "-L1EODuOIt0l0qwD9W8E" : {
+    "alt" : "d3/API.md at master · d3/d3 · GitHub / scale category20 v4 - Google Search",
+    "id" : "-L1ELMUHswsPh3EmQRQo",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.21428571428571427, 0.22572178477690288 ]
+  },
+  "-L1EODuQD09u_6wkuvvO" : {
+    "alt" : "categorical colors - bl.ocks.org / d3 scale v4 - Google Search",
+    "id" : "-L1ELMUGV37d_83A_74y",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.16666666666666666, 0.644927536231884 ]
+  },
+  "-L1EODuQD09u_6wkuvvP" : {
+    "alt" : "d3 scale category20 - Google Search / categorical colors - bl.ocks.org",
+    "id" : "-L1ELMUF8qQUV9GPH_UE",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.1, 0.3333333333333333, 0.6739130434782609 ]
+  },
+  "-L1EODuRJgoEiv3T_SPa" : {
+    "alt" : "Add event listener to only 1 tab in Chrome extension - Stack Overflow / chrome tab event listener - Google Search",
+    "id" : "-L1ELMUDYYSgQtHzEHDi",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.15, 0.4088050314465409 ]
+  },
+  "-L1EODuRJgoEiv3T_SPb" : {
+    "alt" : "chrome tabs add event listener - Google Search / Add event listener to only 1 tab in Chrome extension - Stack Overflow",
+    "id" : "-L1ELMUCnrsRmMn4nR19",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.16666666666666666, 0.41352201257861637 ]
+  },
+  "-L1EODuSojN59n_Qbq91" : {
+    "alt" : "javascript - Add event listener to Chrome extension for new tabs and windows - Stack Overflow / chrome tabs add event listener - Google Search",
+    "id" : "-L1ELMUB_VWsS4UYu5Cd",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.10416666666666667, 0.4109947643979058 ]
+  },
+  "-L1EODuSojN59n_Qbq92" : {
+    "alt" : "chrome windows add event listener - Google Search / javascript - Add event listener to Chrome extension for new tabs and windows - Stack Overflow",
+    "id" : "-L1ELMUAIzBBNUNY_hQX",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.18181818181818182, 0.4031413612565445 ]
+  },
+  "-L1EODuTj5eeM-SLyhQK" : {
+    "alt" : "chrome windows add event listenr - Google Search / chrome windows add event listener - Google Search",
+    "id" : "-L1ELMUAIzBBNUNY_hQW",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9940443963183541 ]
+  },
+  "-L1EODuTj5eeM-SLyhQL" : {
+    "alt" : "chrome extension hover event listener - Google Search / chrome windows add event listenr - Google Search",
+    "id" : "-L1ELMU9cE8TwWKBVfur",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 0.3584905660377358, 0.9399025446670276 ]
+  },
+  "-L1EODuUTqT-_zIBZgjJ" : {
+    "alt" : "chrome extension hover event listener - Google Search / Google Groups",
+    "id" : "-L1ELMU8XC9y9RVmtpwG",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.5, 0.8032786885245902 ]
+  },
+  "-L1EODuV1_eqgJJh7Kwg" : {
+    "alt" : "chrome hover event listener - Google Search / chrome extension hover event listener - Google Search",
+    "id" : "-L1ELMU8XC9y9RVmtpwF",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9333333333333333, 0.5098039215686274, 0.9367816091954023 ]
+  },
+  "-L1EODuV1_eqgJJh7Kwh" : {
+    "alt" : "chrome tabs tav - Google Search / chrome tabs tab - Google Search",
+    "id" : "-L1ELMU7isdUQf8_0Q2e",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9942498693152118 ]
+  },
+  "-L1EODuWzO9UKbmKRHr0" : {
+    "alt" : "Not Found - Google Chrome / chrome tabs tav - Google Search",
+    "id" : "-L1ELMU7isdUQf8_0Q2d",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.16666666666666666, 0.4430379746835443 ]
+  },
+  "-L1EODuWzO9UKbmKRHr1" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome hover event listener - Google Search",
+    "id" : "-L1ELMU6w6TNwIz1j3Wr",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.23529411764705882, 0.39233038348082594 ]
+  },
+  "-L1EODuXFZDs5kjfOczr" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMU41GxB0_M3dtla",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODuYxMAfQCqbB31x" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMU2Y9i6DvTmbH-6",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODuYxMAfQCqbB31y" : {
+    "alt" : "chrome.tabs - Google Chrome / Not Found - Google Chrome",
+    "id" : "-L1ELMU0MzQw1KNykfSs",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0, 0.9444444444444444, 0.990506329113924 ]
+  },
+  "-L1EODuZgUOx2Vwv038m" : {
+    "alt" : "chrome.tabs - Google Search / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMU-4l9xYddVmXux",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.36585365853658536, 0.3805309734513274 ]
+  },
+  "-L1EODuZgUOx2Vwv038n" : {
+    "alt" : "chrome windows dev - Google Search / chrome exten windows dev - Google Search",
+    "id" : "-L1ELMU-4l9xYddVmXuw",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.48936170212765956, 0.9154929577464789 ]
+  },
+  "-L1EODu_76euz5MeZ37m" : {
+    "alt" : "chrome windows hover - Google Search / chrome windows dev - Google Search",
+    "id" : "-L1ELMTz1AafRM-NfWqm",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.4878048780487805, 0.9124544033350703 ]
+  },
+  "-L1EODu_76euz5MeZ37n" : {
+    "alt" : "chorme windows hover - Google Search / chrome windows hover - Google Search",
+    "id" : "-L1ELMTyX5KSNORD-guW",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 0.9952978056426333 ]
+  },
+  "-L1EODu_76euz5MeZ37o" : {
+    "alt" : "chrome.windows - Google Chrome / Twitter. It's what's happening.",
+    "id" : "-L1ELMTyX5KSNORD-guV",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.11904761904761904, 0.23684210526315788 ]
+  },
+  "-L1EODua4kMo66QTJE_u" : {
+    "alt" : "chrome.windows - Google Chrome / chorme windows hover - Google Search",
+    "id" : "-L1ELMTxdTH_Ijjv2jj5",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.24390243902439024, 0.4168336673346693 ]
+  },
+  "-L1EODua4kMo66QTJE_v" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.tabs - Google Search",
+    "id" : "-L1ELMTwAW-WzDF0ltzD",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.3170731707317073, 0.4308617234468938 ]
+  },
+  "-L1EODub7S2-VEYirzOj" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.windows - Google Chrome",
+    "id" : "-L1ELMTvQ9Xtjs7Tr-Sp",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODub7S2-VEYirzOk" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTu3OtQgk04cfZ2",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODucuzjLP8n1QGX4" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTtAaP0IKwfJRXJ",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODud0CZoMp9zU0UE" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTtAaP0IKwfJRXI",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EODud0CZoMp9zU0UF" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTsMBnUAtJaFUyN",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EODueEJHIVU0c75U9" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTsMBnUAtJaFUyM",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODueEJHIVU0c75UA" : {
+    "alt" : "chrome extension update tab - Google Search / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTpmvKmp2iiTBxP",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.35135135135135137, 0.3952802359882006 ]
+  },
+  "-L1EODuf1N-1TzQgZH_s" : {
+    "alt" : "Message Passing - Google Chrome / chrome extension update tab - Google Search",
+    "id" : "-L1ELMTpmvKmp2iiTBxO",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.16216216216216217, 0.4343065693430657 ]
+  },
+  "-L1EODuf1N-1TzQgZH_t" : {
+    "alt" : "chrome send message - Google Search / Message Passing - Google Chrome",
+    "id" : "-L1ELMToSNBRttD85NE3",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.375, 0.44525547445255476 ]
+  },
+  "-L1EODugowpfxkEq5TNC" : {
+    "alt" : "chrome.window.create - Google Search / chrome.windows - Google Chrome",
+    "id" : "-L1ELMTnUh1XrlAJQTrT",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.3409090909090909, 0.44488977955911824 ]
+  },
+  "-L1EODugowpfxkEq5TND" : {
+    "alt" : "Facebook / chrome.window.create - Google Search",
+    "id" : "-L1ELMTnUh1XrlAJQTrS",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.1, 0.17624309392265194 ]
+  },
+  "-L1EODuhpITv3DFXiPkg" : {
+    "alt" : "javascript - Inserting HTML into a div - Stack Overflow / Facebook",
+    "id" : "-L1ELMTlFtOlG0_85_Cn",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.06666666666666667, 0.2547945205479452 ]
+  },
+  "-L1EODui1sIbQkMy_N8A" : {
+    "alt" : "js add di tag - Google Search / javascript - Inserting HTML into a div - Stack Overflow",
+    "id" : "-L1ELMTkSEPTdOkCgE47",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.1724137931034483, 0.41643835616438357 ]
+  },
+  "-L1EODui1sIbQkMy_N8B" : {
+    "alt" : "js add di tag - Google Search / js add div tag - Google Search",
+    "id" : "-L1ELMTj0h_MUKcCRg4X",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8666666666666667, 0.46938775510204084, 0.9220303506017792 ]
+  },
+  "-L1EODuj3stSrYBidO2j" : {
+    "alt" : "d3/API.md at master · d3/d3 · GitHub / d3 layout examples - Google Search",
+    "id" : "-L1ELMTh1-mxLWEARXbp",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.13333333333333333, 0.2432195975503062 ]
+  },
+  "-L1EODuj3stSrYBidO2k" : {
+    "alt" : "d3/API.md at master · d3/d3 · GitHub / d3/API.md at master · d3/d3 · GitHub",
+    "id" : "-L1ELMTgbypNwTvwTvwE",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EODukzey8KnBUCPel" : {
+    "alt" : "Tree Layout · d3/d3 Wiki · GitHub / d3/API.md at master · d3/d3 · GitHub",
+    "id" : "-L1ELMTdkFYZPp-tROwW",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.06666666666666667, 0, 0.7337662337662337 ]
+  },
+  "-L1EODulYuyz8r2rY5Xr" : {
+    "alt" : "d3 tree - Google Search / Tree Layout · d3/d3 Wiki · GitHub",
+    "id" : "-L1ELMTcTUyC5JI2QOby",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.3333333333333333, 0.461038961038961 ]
+  },
+  "-L1EODumGTD1eqYojmVw" : {
+    "alt" : "d3 metro mao - Google Search / d3 tree - Google Search",
+    "id" : "-L1ELMTa_IjtroOUwX03",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.3191489361702128, 0.9314624932541824 ]
+  },
+  "-L1EODumGTD1eqYojmVx" : {
+    "alt" : "d3 metro mao - Google Search / d3-tube-map",
+    "id" : "-L1ELMTZk1q89PtKq8AA",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.09523809523809523, 0.506578947368421 ]
+  },
+  "-L1EODune444gRAykFkK" : {
+    "alt" : "d3 metro mao - Google Search / d3 metro map - Google Search",
+    "id" : "-L1ELMTYbylQbh_npF5_",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 0.9985358711566618 ]
+  },
+  "-L1EODune444gRAykFkL" : {
+    "alt" : "d3 metro map - Google Search / d3-tube-map",
+    "id" : "-L1ELMTVExf7gF6zp395",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.1, 0.5163398692810458 ]
+  },
+  "-L1EODune444gRAykFkM" : {
+    "alt" : "d3 metro map - Google Search / d3 metro mao - Google Search",
+    "id" : "-L1ELMTSutnrTrA3QIZS",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9, 1, 0.9995114802149487 ]
+  },
+  "-L1EODuoi-nQzddB9sCX" : {
+    "alt" : "Eurosport / VIDEO - Le soir où Dressel a gagné 3 médailles d'or... en 2 heures - Video Eurosport",
+    "id" : "-L1ELMTRaKTffimmIimd",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.6666666666666666, 0.47368421052631576, 0.8548559231590181 ]
+  },
+  "-L1EODupwMWQ0mcy09SY" : {
+    "alt" : "Refalona - Posts / Refalona - Posts",
+    "id" : "-L1ELMTQVhqkVx5JN9WX",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 0.9995569339831635 ]
+  },
+  "-L1EODupwMWQ0mcy09SZ" : {
+    "alt" : "Refalona - Home / Refalona - Posts",
+    "id" : "-L1ELMTPXragIOoerxSp",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9333333333333333, 0.6666666666666666, 0.9576271186440678 ]
+  },
+  "-L1EODuqCcwPZCdZ4gIJ" : {
+    "alt" : "Facebook / Refalona - Home",
+    "id" : "-L1ELMTN8I2ZKedH1pjQ",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.6521739130434783, 0.9491525423728814 ]
+  },
+  "-L1EODur3lbjBChHCo7d" : {
+    "alt" : "Facebook / Facebook",
+    "id" : "-L1ELMTG8R_Q-tuEySb5",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.975, 0.9958022388059702 ]
+  },
+  "-L1EODur3lbjBChHCo7e" : {
+    "alt" : "javascript - Why do we need force.on('tick'.. in d3 - Stack Overflow / d3 append text to line with data - Google Search",
+    "id" : "-L1ELMTEu4sHocbY_f-6",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.16666666666666666, 0.41217150760719223 ]
+  },
+  "-L1EODus8BGA83JSkRat" : {
+    "alt" : "on('tick') - Google Search / javascript - Why do we need force.on('tick'.. in d3 - Stack Overflow",
+    "id" : "-L1ELMTDsH7l4Bk3IVmO",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.17543859649122806, 0.42323651452282157 ]
+  },
+  "-L1EODus8BGA83JSkRau" : {
+    "alt" : "chrome extension focus window - Google Search / Google Groups",
+    "id" : "-L1ELMTBy-A9iAaf1-jA",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.3333333333333333, 0.7317073170731707 ]
+  },
+  "-L1EODutcu4YwjEsnOHZ" : {
+    "alt" : "chrome extension navigate tab of particular window - Google Search / chrome extension focus window - Google Search",
+    "id" : "-L1ELMTAhbq2N0xqDPet",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 0.46938775510204084, 0.9347480106100796 ]
+  },
+  "-L1EODutcu4YwjEsnOH_" : {
+    "alt" : "chrome.windows - Google Chrome / chrome extension navigate tab of particular window - Google Search",
+    "id" : "-L1ELMT80p_JARKQK_5S",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.4, 0.44288577154308617 ]
+  },
+  "-L1EODuunEEGCMczrlzy" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.windows - Google Chrome",
+    "id" : "-L1ELMT6c6ObUDiAH0aH",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODuunEEGCMczrlzz" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMT4OCQjRX-QA9kn",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EODuunEEGCMczrm--" : {
+    "alt" : "chrome.tabs.create - Google Search / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMSzBe4R0hX5HdCb",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.48484848484848486, 0.39233038348082594 ]
+  },
+  "-L1EODuvExkInln7NUma" : {
+    "alt" : "(1) Facebook / (1) Facebook",
+    "id" : "-L1ELMS6m_oy7Er_sskf",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODuvExkInln7NUmb" : {
+    "alt" : "(1) Facebook / (1) Facebook",
+    "id" : "-L1ELMRyCknCbJC2kWxz",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9995300751879699 ]
+  },
+  "-L1EODuw5NQNelDFGLV9" : {
+    "alt" : "(8) YouTube / Facebook",
+    "id" : "-L1ELMRt0gbZcMBp4Hw0",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.06666666666666667, 0.18073316283034954 ]
+  },
+  "-L1EODuw5NQNelDFGLVA" : {
+    "alt" : "YouTube / (8) YouTube",
+    "id" : "-L1ELMRo7SiftEjV-MT8",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODuw5NQNelDFGLVB" : {
+    "alt" : "Ed Sheeran's Give Me Love - Guitar tutorial - Best & Detailed - YouTube / YouTube",
+    "id" : "-L1ELMRj6pi0qpV-7ZU4",
+    "output" : 0,
+    "scorearray" : [ 1, 0, 0.7666666666666667, 0.6, 0.5149253731343284 ]
+  },
+  "-L1EODuxFT743um4vUUO" : {
+    "alt" : "Twitter. It's what's happening. / Ed Sheeran's Give Me Love - Guitar tutorial - Best & Detailed - YouTube",
+    "id" : "-L1ELMRgqiwHiJHYBHro",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.04, 0.3313253012048193 ]
+  },
+  "-L1EODwhOZORKo8ewuyB" : {
+    "alt" : "Gallery · d3/d3 Wiki · GitHub / Force Editor + Pan/Zoom - bl.ocks.org",
+    "id" : "-L1ELMUZ9JUBUOzTQx0H",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.2222222222222222, 0.46396396396396394 ]
+  },
+  "-L1EODwiJ3VWlyrXq1nV" : {
+    "alt" : "Gallery · d3/d3 Wiki · GitHub / Corona - vizuly.io",
+    "id" : "-L1ELMUZ9JUBUOzTQx0G",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.25, 0.4892703862660944 ]
+  },
+  "-L1EODwiJ3VWlyrXq1nW" : {
+    "alt" : "d3 examples network - Google Search / Gallery · d3/d3 Wiki · GitHub",
+    "id" : "-L1ELMUYqd3dgcKcbEna",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.2857142857142857, 0.20278223649010166 ]
+  },
+  "-L1EODwjVE_yzmi7JOm5" : {
+    "alt" : "d3 nice dispplay - Google Search / d3 nice display - Google Search",
+    "id" : "-L1ELMUXI6W5ftMs0FoO",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9984901862103673 ]
+  },
+  "-L1EODwjVE_yzmi7JOm6" : {
+    "alt" : "d3 nice display - Google Search / d3 examples network - Google Search",
+    "id" : "-L1ELMUVo5kNw7ktDmSC",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8666666666666667, 0.3469387755102041, 0.9218833600856072 ]
+  },
+  "-L1EODwkgG1j2c-LgPA1" : {
+    "alt" : "d3 nice display - Google Search / D3 - Dynamic Digital Displays",
+    "id" : "-L1ELMUUa1QuX2QE9Plm",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.5555555555555556, 0.5645161290322581 ]
+  },
+  "-L1EODwlYpKnt6-GUH6c" : {
+    "alt" : "What is the `e` parameter passed to the d3.js force tick callback function? - Stack Overflow / d3 nice dispplay - Google Search",
+    "id" : "-L1ELMUSmmRQiVGM_yuA",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.10204081632653061, 0.3758300132802125 ]
+  },
+  "-L1EODwlYpKnt6-GUH6d" : {
+    "alt" : "e.alpha d3 - Google Search / What is the `e` parameter passed to the d3.js force tick callback function? - Stack Overflow",
+    "id" : "-L1ELMURdsKd3YrL2Yg1",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.24444444444444444, 0.38778220451527223 ]
+  },
+  "-L1EODwm3u0RNkg4_ZtG" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.windows - Google Chrome",
+    "id" : "-L1ELMUQ7zq7azQ_NByH",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODwm3u0RNkg4_ZtH" : {
+    "alt" : "168994 - alwaysOnTop in chrome.windows causes error - chromium - Monorail / chrome.windows - Google Chrome",
+    "id" : "-L1ELMULRkNebt6Fzg1C",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.11764705882352941, 0.32421875 ]
+  },
+  "-L1EODwnKAaKec7Z8jvE" : {
+    "alt" : "Property 'alwaysOnTop': Unexpected property. - Google Search / 168994 - alwaysOnTop in chrome.windows causes error - chromium - Monorail",
+    "id" : "-L1ELMUKZ06Ih0I4XNw0",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.17647058823529413, 0.56640625 ]
+  },
+  "-L1EODwoyNRRXuS_kgiX" : {
+    "alt" : "Step 1: Create and Run a Chrome App - Google Chrome / Transitioning from Chrome apps on Windows, Mac, and Linux - Google Chrome",
+    "id" : "-L1ELMUJ2C2Mevwe7uCM",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.5666666666666667, 0.4444444444444444, 0.8179723502304147 ]
+  },
+  "-L1EODwpx4tmp57AyLc6" : {
+    "alt" : "how to use chrome.app.window - Google Search / Step 1: Create and Run a Chrome App - Google Chrome",
+    "id" : "-L1ELMUJ2C2Mevwe7uCL",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.2765957446808511, 0.4838709677419355 ]
+  },
+  "-L1EODwpx4tmp57AyLc7" : {
+    "alt" : "d3 tick event - Google Search / javascript - Why do we need force.on('tick'.. in d3 - Stack Overflow",
+    "id" : "-L1ELMUINTI5XdntTQQ7",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.19607843137254902, 0.4223776223776224 ]
+  },
+  "-L1EODwqWePi7r36WWgx" : {
+    "alt" : "d3 v4 force tree - Google Search / Force-Directed Tree - bl.ocks.org",
+    "id" : "-L1ELMUINTI5XdntTQQ6",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.25, 0.7409638554216867 ]
+  },
+  "-L1EODwqWePi7r36WWgy" : {
+    "alt" : "scale category20 v4 - Google Search / What is the d3.js v4.0 equivalent for d3.scale.category10()? - Stack Overflow",
+    "id" : "-L1ELMUHswsPh3EmQRQp",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.14285714285714285, 0.4033232628398791 ]
+  },
+  "-L1EODwrK-m2AWB8pO8r" : {
+    "alt" : "d3/API.md at master · d3/d3 · GitHub / scale category20 v4 - Google Search",
+    "id" : "-L1ELMUHswsPh3EmQRQo",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.21428571428571427, 0.22572178477690288 ]
+  },
+  "-L1EODwsbVIBBPNkhUnI" : {
+    "alt" : "categorical colors - bl.ocks.org / d3 scale v4 - Google Search",
+    "id" : "-L1ELMUGV37d_83A_74y",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.16666666666666666, 0.644927536231884 ]
+  },
+  "-L1EODwsbVIBBPNkhUnJ" : {
+    "alt" : "d3 scale category20 - Google Search / categorical colors - bl.ocks.org",
+    "id" : "-L1ELMUF8qQUV9GPH_UE",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.1, 0.3333333333333333, 0.6739130434782609 ]
+  },
+  "-L1EODwtwgG-idPZpBT_" : {
+    "alt" : "Add event listener to only 1 tab in Chrome extension - Stack Overflow / chrome tab event listener - Google Search",
+    "id" : "-L1ELMUDYYSgQtHzEHDi",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.15, 0.4088050314465409 ]
+  },
+  "-L1EODwtwgG-idPZpBTa" : {
+    "alt" : "chrome tabs add event listener - Google Search / Add event listener to only 1 tab in Chrome extension - Stack Overflow",
+    "id" : "-L1ELMUCnrsRmMn4nR19",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.16666666666666666, 0.41352201257861637 ]
+  },
+  "-L1EODwurPjj5_TXyX33" : {
+    "alt" : "javascript - Add event listener to Chrome extension for new tabs and windows - Stack Overflow / chrome tabs add event listener - Google Search",
+    "id" : "-L1ELMUB_VWsS4UYu5Cd",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.10416666666666667, 0.4109947643979058 ]
+  },
+  "-L1EODwurPjj5_TXyX34" : {
+    "alt" : "chrome windows add event listener - Google Search / javascript - Add event listener to Chrome extension for new tabs and windows - Stack Overflow",
+    "id" : "-L1ELMUAIzBBNUNY_hQX",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.18181818181818182, 0.4031413612565445 ]
+  },
+  "-L1EODwvaHqSx3RuN-MY" : {
+    "alt" : "chrome windows add event listenr - Google Search / chrome windows add event listener - Google Search",
+    "id" : "-L1ELMUAIzBBNUNY_hQW",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9940443963183541 ]
+  },
+  "-L1EODwvaHqSx3RuN-MZ" : {
+    "alt" : "chrome extension hover event listener - Google Search / chrome windows add event listenr - Google Search",
+    "id" : "-L1ELMU9cE8TwWKBVfur",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 0.3584905660377358, 0.9399025446670276 ]
+  },
+  "-L1EODww9kgFlrHsK2XA" : {
+    "alt" : "chrome extension hover event listener - Google Search / Google Groups",
+    "id" : "-L1ELMU8XC9y9RVmtpwG",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.5, 0.8032786885245902 ]
+  },
+  "-L1EODww9kgFlrHsK2XB" : {
+    "alt" : "chrome hover event listener - Google Search / chrome extension hover event listener - Google Search",
+    "id" : "-L1ELMU8XC9y9RVmtpwF",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9333333333333333, 0.5098039215686274, 0.9367816091954023 ]
+  },
+  "-L1EODww9kgFlrHsK2XC" : {
+    "alt" : "chrome tabs tav - Google Search / chrome tabs tab - Google Search",
+    "id" : "-L1ELMU7isdUQf8_0Q2e",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9942498693152118 ]
+  },
+  "-L1EODwxWyv7BlyrXU23" : {
+    "alt" : "Not Found - Google Chrome / chrome tabs tav - Google Search",
+    "id" : "-L1ELMU7isdUQf8_0Q2d",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.16666666666666666, 0.4430379746835443 ]
+  },
+  "-L1EODwxWyv7BlyrXU24" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome hover event listener - Google Search",
+    "id" : "-L1ELMU6w6TNwIz1j3Wr",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.23529411764705882, 0.39233038348082594 ]
+  },
+  "-L1EODwzbyWYuLFwFzsh" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMU41GxB0_M3dtla",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODwzbyWYuLFwFzsi" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMU2Y9i6DvTmbH-6",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODx-sYxjI640hxFr" : {
+    "alt" : "chrome.tabs - Google Chrome / Not Found - Google Chrome",
+    "id" : "-L1ELMU0MzQw1KNykfSs",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0, 0.9444444444444444, 0.990506329113924 ]
+  },
+  "-L1EODx-sYxjI640hxFs" : {
+    "alt" : "chrome.tabs - Google Search / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMU-4l9xYddVmXux",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.36585365853658536, 0.3805309734513274 ]
+  },
+  "-L1EODx02OURB3Dwymh2" : {
+    "alt" : "chrome windows dev - Google Search / chrome exten windows dev - Google Search",
+    "id" : "-L1ELMU-4l9xYddVmXuw",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.48936170212765956, 0.9154929577464789 ]
+  },
+  "-L1EODx02OURB3Dwymh3" : {
+    "alt" : "chrome windows hover - Google Search / chrome windows dev - Google Search",
+    "id" : "-L1ELMTz1AafRM-NfWqm",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.4878048780487805, 0.9124544033350703 ]
+  },
+  "-L1EODx13_mkr_2BDCuZ" : {
+    "alt" : "chorme windows hover - Google Search / chrome windows hover - Google Search",
+    "id" : "-L1ELMTyX5KSNORD-guW",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 0.9952978056426333 ]
+  },
+  "-L1EODx13_mkr_2BDCu_" : {
+    "alt" : "chrome.windows - Google Chrome / Twitter. It's what's happening.",
+    "id" : "-L1ELMTyX5KSNORD-guV",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.11904761904761904, 0.23684210526315788 ]
+  },
+  "-L1EODx13_mkr_2BDCua" : {
+    "alt" : "chrome.windows - Google Chrome / chorme windows hover - Google Search",
+    "id" : "-L1ELMTxdTH_Ijjv2jj5",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.24390243902439024, 0.4168336673346693 ]
+  },
+  "-L1EODx2BvMJdJXUpf77" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.tabs - Google Search",
+    "id" : "-L1ELMTwAW-WzDF0ltzD",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.3170731707317073, 0.4308617234468938 ]
+  },
+  "-L1EODx2BvMJdJXUpf78" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.windows - Google Chrome",
+    "id" : "-L1ELMTvQ9Xtjs7Tr-Sp",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODx3J4amWseImTP8" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTu3OtQgk04cfZ2",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODx3J4amWseImTP9" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTtAaP0IKwfJRXJ",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODx4K-5XYRlSm-2q" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTtAaP0IKwfJRXI",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EODx4K-5XYRlSm-2r" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTsMBnUAtJaFUyN",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EODx4K-5XYRlSm-2s" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTsMBnUAtJaFUyM",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODx5GPT5BHGD9mpL" : {
+    "alt" : "chrome extension update tab - Google Search / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTpmvKmp2iiTBxP",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.35135135135135137, 0.3952802359882006 ]
+  },
+  "-L1EODx5GPT5BHGD9mpM" : {
+    "alt" : "Message Passing - Google Chrome / chrome extension update tab - Google Search",
+    "id" : "-L1ELMTpmvKmp2iiTBxO",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.16216216216216217, 0.4343065693430657 ]
+  },
+  "-L1EODx5GPT5BHGD9mpN" : {
+    "alt" : "chrome send message - Google Search / Message Passing - Google Chrome",
+    "id" : "-L1ELMToSNBRttD85NE3",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.375, 0.44525547445255476 ]
+  },
+  "-L1EODx6Veh_K954mXsN" : {
+    "alt" : "chrome.window.create - Google Search / chrome.windows - Google Chrome",
+    "id" : "-L1ELMTnUh1XrlAJQTrT",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.3409090909090909, 0.44488977955911824 ]
+  },
+  "-L1EODx6Veh_K954mXsO" : {
+    "alt" : "Facebook / chrome.window.create - Google Search",
+    "id" : "-L1ELMTnUh1XrlAJQTrS",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.1, 0.17624309392265194 ]
+  },
+  "-L1EODx795D9MPkBvtcv" : {
+    "alt" : "javascript - Inserting HTML into a div - Stack Overflow / Facebook",
+    "id" : "-L1ELMTlFtOlG0_85_Cn",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.06666666666666667, 0.2547945205479452 ]
+  },
+  "-L1EODx8AvJ2ZVPeiXRW" : {
+    "alt" : "js add di tag - Google Search / javascript - Inserting HTML into a div - Stack Overflow",
+    "id" : "-L1ELMTkSEPTdOkCgE47",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.1724137931034483, 0.41643835616438357 ]
+  },
+  "-L1EODx8AvJ2ZVPeiXRX" : {
+    "alt" : "js add di tag - Google Search / js add div tag - Google Search",
+    "id" : "-L1ELMTj0h_MUKcCRg4X",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8666666666666667, 0.46938775510204084, 0.9220303506017792 ]
+  },
+  "-L1EODx8AvJ2ZVPeiXRY" : {
+    "alt" : "d3/API.md at master · d3/d3 · GitHub / d3 layout examples - Google Search",
+    "id" : "-L1ELMTh1-mxLWEARXbp",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.13333333333333333, 0.2432195975503062 ]
+  },
+  "-L1EODx98ZsKhCOK55hB" : {
+    "alt" : "d3/API.md at master · d3/d3 · GitHub / d3/API.md at master · d3/d3 · GitHub",
+    "id" : "-L1ELMTgbypNwTvwTvwE",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EODx98ZsKhCOK55hC" : {
+    "alt" : "Tree Layout · d3/d3 Wiki · GitHub / d3/API.md at master · d3/d3 · GitHub",
+    "id" : "-L1ELMTdkFYZPp-tROwW",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.06666666666666667, 0, 0.7337662337662337 ]
+  },
+  "-L1EODxAmnc_gAf_mLYY" : {
+    "alt" : "d3 tree - Google Search / Tree Layout · d3/d3 Wiki · GitHub",
+    "id" : "-L1ELMTcTUyC5JI2QOby",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.3333333333333333, 0.461038961038961 ]
+  },
+  "-L1EODxBazVFvWVbps9z" : {
+    "alt" : "d3 metro mao - Google Search / d3 tree - Google Search",
+    "id" : "-L1ELMTa_IjtroOUwX03",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.3191489361702128, 0.9314624932541824 ]
+  },
+  "-L1EODxBazVFvWVbpsA-" : {
+    "alt" : "d3 metro mao - Google Search / d3-tube-map",
+    "id" : "-L1ELMTZk1q89PtKq8AA",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.09523809523809523, 0.506578947368421 ]
+  },
+  "-L1EODxCoV2_bPXlpuj1" : {
+    "alt" : "d3 metro mao - Google Search / d3 metro map - Google Search",
+    "id" : "-L1ELMTYbylQbh_npF5_",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 0.9985358711566618 ]
+  },
+  "-L1EODxCoV2_bPXlpuj2" : {
+    "alt" : "d3 metro map - Google Search / d3-tube-map",
+    "id" : "-L1ELMTVExf7gF6zp395",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.1, 0.5163398692810458 ]
+  },
+  "-L1EODxEomEsVb6KvkDv" : {
+    "alt" : "d3 metro map - Google Search / d3 metro mao - Google Search",
+    "id" : "-L1ELMTSutnrTrA3QIZS",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9, 1, 0.9995114802149487 ]
+  },
+  "-L1EODxEomEsVb6KvkDw" : {
+    "alt" : "Eurosport / VIDEO - Le soir où Dressel a gagné 3 médailles d'or... en 2 heures - Video Eurosport",
+    "id" : "-L1ELMTRaKTffimmIimd",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.6666666666666666, 0.47368421052631576, 0.8548559231590181 ]
+  },
+  "-L1EODxFrgh5Sc4p-vJM" : {
+    "alt" : "Refalona - Posts / Refalona - Posts",
+    "id" : "-L1ELMTQVhqkVx5JN9WX",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 0.9995569339831635 ]
+  },
+  "-L1EODxGsG8yXlZuu3JE" : {
+    "alt" : "Refalona - Home / Refalona - Posts",
+    "id" : "-L1ELMTPXragIOoerxSp",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9333333333333333, 0.6666666666666666, 0.9576271186440678 ]
+  },
+  "-L1EODxHPaehHQzeiJQt" : {
+    "alt" : "Facebook / Refalona - Home",
+    "id" : "-L1ELMTN8I2ZKedH1pjQ",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.6521739130434783, 0.9491525423728814 ]
+  },
+  "-L1EODxHPaehHQzeiJQu" : {
+    "alt" : "Facebook / Facebook",
+    "id" : "-L1ELMTG8R_Q-tuEySb5",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.975, 0.9958022388059702 ]
+  },
+  "-L1EODxIZpWzEa2QfF_z" : {
+    "alt" : "javascript - Why do we need force.on('tick'.. in d3 - Stack Overflow / d3 append text to line with data - Google Search",
+    "id" : "-L1ELMTEu4sHocbY_f-6",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.16666666666666666, 0.41217150760719223 ]
+  },
+  "-L1EODxIZpWzEa2QfFa-" : {
+    "alt" : "on('tick') - Google Search / javascript - Why do we need force.on('tick'.. in d3 - Stack Overflow",
+    "id" : "-L1ELMTDsH7l4Bk3IVmO",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.17543859649122806, 0.42323651452282157 ]
+  },
+  "-L1EODxIZpWzEa2QfFa0" : {
+    "alt" : "chrome extension focus window - Google Search / Google Groups",
+    "id" : "-L1ELMTBy-A9iAaf1-jA",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.3333333333333333, 0.7317073170731707 ]
+  },
+  "-L1EODxJSUCIimGpIDo3" : {
+    "alt" : "chrome extension navigate tab of particular window - Google Search / chrome extension focus window - Google Search",
+    "id" : "-L1ELMTAhbq2N0xqDPet",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 0.46938775510204084, 0.9347480106100796 ]
+  },
+  "-L1EODxJSUCIimGpIDo4" : {
+    "alt" : "chrome.windows - Google Chrome / chrome extension navigate tab of particular window - Google Search",
+    "id" : "-L1ELMT80p_JARKQK_5S",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.4, 0.44288577154308617 ]
+  },
+  "-L1EODxJSUCIimGpIDo5" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.windows - Google Chrome",
+    "id" : "-L1ELMT6c6ObUDiAH0aH",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODxKsgK6szyJh80B" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMT4OCQjRX-QA9kn",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EODxKsgK6szyJh80C" : {
+    "alt" : "chrome.tabs.create - Google Search / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMSzBe4R0hX5HdCb",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.48484848484848486, 0.39233038348082594 ]
+  },
+  "-L1EODxLO_79Tpck_w8n" : {
+    "alt" : "(1) Facebook / (1) Facebook",
+    "id" : "-L1ELMS6m_oy7Er_sskf",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODxLO_79Tpck_w8o" : {
+    "alt" : "(1) Facebook / (1) Facebook",
+    "id" : "-L1ELMRyCknCbJC2kWxz",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9995300751879699 ]
+  },
+  "-L1EODxM32RiKDwzVPux" : {
+    "alt" : "(8) YouTube / Facebook",
+    "id" : "-L1ELMRt0gbZcMBp4Hw0",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.06666666666666667, 0.18073316283034954 ]
+  },
+  "-L1EODxM32RiKDwzVPuy" : {
+    "alt" : "YouTube / (8) YouTube",
+    "id" : "-L1ELMRo7SiftEjV-MT8",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODxNH9wvAyGY_niq" : {
+    "alt" : "Ed Sheeran's Give Me Love - Guitar tutorial - Best & Detailed - YouTube / YouTube",
+    "id" : "-L1ELMRj6pi0qpV-7ZU4",
+    "output" : 0,
+    "scorearray" : [ 1, 0, 0.7666666666666667, 0.6, 0.5149253731343284 ]
+  },
+  "-L1EODxNH9wvAyGY_nir" : {
+    "alt" : "Twitter. It's what's happening. / Ed Sheeran's Give Me Love - Guitar tutorial - Best & Detailed - YouTube",
+    "id" : "-L1ELMRgqiwHiJHYBHro",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.04, 0.3313253012048193 ]
+  },
+  "-L1EODzJPkVjMqlaDw31" : {
+    "alt" : "Gallery · d3/d3 Wiki · GitHub / Force Editor + Pan/Zoom - bl.ocks.org",
+    "id" : "-L1ELMUZ9JUBUOzTQx0H",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.2222222222222222, 0.46396396396396394 ]
+  },
+  "-L1EODzKAw0rtfITS1b2" : {
+    "alt" : "Gallery · d3/d3 Wiki · GitHub / Corona - vizuly.io",
+    "id" : "-L1ELMUZ9JUBUOzTQx0G",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.25, 0.4892703862660944 ]
+  },
+  "-L1EODzKAw0rtfITS1b3" : {
+    "alt" : "d3 examples network - Google Search / Gallery · d3/d3 Wiki · GitHub",
+    "id" : "-L1ELMUYqd3dgcKcbEna",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.2857142857142857, 0.20278223649010166 ]
+  },
+  "-L1EODzLL4ZFjmuArImq" : {
+    "alt" : "d3 nice dispplay - Google Search / d3 nice display - Google Search",
+    "id" : "-L1ELMUXI6W5ftMs0FoO",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9984901862103673 ]
+  },
+  "-L1EODzLL4ZFjmuArImr" : {
+    "alt" : "d3 nice display - Google Search / d3 examples network - Google Search",
+    "id" : "-L1ELMUVo5kNw7ktDmSC",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8666666666666667, 0.3469387755102041, 0.9218833600856072 ]
+  },
+  "-L1EODzLL4ZFjmuArIms" : {
+    "alt" : "d3 nice display - Google Search / D3 - Dynamic Digital Displays",
+    "id" : "-L1ELMUUa1QuX2QE9Plm",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.5555555555555556, 0.5645161290322581 ]
+  },
+  "-L1EODzMLDtuVXesZVER" : {
+    "alt" : "What is the `e` parameter passed to the d3.js force tick callback function? - Stack Overflow / d3 nice dispplay - Google Search",
+    "id" : "-L1ELMUSmmRQiVGM_yuA",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.10204081632653061, 0.3758300132802125 ]
+  },
+  "-L1EODzMLDtuVXesZVES" : {
+    "alt" : "e.alpha d3 - Google Search / What is the `e` parameter passed to the d3.js force tick callback function? - Stack Overflow",
+    "id" : "-L1ELMURdsKd3YrL2Yg1",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.24444444444444444, 0.38778220451527223 ]
+  },
+  "-L1EODzN5reXsWBByHYV" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.windows - Google Chrome",
+    "id" : "-L1ELMUQ7zq7azQ_NByH",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODzN5reXsWBByHYW" : {
+    "alt" : "168994 - alwaysOnTop in chrome.windows causes error - chromium - Monorail / chrome.windows - Google Chrome",
+    "id" : "-L1ELMULRkNebt6Fzg1C",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.11764705882352941, 0.32421875 ]
+  },
+  "-L1EODzN5reXsWBByHYX" : {
+    "alt" : "Property 'alwaysOnTop': Unexpected property. - Google Search / 168994 - alwaysOnTop in chrome.windows causes error - chromium - Monorail",
+    "id" : "-L1ELMUKZ06Ih0I4XNw0",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.17647058823529413, 0.56640625 ]
+  },
+  "-L1EODzOXWI3yB-vIc8B" : {
+    "alt" : "Step 1: Create and Run a Chrome App - Google Chrome / Transitioning from Chrome apps on Windows, Mac, and Linux - Google Chrome",
+    "id" : "-L1ELMUJ2C2Mevwe7uCM",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.5666666666666667, 0.4444444444444444, 0.8179723502304147 ]
+  },
+  "-L1EODzOXWI3yB-vIc8C" : {
+    "alt" : "how to use chrome.app.window - Google Search / Step 1: Create and Run a Chrome App - Google Chrome",
+    "id" : "-L1ELMUJ2C2Mevwe7uCL",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.2765957446808511, 0.4838709677419355 ]
+  },
+  "-L1EODzOXWI3yB-vIc8D" : {
+    "alt" : "d3 tick event - Google Search / javascript - Why do we need force.on('tick'.. in d3 - Stack Overflow",
+    "id" : "-L1ELMUINTI5XdntTQQ7",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.19607843137254902, 0.4223776223776224 ]
+  },
+  "-L1EODzP9UlULYYs62k3" : {
+    "alt" : "d3 v4 force tree - Google Search / Force-Directed Tree - bl.ocks.org",
+    "id" : "-L1ELMUINTI5XdntTQQ6",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.25, 0.7409638554216867 ]
+  },
+  "-L1EODzP9UlULYYs62k4" : {
+    "alt" : "scale category20 v4 - Google Search / What is the d3.js v4.0 equivalent for d3.scale.category10()? - Stack Overflow",
+    "id" : "-L1ELMUHswsPh3EmQRQp",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.14285714285714285, 0.4033232628398791 ]
+  },
+  "-L1EODzP9UlULYYs62k5" : {
+    "alt" : "d3/API.md at master · d3/d3 · GitHub / scale category20 v4 - Google Search",
+    "id" : "-L1ELMUHswsPh3EmQRQo",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.21428571428571427, 0.22572178477690288 ]
+  },
+  "-L1EODzQu_r965d2jXjk" : {
+    "alt" : "categorical colors - bl.ocks.org / d3 scale v4 - Google Search",
+    "id" : "-L1ELMUGV37d_83A_74y",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.16666666666666666, 0.644927536231884 ]
+  },
+  "-L1EODzQu_r965d2jXjl" : {
+    "alt" : "d3 scale category20 - Google Search / categorical colors - bl.ocks.org",
+    "id" : "-L1ELMUF8qQUV9GPH_UE",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.1, 0.3333333333333333, 0.6739130434782609 ]
+  },
+  "-L1EODzRJOxocWJDv16c" : {
+    "alt" : "Add event listener to only 1 tab in Chrome extension - Stack Overflow / chrome tab event listener - Google Search",
+    "id" : "-L1ELMUDYYSgQtHzEHDi",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.15, 0.4088050314465409 ]
+  },
+  "-L1EODzRJOxocWJDv16d" : {
+    "alt" : "chrome tabs add event listener - Google Search / Add event listener to only 1 tab in Chrome extension - Stack Overflow",
+    "id" : "-L1ELMUCnrsRmMn4nR19",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.16666666666666666, 0.41352201257861637 ]
+  },
+  "-L1EODzSyu3ievJOuh7j" : {
+    "alt" : "javascript - Add event listener to Chrome extension for new tabs and windows - Stack Overflow / chrome tabs add event listener - Google Search",
+    "id" : "-L1ELMUB_VWsS4UYu5Cd",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.10416666666666667, 0.4109947643979058 ]
+  },
+  "-L1EODzUpmLkH8BEiMDW" : {
+    "alt" : "chrome windows add event listener - Google Search / javascript - Add event listener to Chrome extension for new tabs and windows - Stack Overflow",
+    "id" : "-L1ELMUAIzBBNUNY_hQX",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.18181818181818182, 0.4031413612565445 ]
+  },
+  "-L1EODzVTU1G8_duIwj7" : {
+    "alt" : "chrome windows add event listenr - Google Search / chrome windows add event listener - Google Search",
+    "id" : "-L1ELMUAIzBBNUNY_hQW",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9940443963183541 ]
+  },
+  "-L1EODzVTU1G8_duIwj8" : {
+    "alt" : "chrome extension hover event listener - Google Search / chrome windows add event listenr - Google Search",
+    "id" : "-L1ELMU9cE8TwWKBVfur",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 0.3584905660377358, 0.9399025446670276 ]
+  },
+  "-L1EODzWOBR6aN-XgtLu" : {
+    "alt" : "chrome extension hover event listener - Google Search / Google Groups",
+    "id" : "-L1ELMU8XC9y9RVmtpwG",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.5, 0.8032786885245902 ]
+  },
+  "-L1EODzWOBR6aN-XgtLv" : {
+    "alt" : "chrome hover event listener - Google Search / chrome extension hover event listener - Google Search",
+    "id" : "-L1ELMU8XC9y9RVmtpwF",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9333333333333333, 0.5098039215686274, 0.9367816091954023 ]
+  },
+  "-L1EODzXPAmBtNaJ9sU3" : {
+    "alt" : "chrome tabs tav - Google Search / chrome tabs tab - Google Search",
+    "id" : "-L1ELMU7isdUQf8_0Q2e",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9942498693152118 ]
+  },
+  "-L1EODzY3GtQ9A1PxoVp" : {
+    "alt" : "Not Found - Google Chrome / chrome tabs tav - Google Search",
+    "id" : "-L1ELMU7isdUQf8_0Q2d",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.16666666666666666, 0.4430379746835443 ]
+  },
+  "-L1EODzcHbyqPABrPIL_" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome hover event listener - Google Search",
+    "id" : "-L1ELMU6w6TNwIz1j3Wr",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.23529411764705882, 0.39233038348082594 ]
+  },
+  "-L1EODzdA3FBtGfQSnBh" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMU41GxB0_M3dtla",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODzeUP_p9tz8umo_" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMU2Y9i6DvTmbH-6",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODzeUP_p9tz8umoa" : {
+    "alt" : "chrome.tabs - Google Chrome / Not Found - Google Chrome",
+    "id" : "-L1ELMU0MzQw1KNykfSs",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0, 0.9444444444444444, 0.990506329113924 ]
+  },
+  "-L1EODzf9FR0aId6F3aK" : {
+    "alt" : "chrome.tabs - Google Search / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMU-4l9xYddVmXux",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.36585365853658536, 0.3805309734513274 ]
+  },
+  "-L1EODzf9FR0aId6F3aL" : {
+    "alt" : "chrome windows dev - Google Search / chrome exten windows dev - Google Search",
+    "id" : "-L1ELMU-4l9xYddVmXuw",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.48936170212765956, 0.9154929577464789 ]
+  },
+  "-L1EODzgrUytMoar6zBI" : {
+    "alt" : "chrome windows hover - Google Search / chrome windows dev - Google Search",
+    "id" : "-L1ELMTz1AafRM-NfWqm",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.4878048780487805, 0.9124544033350703 ]
+  },
+  "-L1EODzgrUytMoar6zBJ" : {
+    "alt" : "chorme windows hover - Google Search / chrome windows hover - Google Search",
+    "id" : "-L1ELMTyX5KSNORD-guW",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 0.9952978056426333 ]
+  },
+  "-L1EODzh6v9cmhtFaph8" : {
+    "alt" : "chrome.windows - Google Chrome / Twitter. It's what's happening.",
+    "id" : "-L1ELMTyX5KSNORD-guV",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.11904761904761904, 0.23684210526315788 ]
+  },
+  "-L1EODzibgrCNXJJKx8X" : {
+    "alt" : "chrome.windows - Google Chrome / chorme windows hover - Google Search",
+    "id" : "-L1ELMTxdTH_Ijjv2jj5",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.24390243902439024, 0.4168336673346693 ]
+  },
+  "-L1EODzjS4mRAIgI1ouz" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.tabs - Google Search",
+    "id" : "-L1ELMTwAW-WzDF0ltzD",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.3170731707317073, 0.4308617234468938 ]
+  },
+  "-L1EODzjS4mRAIgI1ov-" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.windows - Google Chrome",
+    "id" : "-L1ELMTvQ9Xtjs7Tr-Sp",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODzldl_1jVb4Wb6u" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTu3OtQgk04cfZ2",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODzldl_1jVb4Wb6v" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTtAaP0IKwfJRXJ",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODzm6lhq9xLOsG3M" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTtAaP0IKwfJRXI",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EODzn-fHLQFv9KAc1" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTsMBnUAtJaFUyN",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EODzox4S_cK8R8FWz" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTsMBnUAtJaFUyM",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EODzox4S_cK8R8FX-" : {
+    "alt" : "chrome extension update tab - Google Search / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTpmvKmp2iiTBxP",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.35135135135135137, 0.3952802359882006 ]
+  },
+  "-L1EODzqB_UF16STNSz_" : {
+    "alt" : "Message Passing - Google Chrome / chrome extension update tab - Google Search",
+    "id" : "-L1ELMTpmvKmp2iiTBxO",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.16216216216216217, 0.4343065693430657 ]
+  },
+  "-L1EODzr1TV2L_6Z81YE" : {
+    "alt" : "chrome send message - Google Search / Message Passing - Google Chrome",
+    "id" : "-L1ELMToSNBRttD85NE3",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.375, 0.44525547445255476 ]
+  },
+  "-L1EODzr1TV2L_6Z81YF" : {
+    "alt" : "chrome.window.create - Google Search / chrome.windows - Google Chrome",
+    "id" : "-L1ELMTnUh1XrlAJQTrT",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.3409090909090909, 0.44488977955911824 ]
+  },
+  "-L1EODzsfnlerDqoCfwR" : {
+    "alt" : "Facebook / chrome.window.create - Google Search",
+    "id" : "-L1ELMTnUh1XrlAJQTrS",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.1, 0.17624309392265194 ]
+  },
+  "-L1EODzsfnlerDqoCfwS" : {
+    "alt" : "javascript - Inserting HTML into a div - Stack Overflow / Facebook",
+    "id" : "-L1ELMTlFtOlG0_85_Cn",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.06666666666666667, 0.2547945205479452 ]
+  },
+  "-L1EODztxkx3g_arb4Qc" : {
+    "alt" : "js add di tag - Google Search / javascript - Inserting HTML into a div - Stack Overflow",
+    "id" : "-L1ELMTkSEPTdOkCgE47",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.1724137931034483, 0.41643835616438357 ]
+  },
+  "-L1EODztxkx3g_arb4Qd" : {
+    "alt" : "js add di tag - Google Search / js add div tag - Google Search",
+    "id" : "-L1ELMTj0h_MUKcCRg4X",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8666666666666667, 0.46938775510204084, 0.9220303506017792 ]
+  },
+  "-L1EODztxkx3g_arb4Qe" : {
+    "alt" : "d3/API.md at master · d3/d3 · GitHub / d3 layout examples - Google Search",
+    "id" : "-L1ELMTh1-mxLWEARXbp",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.13333333333333333, 0.2432195975503062 ]
+  },
+  "-L1EODzu0l38nKXjESxT" : {
+    "alt" : "d3/API.md at master · d3/d3 · GitHub / d3/API.md at master · d3/d3 · GitHub",
+    "id" : "-L1ELMTgbypNwTvwTvwE",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EODzu0l38nKXjESxU" : {
+    "alt" : "Tree Layout · d3/d3 Wiki · GitHub / d3/API.md at master · d3/d3 · GitHub",
+    "id" : "-L1ELMTdkFYZPp-tROwW",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.06666666666666667, 0, 0.7337662337662337 ]
+  },
+  "-L1EODzvmLm40umiE7DP" : {
+    "alt" : "d3 tree - Google Search / Tree Layout · d3/d3 Wiki · GitHub",
+    "id" : "-L1ELMTcTUyC5JI2QOby",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.3333333333333333, 0.461038961038961 ]
+  },
+  "-L1EODzwJKLhZAgXAGgX" : {
+    "alt" : "d3 metro mao - Google Search / d3 tree - Google Search",
+    "id" : "-L1ELMTa_IjtroOUwX03",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.3191489361702128, 0.9314624932541824 ]
+  },
+  "-L1EODzwJKLhZAgXAGgY" : {
+    "alt" : "d3 metro mao - Google Search / d3-tube-map",
+    "id" : "-L1ELMTZk1q89PtKq8AA",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.09523809523809523, 0.506578947368421 ]
+  },
+  "-L1EODzxucKCjae63NjD" : {
+    "alt" : "d3 metro mao - Google Search / d3 metro map - Google Search",
+    "id" : "-L1ELMTYbylQbh_npF5_",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 0.9985358711566618 ]
+  },
+  "-L1EODzxucKCjae63NjE" : {
+    "alt" : "d3 metro map - Google Search / d3-tube-map",
+    "id" : "-L1ELMTVExf7gF6zp395",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.1, 0.5163398692810458 ]
+  },
+  "-L1EODzyCPVWyw36RY0Z" : {
+    "alt" : "d3 metro map - Google Search / d3 metro mao - Google Search",
+    "id" : "-L1ELMTSutnrTrA3QIZS",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9, 1, 0.9995114802149487 ]
+  },
+  "-L1EODzyCPVWyw36RY0_" : {
+    "alt" : "Eurosport / VIDEO - Le soir où Dressel a gagné 3 médailles d'or... en 2 heures - Video Eurosport",
+    "id" : "-L1ELMTRaKTffimmIimd",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.6666666666666666, 0.47368421052631576, 0.8548559231590181 ]
+  },
+  "-L1EODzzVH9PjgXdOwpP" : {
+    "alt" : "Refalona - Posts / Refalona - Posts",
+    "id" : "-L1ELMTQVhqkVx5JN9WX",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 0.9995569339831635 ]
+  },
+  "-L1EOE-0wM_HrF4vf4db" : {
+    "alt" : "Refalona - Home / Refalona - Posts",
+    "id" : "-L1ELMTPXragIOoerxSp",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9333333333333333, 0.6666666666666666, 0.9576271186440678 ]
+  },
+  "-L1EOE-0wM_HrF4vf4dc" : {
+    "alt" : "Facebook / Refalona - Home",
+    "id" : "-L1ELMTN8I2ZKedH1pjQ",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.6521739130434783, 0.9491525423728814 ]
+  },
+  "-L1EOE-1_6RTkpUPKBzn" : {
+    "alt" : "Facebook / Facebook",
+    "id" : "-L1ELMTG8R_Q-tuEySb5",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.975, 0.9958022388059702 ]
+  },
+  "-L1EOE-2bz1eCKV472u8" : {
+    "alt" : "javascript - Why do we need force.on('tick'.. in d3 - Stack Overflow / d3 append text to line with data - Google Search",
+    "id" : "-L1ELMTEu4sHocbY_f-6",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.16666666666666666, 0.41217150760719223 ]
+  },
+  "-L1EOE-4eLto5e3jr7sc" : {
+    "alt" : "on('tick') - Google Search / javascript - Why do we need force.on('tick'.. in d3 - Stack Overflow",
+    "id" : "-L1ELMTDsH7l4Bk3IVmO",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.17543859649122806, 0.42323651452282157 ]
+  },
+  "-L1EOE-4eLto5e3jr7sd" : {
+    "alt" : "chrome extension focus window - Google Search / Google Groups",
+    "id" : "-L1ELMTBy-A9iAaf1-jA",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.3333333333333333, 0.7317073170731707 ]
+  },
+  "-L1EOE-5f3Iv6-Td0ejz" : {
+    "alt" : "chrome extension navigate tab of particular window - Google Search / chrome extension focus window - Google Search",
+    "id" : "-L1ELMTAhbq2N0xqDPet",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 0.46938775510204084, 0.9347480106100796 ]
+  },
+  "-L1EOE-5f3Iv6-Td0ek-" : {
+    "alt" : "chrome.windows - Google Chrome / chrome extension navigate tab of particular window - Google Search",
+    "id" : "-L1ELMT80p_JARKQK_5S",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.4, 0.44288577154308617 ]
+  },
+  "-L1EOE-65nTPyYCYbodY" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.windows - Google Chrome",
+    "id" : "-L1ELMT6c6ObUDiAH0aH",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EOE-65nTPyYCYbodZ" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMT4OCQjRX-QA9kn",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EOE-7v8VM-jwLVQZu" : {
+    "alt" : "chrome.tabs.create - Google Search / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMSzBe4R0hX5HdCb",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.48484848484848486, 0.39233038348082594 ]
+  },
+  "-L1EOE-7v8VM-jwLVQZv" : {
+    "alt" : "(1) Facebook / (1) Facebook",
+    "id" : "-L1ELMS6m_oy7Er_sskf",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EOE-8_QZ5RSlncl6R" : {
+    "alt" : "(1) Facebook / (1) Facebook",
+    "id" : "-L1ELMRyCknCbJC2kWxz",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9995300751879699 ]
+  },
+  "-L1EOE-8_QZ5RSlncl6S" : {
+    "alt" : "(8) YouTube / Facebook",
+    "id" : "-L1ELMRt0gbZcMBp4Hw0",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.06666666666666667, 0.18073316283034954 ]
+  },
+  "-L1EOE-8_QZ5RSlncl6T" : {
+    "alt" : "YouTube / (8) YouTube",
+    "id" : "-L1ELMRo7SiftEjV-MT8",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EOE-9JXdTMxWpRFVl" : {
+    "alt" : "Ed Sheeran's Give Me Love - Guitar tutorial - Best & Detailed - YouTube / YouTube",
+    "id" : "-L1ELMRj6pi0qpV-7ZU4",
+    "output" : 0,
+    "scorearray" : [ 1, 0, 0.7666666666666667, 0.6, 0.5149253731343284 ]
+  },
+  "-L1EOE-9JXdTMxWpRFVm" : {
+    "alt" : "Twitter. It's what's happening. / Ed Sheeran's Give Me Love - Guitar tutorial - Best & Detailed - YouTube",
+    "id" : "-L1ELMRgqiwHiJHYBHro",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.04, 0.3313253012048193 ]
+  },
+  "-L1EOE1pEL6fTv0N0k4Z" : {
+    "alt" : "Gallery · d3/d3 Wiki · GitHub / Force Editor + Pan/Zoom - bl.ocks.org",
+    "id" : "-L1ELMUZ9JUBUOzTQx0H",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.2222222222222222, 0.46396396396396394 ]
+  },
+  "-L1EOE1rX8nFV6VhxeCm" : {
+    "alt" : "Gallery · d3/d3 Wiki · GitHub / Corona - vizuly.io",
+    "id" : "-L1ELMUZ9JUBUOzTQx0G",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.25, 0.4892703862660944 ]
+  },
+  "-L1EOE1soTUPKPWQO-TN" : {
+    "alt" : "d3 examples network - Google Search / Gallery · d3/d3 Wiki · GitHub",
+    "id" : "-L1ELMUYqd3dgcKcbEna",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.2857142857142857, 0.20278223649010166 ]
+  },
+  "-L1EOE1tXP0PXTkFovD7" : {
+    "alt" : "d3 nice dispplay - Google Search / d3 nice display - Google Search",
+    "id" : "-L1ELMUXI6W5ftMs0FoO",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9984901862103673 ]
+  },
+  "-L1EOE1tXP0PXTkFovD8" : {
+    "alt" : "d3 nice display - Google Search / d3 examples network - Google Search",
+    "id" : "-L1ELMUVo5kNw7ktDmSC",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8666666666666667, 0.3469387755102041, 0.9218833600856072 ]
+  },
+  "-L1EOE1uiuLsugmbNxLK" : {
+    "alt" : "d3 nice display - Google Search / D3 - Dynamic Digital Displays",
+    "id" : "-L1ELMUUa1QuX2QE9Plm",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.5555555555555556, 0.5645161290322581 ]
+  },
+  "-L1EOE1uiuLsugmbNxLL" : {
+    "alt" : "What is the `e` parameter passed to the d3.js force tick callback function? - Stack Overflow / d3 nice dispplay - Google Search",
+    "id" : "-L1ELMUSmmRQiVGM_yuA",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.10204081632653061, 0.3758300132802125 ]
+  },
+  "-L1EOE1vPLL3wq9DPRku" : {
+    "alt" : "e.alpha d3 - Google Search / What is the `e` parameter passed to the d3.js force tick callback function? - Stack Overflow",
+    "id" : "-L1ELMURdsKd3YrL2Yg1",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.24444444444444444, 0.38778220451527223 ]
+  },
+  "-L1EOE1vPLL3wq9DPRkv" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.windows - Google Chrome",
+    "id" : "-L1ELMUQ7zq7azQ_NByH",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EOE1wGBkB033HSt_H" : {
+    "alt" : "168994 - alwaysOnTop in chrome.windows causes error - chromium - Monorail / chrome.windows - Google Chrome",
+    "id" : "-L1ELMULRkNebt6Fzg1C",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.11764705882352941, 0.32421875 ]
+  },
+  "-L1EOE1wGBkB033HSt_I" : {
+    "alt" : "Property 'alwaysOnTop': Unexpected property. - Google Search / 168994 - alwaysOnTop in chrome.windows causes error - chromium - Monorail",
+    "id" : "-L1ELMUKZ06Ih0I4XNw0",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.17647058823529413, 0.56640625 ]
+  },
+  "-L1EOE1xdaybrK82Y5cp" : {
+    "alt" : "Step 1: Create and Run a Chrome App - Google Chrome / Transitioning from Chrome apps on Windows, Mac, and Linux - Google Chrome",
+    "id" : "-L1ELMUJ2C2Mevwe7uCM",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.5666666666666667, 0.4444444444444444, 0.8179723502304147 ]
+  },
+  "-L1EOE1xdaybrK82Y5cq" : {
+    "alt" : "how to use chrome.app.window - Google Search / Step 1: Create and Run a Chrome App - Google Chrome",
+    "id" : "-L1ELMUJ2C2Mevwe7uCL",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.2765957446808511, 0.4838709677419355 ]
+  },
+  "-L1EOE1yhYSOA2dNp9uc" : {
+    "alt" : "d3 tick event - Google Search / javascript - Why do we need force.on('tick'.. in d3 - Stack Overflow",
+    "id" : "-L1ELMUINTI5XdntTQQ7",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.19607843137254902, 0.4223776223776224 ]
+  },
+  "-L1EOE1z1sO9bZfIW-pL" : {
+    "alt" : "d3 v4 force tree - Google Search / Force-Directed Tree - bl.ocks.org",
+    "id" : "-L1ELMUINTI5XdntTQQ6",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.25, 0.7409638554216867 ]
+  },
+  "-L1EOE2-QwjC-MUpGtRG" : {
+    "alt" : "scale category20 v4 - Google Search / What is the d3.js v4.0 equivalent for d3.scale.category10()? - Stack Overflow",
+    "id" : "-L1ELMUHswsPh3EmQRQp",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.14285714285714285, 0.4033232628398791 ]
+  },
+  "-L1EOE2046QTI4KmIJbQ" : {
+    "alt" : "d3/API.md at master · d3/d3 · GitHub / scale category20 v4 - Google Search",
+    "id" : "-L1ELMUHswsPh3EmQRQo",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.21428571428571427, 0.22572178477690288 ]
+  },
+  "-L1EOE210e4ZtVu5uryw" : {
+    "alt" : "categorical colors - bl.ocks.org / d3 scale v4 - Google Search",
+    "id" : "-L1ELMUGV37d_83A_74y",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.16666666666666666, 0.644927536231884 ]
+  },
+  "-L1EOE210e4ZtVu5uryx" : {
+    "alt" : "d3 scale category20 - Google Search / categorical colors - bl.ocks.org",
+    "id" : "-L1ELMUF8qQUV9GPH_UE",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.1, 0.3333333333333333, 0.6739130434782609 ]
+  },
+  "-L1EOE210e4ZtVu5uryy" : {
+    "alt" : "Add event listener to only 1 tab in Chrome extension - Stack Overflow / chrome tab event listener - Google Search",
+    "id" : "-L1ELMUDYYSgQtHzEHDi",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.15, 0.4088050314465409 ]
+  },
+  "-L1EOE228wV6BpPWqDed" : {
+    "alt" : "chrome tabs add event listener - Google Search / Add event listener to only 1 tab in Chrome extension - Stack Overflow",
+    "id" : "-L1ELMUCnrsRmMn4nR19",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.16666666666666666, 0.41352201257861637 ]
+  },
+  "-L1EOE228wV6BpPWqDee" : {
+    "alt" : "javascript - Add event listener to Chrome extension for new tabs and windows - Stack Overflow / chrome tabs add event listener - Google Search",
+    "id" : "-L1ELMUB_VWsS4UYu5Cd",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.10416666666666667, 0.4109947643979058 ]
+  },
+  "-L1EOE23nAHPtuqUAIMt" : {
+    "alt" : "chrome windows add event listener - Google Search / javascript - Add event listener to Chrome extension for new tabs and windows - Stack Overflow",
+    "id" : "-L1ELMUAIzBBNUNY_hQX",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.18181818181818182, 0.4031413612565445 ]
+  },
+  "-L1EOE23nAHPtuqUAIMu" : {
+    "alt" : "chrome windows add event listenr - Google Search / chrome windows add event listener - Google Search",
+    "id" : "-L1ELMUAIzBBNUNY_hQW",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9940443963183541 ]
+  },
+  "-L1EOE24kPdRPfQe6RAt" : {
+    "alt" : "chrome extension hover event listener - Google Search / chrome windows add event listenr - Google Search",
+    "id" : "-L1ELMU9cE8TwWKBVfur",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 0.3584905660377358, 0.9399025446670276 ]
+  },
+  "-L1EOE24kPdRPfQe6RAu" : {
+    "alt" : "chrome extension hover event listener - Google Search / Google Groups",
+    "id" : "-L1ELMU8XC9y9RVmtpwG",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.5, 0.8032786885245902 ]
+  },
+  "-L1EOE25Oh-tD-PKpCqF" : {
+    "alt" : "chrome hover event listener - Google Search / chrome extension hover event listener - Google Search",
+    "id" : "-L1ELMU8XC9y9RVmtpwF",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9333333333333333, 0.5098039215686274, 0.9367816091954023 ]
+  },
+  "-L1EOE25Oh-tD-PKpCqG" : {
+    "alt" : "chrome tabs tav - Google Search / chrome tabs tab - Google Search",
+    "id" : "-L1ELMU7isdUQf8_0Q2e",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9942498693152118 ]
+  },
+  "-L1EOE26GuoSxxE3c7_y" : {
+    "alt" : "Not Found - Google Chrome / chrome tabs tav - Google Search",
+    "id" : "-L1ELMU7isdUQf8_0Q2d",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.16666666666666666, 0.4430379746835443 ]
+  },
+  "-L1EOE26GuoSxxE3c7_z" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome hover event listener - Google Search",
+    "id" : "-L1ELMU6w6TNwIz1j3Wr",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.23529411764705882, 0.39233038348082594 ]
+  },
+  "-L1EOE26GuoSxxE3c7a-" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMU41GxB0_M3dtla",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EOE27Prxep75WM7kW" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMU2Y9i6DvTmbH-6",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EOE27Prxep75WM7kX" : {
+    "alt" : "chrome.tabs - Google Chrome / Not Found - Google Chrome",
+    "id" : "-L1ELMU0MzQw1KNykfSs",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0, 0.9444444444444444, 0.990506329113924 ]
+  },
+  "-L1EOE28g4v1o3TGBvyy" : {
+    "alt" : "chrome.tabs - Google Search / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMU-4l9xYddVmXux",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.36585365853658536, 0.3805309734513274 ]
+  },
+  "-L1EOE295rMiQ_rzEW90" : {
+    "alt" : "chrome windows dev - Google Search / chrome exten windows dev - Google Search",
+    "id" : "-L1ELMU-4l9xYddVmXuw",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.48936170212765956, 0.9154929577464789 ]
+  },
+  "-L1EOE2A4LUtQE5irdvL" : {
+    "alt" : "chrome windows hover - Google Search / chrome windows dev - Google Search",
+    "id" : "-L1ELMTz1AafRM-NfWqm",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.4878048780487805, 0.9124544033350703 ]
+  },
+  "-L1EOE2A4LUtQE5irdvM" : {
+    "alt" : "chorme windows hover - Google Search / chrome windows hover - Google Search",
+    "id" : "-L1ELMTyX5KSNORD-guW",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 0.9952978056426333 ]
+  },
+  "-L1EOE2BGr_bB7T3ZRcR" : {
+    "alt" : "chrome.windows - Google Chrome / Twitter. It's what's happening.",
+    "id" : "-L1ELMTyX5KSNORD-guV",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.11904761904761904, 0.23684210526315788 ]
+  },
+  "-L1EOE2BGr_bB7T3ZRcS" : {
+    "alt" : "chrome.windows - Google Chrome / chorme windows hover - Google Search",
+    "id" : "-L1ELMTxdTH_Ijjv2jj5",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.24390243902439024, 0.4168336673346693 ]
+  },
+  "-L1EOE2CMJA7z07FeZLz" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.tabs - Google Search",
+    "id" : "-L1ELMTwAW-WzDF0ltzD",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.3170731707317073, 0.4308617234468938 ]
+  },
+  "-L1EOE2CMJA7z07FeZM-" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.windows - Google Chrome",
+    "id" : "-L1ELMTvQ9Xtjs7Tr-Sp",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EOE2DRZEDgzzwaubo" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTu3OtQgk04cfZ2",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EOE2DRZEDgzzwaubp" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTtAaP0IKwfJRXJ",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EOE2DRZEDgzzwaubq" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTtAaP0IKwfJRXI",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EOE2EFoSNrml_EI8o" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTsMBnUAtJaFUyN",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EOE2EFoSNrml_EI8p" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTsMBnUAtJaFUyM",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EOE2EFoSNrml_EI8q" : {
+    "alt" : "chrome extension update tab - Google Search / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMTpmvKmp2iiTBxP",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.35135135135135137, 0.3952802359882006 ]
+  },
+  "-L1EOE2EFoSNrml_EI8r" : {
+    "alt" : "Message Passing - Google Chrome / chrome extension update tab - Google Search",
+    "id" : "-L1ELMTpmvKmp2iiTBxO",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.16216216216216217, 0.4343065693430657 ]
+  },
+  "-L1EOE2F707OnPV3pb2m" : {
+    "alt" : "chrome send message - Google Search / Message Passing - Google Chrome",
+    "id" : "-L1ELMToSNBRttD85NE3",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.375, 0.44525547445255476 ]
+  },
+  "-L1EOE2F707OnPV3pb2n" : {
+    "alt" : "chrome.window.create - Google Search / chrome.windows - Google Chrome",
+    "id" : "-L1ELMTnUh1XrlAJQTrT",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.3409090909090909, 0.44488977955911824 ]
+  },
+  "-L1EOE2IqbZhvwmasMWB" : {
+    "alt" : "Facebook / chrome.window.create - Google Search",
+    "id" : "-L1ELMTnUh1XrlAJQTrS",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.1, 0.17624309392265194 ]
+  },
+  "-L1EOE2JDtp09xd3n7zS" : {
+    "alt" : "javascript - Inserting HTML into a div - Stack Overflow / Facebook",
+    "id" : "-L1ELMTlFtOlG0_85_Cn",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.06666666666666667, 0.2547945205479452 ]
+  },
+  "-L1EOE2JDtp09xd3n7zT" : {
+    "alt" : "js add di tag - Google Search / javascript - Inserting HTML into a div - Stack Overflow",
+    "id" : "-L1ELMTkSEPTdOkCgE47",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.1724137931034483, 0.41643835616438357 ]
+  },
+  "-L1EOE2K5OyPZbjP9oSy" : {
+    "alt" : "js add di tag - Google Search / js add div tag - Google Search",
+    "id" : "-L1ELMTj0h_MUKcCRg4X",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8666666666666667, 0.46938775510204084, 0.9220303506017792 ]
+  },
+  "-L1EOE2K5OyPZbjP9oSz" : {
+    "alt" : "d3/API.md at master · d3/d3 · GitHub / d3 layout examples - Google Search",
+    "id" : "-L1ELMTh1-mxLWEARXbp",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.13333333333333333, 0.2432195975503062 ]
+  },
+  "-L1EOE2LTgh53MSJ4nqA" : {
+    "alt" : "d3/API.md at master · d3/d3 · GitHub / d3/API.md at master · d3/d3 · GitHub",
+    "id" : "-L1ELMTgbypNwTvwTvwE",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EOE2LTgh53MSJ4nqB" : {
+    "alt" : "Tree Layout · d3/d3 Wiki · GitHub / d3/API.md at master · d3/d3 · GitHub",
+    "id" : "-L1ELMTdkFYZPp-tROwW",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.06666666666666667, 0, 0.7337662337662337 ]
+  },
+  "-L1EOE2MmBYJswbaJBB-" : {
+    "alt" : "d3 tree - Google Search / Tree Layout · d3/d3 Wiki · GitHub",
+    "id" : "-L1ELMTcTUyC5JI2QOby",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.3333333333333333, 0.461038961038961 ]
+  },
+  "-L1EOE2NbHNu7ZqmivHQ" : {
+    "alt" : "d3 metro mao - Google Search / d3 tree - Google Search",
+    "id" : "-L1ELMTa_IjtroOUwX03",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.3191489361702128, 0.9314624932541824 ]
+  },
+  "-L1EOE2NbHNu7ZqmivHR" : {
+    "alt" : "d3 metro mao - Google Search / d3-tube-map",
+    "id" : "-L1ELMTZk1q89PtKq8AA",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.09523809523809523, 0.506578947368421 ]
+  },
+  "-L1EOE2OSd32P6Nvyilh" : {
+    "alt" : "d3 metro mao - Google Search / d3 metro map - Google Search",
+    "id" : "-L1ELMTYbylQbh_npF5_",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 0.9985358711566618 ]
+  },
+  "-L1EOE2PPmgJOhCLhOEW" : {
+    "alt" : "d3 metro map - Google Search / d3-tube-map",
+    "id" : "-L1ELMTVExf7gF6zp395",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.06666666666666667, 0.1, 0.5163398692810458 ]
+  },
+  "-L1EOE2PPmgJOhCLhOEX" : {
+    "alt" : "d3 metro map - Google Search / d3 metro mao - Google Search",
+    "id" : "-L1ELMTSutnrTrA3QIZS",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9, 1, 0.9995114802149487 ]
+  },
+  "-L1EOE2QVmhEj7czFb-2" : {
+    "alt" : "Eurosport / VIDEO - Le soir où Dressel a gagné 3 médailles d'or... en 2 heures - Video Eurosport",
+    "id" : "-L1ELMTRaKTffimmIimd",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.6666666666666666, 0.47368421052631576, 0.8548559231590181 ]
+  },
+  "-L1EOE2R7LzW4kPO3H-8" : {
+    "alt" : "Refalona - Posts / Refalona - Posts",
+    "id" : "-L1ELMTQVhqkVx5JN9WX",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 0.9995569339831635 ]
+  },
+  "-L1EOE2SeQHaV2iwrPCh" : {
+    "alt" : "Refalona - Home / Refalona - Posts",
+    "id" : "-L1ELMTPXragIOoerxSp",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9333333333333333, 0.6666666666666666, 0.9576271186440678 ]
+  },
+  "-L1EOE2T5xLe_1AHDl3U" : {
+    "alt" : "Facebook / Refalona - Home",
+    "id" : "-L1ELMTN8I2ZKedH1pjQ",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.6521739130434783, 0.9491525423728814 ]
+  },
+  "-L1EOE2T5xLe_1AHDl3V" : {
+    "alt" : "Facebook / Facebook",
+    "id" : "-L1ELMTG8R_Q-tuEySb5",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.8333333333333334, 0.975, 0.9958022388059702 ]
+  },
+  "-L1EOE2Udqudrd9hfvop" : {
+    "alt" : "javascript - Why do we need force.on('tick'.. in d3 - Stack Overflow / d3 append text to line with data - Google Search",
+    "id" : "-L1ELMTEu4sHocbY_f-6",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.16666666666666666, 0.41217150760719223 ]
+  },
+  "-L1EOE2Udqudrd9hfvoq" : {
+    "alt" : "on('tick') - Google Search / javascript - Why do we need force.on('tick'.. in d3 - Stack Overflow",
+    "id" : "-L1ELMTDsH7l4Bk3IVmO",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0.03333333333333333, 0.17543859649122806, 0.42323651452282157 ]
+  },
+  "-L1EOE2VnxaY4n1J2k5g" : {
+    "alt" : "chrome extension focus window - Google Search / Google Groups",
+    "id" : "-L1ELMTBy-A9iAaf1-jA",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.3333333333333333, 0.7317073170731707 ]
+  },
+  "-L1EOE2VnxaY4n1J2k5h" : {
+    "alt" : "chrome extension navigate tab of particular window - Google Search / chrome extension focus window - Google Search",
+    "id" : "-L1ELMTAhbq2N0xqDPet",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 0.46938775510204084, 0.9347480106100796 ]
+  },
+  "-L1EOE2WHHGhCOVISMBZ" : {
+    "alt" : "chrome.windows - Google Chrome / chrome extension navigate tab of particular window - Google Search",
+    "id" : "-L1ELMT80p_JARKQK_5S",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.4, 0.44288577154308617 ]
+  },
+  "-L1EOE2WHHGhCOVISMB_" : {
+    "alt" : "chrome.windows - Google Chrome / chrome.windows - Google Chrome",
+    "id" : "-L1ELMT6c6ObUDiAH0aH",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EOE2Xf6PFXPju6lUq" : {
+    "alt" : "chrome.tabs - Google Chrome / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMT4OCQjRX-QA9kn",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 0.9666666666666667, 1, 1 ]
+  },
+  "-L1EOE2Xf6PFXPju6lUr" : {
+    "alt" : "chrome.tabs.create - Google Search / chrome.tabs - Google Chrome",
+    "id" : "-L1ELMSzBe4R0hX5HdCb",
+    "output" : 1,
+    "scorearray" : [ 0, 0, 0, 0.48484848484848486, 0.39233038348082594 ]
+  },
+  "-L1EOE2Y7yMV463Sr1VD" : {
+    "alt" : "(1) Facebook / (1) Facebook",
+    "id" : "-L1ELMS6m_oy7Er_sskf",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EOE2Z7mYd_9HC7ach" : {
+    "alt" : "(1) Facebook / (1) Facebook",
+    "id" : "-L1ELMRyCknCbJC2kWxz",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 0.9995300751879699 ]
+  },
+  "-L1EOE2_nYSINiwfrYTa" : {
+    "alt" : "(8) YouTube / Facebook",
+    "id" : "-L1ELMRt0gbZcMBp4Hw0",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.06666666666666667, 0.18073316283034954 ]
+  },
+  "-L1EOE2_nYSINiwfrYTb" : {
+    "alt" : "YouTube / (8) YouTube",
+    "id" : "-L1ELMRo7SiftEjV-MT8",
+    "output" : 1,
+    "scorearray" : [ 1, 0, 1, 1, 1 ]
+  },
+  "-L1EOE2_nYSINiwfrYTc" : {
+    "alt" : "Ed Sheeran's Give Me Love - Guitar tutorial - Best & Detailed - YouTube / YouTube",
+    "id" : "-L1ELMRj6pi0qpV-7ZU4",
+    "output" : 0,
+    "scorearray" : [ 1, 0, 0.7666666666666667, 0.6, 0.5149253731343284 ]
+  },
+  "-L1EOE2aiDac24Rr7TuS" : {
+    "alt" : "Twitter. It's what's happening. / Ed Sheeran's Give Me Love - Guitar tutorial - Best & Detailed - YouTube",
+    "id" : "-L1ELMRgqiwHiJHYBHro",
+    "output" : 0,
+    "scorearray" : [ 0, 0, 0, 0.04, 0.3313253012048193 ]
+  }
+}

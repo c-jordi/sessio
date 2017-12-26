@@ -6,7 +6,7 @@ arrayDisp.innerText = result.pages;
 
 window.addEventListener('load', function () {
 
-    var arrayDisp = document.getElementById('array');
+    
     console.log("Load Sucessful");
     everythingD3();
     pages = [];

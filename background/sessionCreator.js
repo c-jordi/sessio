@@ -37,21 +37,16 @@ function findEdges () {
         if (parentPath != "none"){
             generalObject.pages.forEach(function (f){
                 if (f.id == tabid && f.path == parentPath) {
-
                     var linkage = new sessionEdge(f,e);
                     if (allEdges[tabid] == undefined){allEdges[tabid]={}};
                     if (allEdges[tabid][parentPath] == undefined) {allEdges[tabid][parentPath]={}};
                     if (allEdges[tabid][parentPath][pathId] == undefined){allEdges[tabid][parentPath][pathId]={}};
                     allEdges[tabid][parentPath][pathId][pathString] = linkage;
-
                 }
             })
         }
     })
 }
-
-
-
 
 function sessionEdge(node1,node2) {
     this.a = node1;
@@ -59,14 +54,10 @@ function sessionEdge(node1,node2) {
     this.array = createEdgeArray(node1, node2);
 }
 
-
 function createEdgeArray (node1, node2, clicktext = true) {
     var linkArray = [];
     // This function is used to build the link array used in the link score
     // We assume that node 1 is the parent
-
-
-
 
     // 1. Matching Url root
         // Redo  using purl.js
@@ -117,12 +108,10 @@ function createEdgeArray (node1, node2, clicktext = true) {
     // 5. Stemmer vs Stemmer
     linkArray.push(similarity(node1.stemmer,node2.stemmer));
 
-
     return linkArray;
 
     // DROPPED INPUTS
     /*
-
 
     // 1. Matching main words
     var node2WordLength = node2.mainWords.length;
@@ -156,11 +145,8 @@ function similarity(arr1,arr2){
     var diff = _.difference(array1,array2);
     var eval = (array1.length-diff.length)/array1.length;
 
-
     return eval;
 }
-
-
 
 function edgeScore (edgeArray) {
     // We train a simple 1 hidden layer network to help us make the prediction
@@ -188,9 +174,6 @@ function nodeScore () {
     var child;
     while (_temp.length != 0){
 
-
-
-
     }
 
 }*/
@@ -206,25 +189,11 @@ function session(){
     var _this = this;
     // Methods
     this.size = function (){
-        var length= this.nodes.length;
+        var length = this.nodes.length;
         return length;
     }
 
 }
-
-// Creation of a test session for the display
-var session1 = new session();
-session1.title = "Trip to Costa Rica";
-session1.desc = "Compiles all the research done to plan the trip that will take place in Costa Rica in 2018";
-session1.date.start = "12.10.2017";
-session1.date.end = "14.10.2017";
-    // The nodes
-
-    
-
-
-
-
 
 function passToTrain(edgeObj) {
     var counter = 0;
@@ -309,3 +278,96 @@ function checkNotRelated(node_a, node_b){
     }
     return check;
 }
+
+var exampleSesh = {};
+function loadExamples(){
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4){
+            //console.log("The config file has been loaded", JSON.parse(xhr.response));
+            exampleSesh = JSON.parse(xhr.response);
+            console.log(JSON.parse(xhr.response));
+
+        }
+    }
+    xhr.open("GET", chrome.extension.getURL("../examples/session1.json"),true);
+    xhr.send();
+}
+loadExamples();
+
+var sessionForScore = {};
+function sessionCentralityScore(session){
+    sessionForScore = session;
+    sessionForScore.nodes.forEach(function(node){
+        node.score = centralScore(node.id);
+    })
+    session = sessionForScore;
+    sessionForScore = {};
+    centralScore = function(id){
+        var c_Score = 0;
+        sessionForScore.links.forEach(function(link){
+            if(link.source == id){
+                c_Score += link.value * centralScore(link.target);
+            }
+        })
+        return c_Score;
+    }
+    centralScore = memoize(centralScore);
+    return session;
+}
+
+function centralScore(id){
+    var c_Score = 0;
+    sessionForScore.links.forEach(function(link){
+        if(link.source == id){
+            c_Score += link.value * centralScore(link.target);
+        }
+    })
+    if (c_Score == 0){c_Score =1};
+    return c_Score;
+}
+
+function memoize(fn) {
+    var memo = {};
+    return function (){
+        if(memo[JSON.stringify(arguments)]){
+            return memo[JSON.stringify[arguments]]
+        } else {
+            return memo[JSON.stringify[arguments]] = fn(arguments[0])
+        }
+    }
+}
+
+
+
+// Neural networks STUFF
+
+const g = new deeplearn.Graph();
+
+// Placeholders are input containers. This is the container for where we will
+// feed an input NDArray when we execute the graph.
+const inputShape = [inputNbr+1];
+const inputTensor = g.placeholder('input', inputShape);
+
+const outputShape = [1];
+const outputTensor = g.placeholder('output', outputShape);
+
+// Variables are containers that hold a value that can be updated from
+// training.
+// Here we initialize the multiplier variable randomly.
+const multiplier = g.variable('multiplier', deeplearn.Array2D.randNormal([3, inputNbr+1]));
+
+// Top level graph methods take Tensors and return Tensors.
+const hiddenTensor = g.matmul(multiplier, inputTensor);
+
+const hiddenTensorRelu = g.relu(hiddenTensor);
+
+const hiddenTensorInput = g.concat3d(g.constant(1),hiddenTensorRelu);
+
+
+
+const costTensor = g.meanSquaredCost(outputTensor, labelTensor);
+
+// Tensors, like NDArrays, have a shape attribute.
+console.log(outputTensor.shape);

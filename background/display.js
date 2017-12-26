@@ -101,9 +101,3 @@ chrome.windows.onRemoved.addListener(function(windowId){
         restoreLastInfo();
     }
 })
-
-// The hover change of window: only activated when the display mode is activated
-
-
-// Write the function so that when you click on a node it takes you to the webpage
-    // Configfile: open in a new tab or in one tab or in the current tab

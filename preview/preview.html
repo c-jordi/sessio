@@ -4,11 +4,47 @@
 
         <meta charset="utf-8">
         <title>Preview of the Session</title>
+        <style>
+        @font-face {
+            font-family: "My Custom Font";
+            src: url(./Inconsolata-dz.otf) format("truetype");
+        }
+
+        body{
+            background: rgb(30,33,39);  /* fallback for old browsers */
+            color: rgb(156,163,180);
+            font-family: "My Custom Font", Verdana, Tahoma;
+        }
+        circle {
+          stroke: transparent;
+          fill: #eee;
+        }
+        p{
+            font-size: 20px;
+            font-weight: lighter;
+        }
+        .nodes {
+          stroke: rgb(156,163,167);
+          stroke-width: 1.5px;
+        }
+
+        .node:not(:hover) .nodetext {
+          display: none;
+        }
+
+
+
+        </style>
     </head>
     <body>
-        Hello World
-        <button id="mybutton1"> Google </button>
-        <button id="mybutton2"> Twitter </button>
+        <p>SESSIO</p>
+
+
+        <svg width="300" height="400">
+            <text> </text>
+        </svg>
     </body>
-    <script src="/preview/js/index.js"> </script>
+    <script src="../libs/d3.min.js"></script>
+    <script src="./js/d3.js"></script>
+    <script src="./js/index.js"></script>
 </html>

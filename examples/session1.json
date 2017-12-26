@@ -1,0 +1,55 @@
+{
+    "title": "Trip to Costa Rica",
+    "desc": "Compiles all the research done to plan the trip that will take place in Costa Rica in 2018",
+    "userToken": "37b9725a8a226474ab17e0ca6f788094ad2d9ca3df43e897aceaf2bd2049cc69",
+
+    "date": {
+        "start": "12.10.2017",
+        "end": "14.10.2017"
+    },
+
+    "nodes": [
+        {
+            "id":"001",
+            "url":"https://en.wikipedia.org/wiki/Costa_Rica",
+            "title":"Costa Rica - Wikipedia",
+            "mainWords":["costa","rica","country","rican","spanish","national","health","central"],
+            "favIconUrl":"https://en.wikipedia.org/static/apple-touch/wikipedia.png"
+        },
+        {
+            "id":"002",
+            "url":"https://en.wikipedia.org/wiki/San_Jos%C3%A9,_Costa_Rica",
+            "title":"San José, Costa Rica - Wikipedia",
+            "mainWords":["san","rica","country","rican","spanish","national","costa","jose"],
+            "favIconUrl":"https://en.wikipedia.org/static/apple-touch/wikipedia.png"
+        },
+        {
+            "id":"003",
+            "url":"https://www.google.fr/search?q=costa+rica+volunteer",
+            "title":"costa rica volunteer - Google Search",
+            "mainWords":["null","costa","rica","volunteer","propotype"],
+            "favIconUrl":"https://www.google.fr/images/branding/product/ico/googleg_lodp.ico"
+        },
+        {
+            "id":"004",
+            "url":"https://www.volunteerhq.org/volunteer-in-costa-rica/",
+            "title":"Volunteer in Costa Rica with IVHQ - Trusted & Affordable Programs",
+            "mainWords":["volunteers","volunteer","ivhq","costa","rica","weeks","project","cost"],
+            "favIconUrl":"https://www.volunteerhq.org/apple-touch-icon.png"
+        },
+        {
+            "id":"005",
+            "url":"http://www.wwoofcostarica.org/",
+            "title":"WWOOF Costa Rica",
+            "mainWords":["wwoff","rica","costa","farms","farm","membership","organic","insurance"],
+            "favIconUrl":"http://www.wwoofcostarica.org/favicon.ico"
+        }
+
+    ],
+    "links": [
+        {"source":"001", "target": "002", "alt": "San José, Costa Rica", "value":0.9},
+        {"source":"001", "target": "003", "alt": "Google Search","value": 0.5},
+        {"source":"003", "target": "004", "alt": "Costa Rica Volunteering IVHQ","value": 0.8},
+        {"source":"003", "target": "005", "alt": "Costa Rica Wwoffing Program","value": 0.7}
+    ]
+}

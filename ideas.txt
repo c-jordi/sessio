@@ -1,18 +1,33 @@
-// In order to open a new window with the visualization of a session
-
-window.open('/pageaddress.html','winname','directories=no,titlebar=no,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=400,height=350');
 
 
-// In order to size the main window from the background page
+lock the sidebar view if the window is in full screen
+    or at least make it get out of fullscreen
 
-chrome.windows.getCurrent(function(wind) {
-alert(wind.id);
-var maxWidth = window.screen.availWidth;
-var maxHeight = window.screen.availHeight;
-var updateInfo = {
-    left: 0,
-    top: 0,
-    width: maxWidth-300,
-    height: maxHeight
-};
-chrome.windows.update(wind.id, updateInfo);});
+
+Remove the pages that are just mistakes: eg: bad google search, can depend on the amount of time spent on the page
+or for example if two google searches are consecutive
+
+Deal with the urls that redirect
+
+Add the time spent on the target website as component in the input vector
+
+Add the EDITOR FEATURE WHEN THE SIDE BAR IS DISPLAYED WHICH ALLOWS TO COMMENT AND ANNOTATE THE PAGES,
+HIGHLIGHT EXTRA INFO THAT IS RELEVANT !! IT ALSO ALLOWS TO MODIFY THE Session
+YOU CAN THEN STORE THE SESSION FROM THE SIDE BAR AND SHARE IT ! :O
+IN edit mode you can display the browser side by side to ease the annotation process and the cross referencing
+if the sidepanel is closed before the editing is done, you can display an alert to ask if they want to save the changes and then close.
+
+add wallpaper to the side panel like trello
+
+Need a boolean to deactivate temporarily taking down the history or no,
+especially if you are reviewing your history using sessio, or maybe still take it down but have a variable on the object to said that it
+was called from the sessio side bar, like that if ever you go to another page from there on,
+you can still keep track of the progression and possibly add it to the current session ?
+
+In the popup html you can have different configurations displayed so it is easy for the user to choose
+what is the layout she/he wishes to be using !
+
+Send you sessions by QR codes over to your friend ? Will they then be able to modify it ?
+
+In editing mode, one could open in a new popup window and a toolbar would appear at the top
+that would allow the user to use different annotating tools. 

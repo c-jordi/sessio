@@ -3,7 +3,7 @@
   "name": "sessio",
   "version": "0.0.1",
 
-  "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com; object-src 'self'",
+  "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com; object-src 'self'; ",
 
   "background": {
     "scripts": ["libs/firebase.js",
@@ -11,6 +11,7 @@
         "libs/purl.js",
         "libs/stemmer.js",
         "libs/compromise.js",
+        "libs/deeplearn.js",
         "background/background.js",
         "background/words.js",
         "background/sessionCreator.js",

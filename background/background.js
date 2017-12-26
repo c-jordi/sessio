@@ -289,6 +289,7 @@ chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
             console.log("navigate to", message.url);
             chrome.windows.update(activeTab.windowId, {focused: true}, function(){
                 chrome.tabs.update(activeTab.id, {url: message.url});
+                chrome.windows.update(popupId, {focused: true});
             });
         });
     }
