@@ -13,10 +13,10 @@ const forceY = d3.forceY(height / 2).strength(0.01)
 
 var simulation = d3.forceSimulation()
   .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.02))
-  .force("charge", d3.forceManyBody())
-  .force("center", d3.forceCenter(width / 2, height / 2))
-  .force('x', forceX)
-  .force('y',  forceY);
+  .force("charge", d3.forceManyBody().strength(-40))
+  .force("center", d3.forceCenter(width / 2, height / 2));
+  // .force('x', forceX)
+  // .force('y',  forceY);
 
 function drawGraph(graph) {
 
@@ -28,19 +28,6 @@ function drawGraph(graph) {
     .attr("stroke-width", function(d) { return d.value*3; })
     .attr("stroke", "red")
     .style("stroke-opacity", function(d){return d.value/2;});
-
-    var text = svg.selectAll("text")
-        .data(graph.links)
-        .enter()
-        .append("text");
-
-    var textLabels = text
-     .attr("x", function(d) { return Math.random(0,300) })
-     .attr("y", function(d) { return Math.random(0,300) })
-     .text( function (d) { d.alt})
-     .attr("font-family", "sans-serif")
-     .attr("font-size", "20px")
-     .attr("fill", "red");
 
 
   // Update the nodes…
@@ -65,27 +52,40 @@ function drawGraph(graph) {
 
 
   // Append a circle
-  nodeEnter.append("svg:circle")
-    .attr("r", Math.floor(IMAGE_SIZE/2))
-
-  nodeEnter.append("text")
-    .attr("class", "nodetext")
-    .attr("text-anchor", "middle")
-    .attr("x", 0)
-    .attr("y", -30)
-    .attr("fill", '#000')
-    .text(function(d) { return d.title.slice(0,20); });
-
-
-
-
-  // Append images
-  var images = nodeEnter.append("svg:image")
+  var images = nodeEnter.append("svg:pattern")
+    .attr("id",function(d){return "site" + d.id})
+    .attr("height", IMAGE_SIZE)
+    .attr("width", IMAGE_SIZE)
+    .attr("patternUnits", "userSpaceOnUse")
+    .append("svg:image")
     .attr("xlink:href",  function(d) { return d.favIconUrl;})
-    .attr("x", function(d) { return -Math.floor(IMAGE_SIZE/2);})
-    .attr("y", function(d) { return -Math.floor(IMAGE_SIZE/2);})
+    .attr("x",0)
+    .attr("y",0)
     .attr("height", IMAGE_SIZE)
     .attr("width", IMAGE_SIZE);
+
+
+
+
+nodeEnter.append("svg:circle")
+    .attr("r", Math.floor(IMAGE_SIZE/2))
+    //.style("fill", function(d){return "url(#site" + d.id + ")"})
+    .on("mouseenter", function(){
+        d3.select(this)
+          .transition()
+          .attr("r", Math.floor(IMAGE_SIZE/2+10))
+    })
+    .on("mouseleave", function(){
+        d3.select(this)
+          .transition()
+          .attr("r", Math.floor(IMAGE_SIZE/2))
+    });
+
+
+
+
+
+
 
 
   simulation

@@ -1,5 +1,3 @@
-
-
 lock the sidebar view if the window is in full screen
     or at least make it get out of fullscreen
 
@@ -15,7 +13,7 @@ Add the EDITOR FEATURE WHEN THE SIDE BAR IS DISPLAYED WHICH ALLOWS TO COMMENT AN
 HIGHLIGHT EXTRA INFO THAT IS RELEVANT !! IT ALSO ALLOWS TO MODIFY THE Session
 YOU CAN THEN STORE THE SESSION FROM THE SIDE BAR AND SHARE IT ! :O
 IN edit mode you can display the browser side by side to ease the annotation process and the cross referencing
-if the sidepanel is closed before the editing is done, you can display an alert to ask if they want to save the changes and then close.
+if the side panel is closed before the editing is done, you can display an alert to ask if they want to save the changes and then close.
 
 add wallpaper to the side panel like trello
 
@@ -30,4 +28,8 @@ what is the layout she/he wishes to be using !
 Send you sessions by QR codes over to your friend ? Will they then be able to modify it ?
 
 In editing mode, one could open in a new popup window and a toolbar would appear at the top
-that would allow the user to use different annotating tools. 
+that would allow the user to use different annotating tools.
+If you close the new popup titled "EDITING MODE" you right away exit edit mode
+
+Have a feature extracting kernel to process the screenshot and make the ready for display:
+The screen shot will have a low resolution, so its essential to make it nice for reference
