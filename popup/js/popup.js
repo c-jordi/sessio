@@ -1,5 +1,6 @@
-var sidebar = document.getElementById('sidebar');
-var fulltab = document.getElementById('fulltab');
+var sidebar = document.getElementById('popRight');
+var fulltab = document.getElementById('popMid');
+
 
 
 sidebar.addEventListener('click',function () {
@@ -15,3 +16,8 @@ fulltab.addEventListener('click',function () {
       console.log(response.farewell);
     });
 })
+
+TopView = document.getElementById('popTop');
+BottomView = document.getElementById('popBottom');
+LeftView = document.getElementById('popLeft');
+RightView = document.getElementById('popRight');

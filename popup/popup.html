@@ -2,14 +2,49 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Extension Pop-Up</title>
-    
-  </head>
-  <body>
-          <button id="sidebar"> Side Bar Preview </button>
-          <button id="fulltab"> Full Tab Preview </button>
-  </body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Extension Pop-Up</title>
+
+
+        <style>
+        polygon:hover{
+            fill: grey;
+            stroke:grey;
+            stroke-width:1;
+        }
+
+        </style>
+    </head>
+    <body>
+        <svg id="popup" width="50" height="50">
+            <polygon id="popLeft" class="pop" fill="black"
+            points="0,0
+                    20,0
+                    20,10
+                    10,10
+                    10,50
+                    0,50">
+                </polygon>
+            <polygon id="popMid" class="pop" fill="black"
+            points="15,15
+                    35,15
+                    35,50
+                    15,50">
+                </polygon>
+
+            <polygon id="popRight" class="pop" fill="black"
+            points="30,0
+                    50,0
+                    50,50
+                    40,50
+                    40,10
+                    30,10">
+                </polygon>
+        </svg>
+
+        <!-- <button id="sidebar"> Side Bar Preview </button>
+        <button id="fulltab"> Full Tab Preview </button> -->
+    </body>
       <script src="js/popup.js" type="text/javascript"></script>
 </html>

@@ -33,3 +33,29 @@ If you close the new popup titled "EDITING MODE" you right away exit edit mode
 
 Have a feature extracting kernel to process the screenshot and make the ready for display:
 The screen shot will have a low resolution, so its essential to make it nice for reference
+    -Have a K-Clustering on the colors in order to select the five main colors
+
+
+Page Visibility:
+https://davidwalsh.name/page-visibility
+
+Convert Image to Data Url in js
+https://davidwalsh.name/convert-image-data-uri-javascript
+
+
+
+HAVE THE SESSION APPEAR REALTIME ON YOUR SMARTPHONE
+AND HAVE THE POSSIBILITY TO EDIT IT FROM THERE
+    build a pwa app that can be installed on your phone, that allows you to clone
+    or connect to the current sessio.
+    one can think of having a QR CODE scanner that allows the user to access all the files
+
+SESSIO GRAPHS
+    Have different color codes for different types of links
+        -yellow when opened in a new tab
+        -orange if it was opened in the same tab
+        -red if it was a link that was clicked
+
+    If the line is dotted or continuous to show how strong the correlation between two pages
+
+    

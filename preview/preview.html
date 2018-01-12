@@ -3,46 +3,49 @@
     <head>
 
         <meta charset="utf-8">
-        <title>Preview of the Session</title>
-        <style>
-        @font-face {
-            font-family: "My Custom Font";
-            src: url(./Inconsolata-dz.otf) format("truetype");
-        }
-
-        body{
-            background: rgb(30,33,39);  /* fallback for old browsers */
-            color: rgb(156,163,180);
-            font-family: "My Custom Font", Verdana, Tahoma;
-        }
-    
-        p{
-            font-size: 20px;
-            font-weight: lighter;
-        }
-        .nodes {
-          stroke: rgb(156,163,167);
-          stroke-width: 1.5px;
-        }
-
-        .node:not(:hover) .nodetext {
-          display: none;
-        }
-
-
-
-
-        </style>
+        <title>Sessio ®</title>
+         <link rel="stylesheet" type="text/css" href="styles/style.css">
     </head>
     <body>
-        <p>SESSIO</p>
+        <div id="overlayWind"class="overlay">
+            <div id="qr-holder" class="overlay-content">
+                <h1>QR CODE </h1>
+                <p> You can scan this code to share your session accross devices</p>
+                <img width="60%" src="../examples/qr-code.png" alt="Generated QR Code">
 
+                <div id="sessionId"> SESSIO-123456</div>
+            </div>
 
-        <svg width="300" height="400">
+        </div>
 
+        <header class="header">
+          <div id="toolbar">
+              <span> <svg id="qr-code" width="25" height="25">
+                 <g> <rect x="5" y="5" width="15" height="15" style="stroke-width:4;fill-opacity:0"></rect> <title>QR Code</title>
+                  <rect x="9.5" y="9.5" width="6" height="6" style="stroke-width:0;fill-opacity:1"></rect></g></svg></span>
+              <span> </span>
+          </div>
+          <h1 id="title" ></h1>
+          <h2 id="date" ></h2>
+          <p id="desc"></p>
+        </header>
+        <svg id="visualizer" width="300" height="350">
         </svg>
+
+        <!--Display for Node information-->
+        <div id="node-info">
+            <div id="node_tit" ></div>
+            <div id="node_url" ></div>
+            <p id="node_des"></p>
+        </div>
+
+
     </body>
     <script src="../libs/d3.min.js"></script>
+    <script src="../libs/typed.js"></script>
+    <script src="../libs/purl.js"></script>
     <script src="./js/d3.js"></script>
     <script src="./js/index.js"></script>
+
+
 </html>

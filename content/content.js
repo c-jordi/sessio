@@ -34,7 +34,7 @@ var linksPro = function() {
 
 
 function processPageText() {
-    var everything = document.body.textContent.toLowerCase();//
+    var everything = document.body.innerText.toLowerCase();// // textContent
     return everything;
 }
 

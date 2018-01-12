@@ -311,8 +311,6 @@ chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
         chrome.tabs.create({'url': "/public/index.html" });
     }
 
-
-
 });
 
 

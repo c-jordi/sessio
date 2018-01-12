@@ -297,7 +297,7 @@ function loadExamples(){
 loadExamples();
 
 var sessionForScore = {};
-function sessionCentralityScore(session){
+function sessionCentaralityScore(session){
     sessionForScore = session;
     sessionForScore.nodes.forEach(function(node){
         node.score = centralScore(node.id);
